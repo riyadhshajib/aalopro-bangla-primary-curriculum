@@ -1,0 +1,79 @@
+[
+  {
+    "name": "open_curriculum",
+    "description": "Open a primary-school lesson or find curriculum content. Use for class, subject, chapter, lesson, textbook, explanation, or study requests.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "grade": { "type": "integer", "minimum": 1, "maximum": 5 },
+        "subject": { "type": "string" },
+        "topic": { "type": "string" }
+      },
+      "required": ["grade"]
+    }
+  },
+  {
+    "name": "explain_again",
+    "description": "Explain the current verified answer again. Use when the learner says they did not understand or asks for an easier, shorter, step-by-step, example, Bangla, English, or Banglish explanation.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "style": { "type": "string", "enum": ["easy", "short", "steps", "example", "bangla", "english", "banglish"] }
+      },
+      "required": ["style"]
+    }
+  },
+  {
+    "name": "start_quiz",
+    "description": "Start a quiz or practice questions for the current or requested class, subject, or lesson.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "grade": { "type": "integer", "minimum": 1, "maximum": 5 },
+        "subject": { "type": "string" },
+        "topic": { "type": "string" }
+      }
+    }
+  },
+  {
+    "name": "open_parent_guide",
+    "description": "Open verified guidance for a parent helping a child study at home.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "question": { "type": "string" }
+      }
+    }
+  },
+  {
+    "name": "open_teacher_guide",
+    "description": "Open verified lesson-planning, classroom, assessment, or teaching guidance for a teacher.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "question": { "type": "string" }
+      }
+    }
+  },
+  {
+    "name": "save_note",
+    "description": "Save the current answer or learner text as a note.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "text": { "type": "string" }
+      }
+    }
+  },
+  {
+    "name": "ask_general_online",
+    "description": "Route a non-curriculum open-world or current-information question to the online tutor. Do not use for a textbook or verified curriculum question.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "question": { "type": "string" }
+      },
+      "required": ["question"]
+    }
+  }
+]

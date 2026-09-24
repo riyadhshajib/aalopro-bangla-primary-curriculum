@@ -1,0 +1,22 @@
+[
+  {
+    "name": "route_aalopro_action",
+    "description": "Classify one AaloPro user request. Use open_curriculum only when the user asks to open or study a class/subject; start_quiz for a quiz; explain_again for a simpler repeat of the current answer; parent_guide or teacher_guide for adult guidance; save_note only when explicitly asked to save text; general_online for an open knowledge question. Copy only values stated by the user.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "action": {
+          "type": "string",
+          "enum": ["open_curriculum", "start_quiz", "explain_again", "parent_guide", "teacher_guide", "save_note", "general_online"]
+        },
+        "grade": {"type": "integer", "minimum": 1, "maximum": 5},
+        "subject": {
+          "type": "string",
+          "enum": ["bangla", "english", "math", "science", "bgs", "islam", "unspecified"]
+        },
+        "text": {"type": "string"}
+      },
+      "required": ["action", "subject"]
+    }
+  }
+]

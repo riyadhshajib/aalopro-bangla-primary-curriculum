@@ -1,0 +1,4889 @@
+{
+  "model": "needle3-v2-full",
+  "cases": 540,
+  "correct": 180,
+  "accuracy": 0.3333,
+  "elapsed_seconds": 790.63,
+  "by_language": {
+    "bn": {
+      "cases": 210,
+      "correct": 90,
+      "accuracy": 0.4286
+    },
+    "banglish": {
+      "cases": 180,
+      "correct": 60,
+      "accuracy": 0.3333
+    },
+    "en": {
+      "cases": 150,
+      "correct": 30,
+      "accuracy": 0.2
+    }
+  },
+  "actual_counts": {
+    "open_curriculum": 540
+  },
+  "results": [
+    {
+      "input": "প্রথম শ্রেণির বাংলা খোলো",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "ক্লাস 1 এর বাংলা দেখাও",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "class 1 Bangla open koro",
+      "expected": "open_curriculum",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Open class 1 Bangla",
+      "expected": "open_curriculum",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "1 class er বাংলা porbo",
+      "expected": "open_curriculum",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "আমাকে প্রথম শ্রেণির বাংলা পড়াও",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "প্রথম শ্রেণির ইংরেজি খোলো",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "ক্লাস 1 এর ইংরেজি দেখাও",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "class 1 English open koro",
+      "expected": "open_curriculum",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Open class 1 English",
+      "expected": "open_curriculum",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "1 class er ইংরেজি porbo",
+      "expected": "open_curriculum",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "আমাকে প্রথম শ্রেণির ইংরেজি পড়াও",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "প্রথম শ্রেণির গণিত খোলো",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "ক্লাস 1 এর গণিত দেখাও",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "class 1 Math open koro",
+      "expected": "open_curriculum",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Open class 1 Math",
+      "expected": "open_curriculum",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "1 class er গণিত porbo",
+      "expected": "open_curriculum",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "আমাকে প্রথম শ্রেণির গণিত পড়াও",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "প্রথম শ্রেণির বিজ্ঞান খোলো",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "ক্লাস 1 এর বিজ্ঞান দেখাও",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "class 1 Science open koro",
+      "expected": "open_curriculum",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Open class 1 Science",
+      "expected": "open_curriculum",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "1 class er বিজ্ঞান porbo",
+      "expected": "open_curriculum",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "আমাকে প্রথম শ্রেণির বিজ্ঞান পড়াও",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "প্রথম শ্রেণির বাংলাদেশ ও বিশ্বপরিচয় খোলো",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "ক্লাস 1 এর বাংলাদেশ ও বিশ্বপরিচয় দেখাও",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "class 1 BGS open koro",
+      "expected": "open_curriculum",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Open class 1 BGS",
+      "expected": "open_curriculum",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "1 class er বাংলাদেশ ও বিশ্বপরিচয় porbo",
+      "expected": "open_curriculum",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "আমাকে প্রথম শ্রেণির বাংলাদেশ ও বিশ্বপরিচয় পড়াও",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "প্রথম শ্রেণির ইসলাম ও নৈতিক শিক্ষা খোলো",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "ক্লাস 1 এর ইসলাম ও নৈতিক শিক্ষা দেখাও",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "class 1 Islam open koro",
+      "expected": "open_curriculum",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Open class 1 Islam",
+      "expected": "open_curriculum",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "1 class er ইসলাম ও নৈতিক শিক্ষা porbo",
+      "expected": "open_curriculum",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "আমাকে প্রথম শ্রেণির ইসলাম ও নৈতিক শিক্ষা পড়াও",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "দ্বিতীয় শ্রেণির বাংলা খোলো",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "ক্লাস 2 এর বাংলা দেখাও",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "class 2 Bangla open koro",
+      "expected": "open_curriculum",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Open class 2 Bangla",
+      "expected": "open_curriculum",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "2 class er বাংলা porbo",
+      "expected": "open_curriculum",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "আমাকে দ্বিতীয় শ্রেণির বাংলা পড়াও",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "দ্বিতীয় শ্রেণির ইংরেজি খোলো",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "ক্লাস 2 এর ইংরেজি দেখাও",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "class 2 English open koro",
+      "expected": "open_curriculum",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Open class 2 English",
+      "expected": "open_curriculum",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "2 class er ইংরেজি porbo",
+      "expected": "open_curriculum",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "আমাকে দ্বিতীয় শ্রেণির ইংরেজি পড়াও",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "দ্বিতীয় শ্রেণির গণিত খোলো",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "ক্লাস 2 এর গণিত দেখাও",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "class 2 Math open koro",
+      "expected": "open_curriculum",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Open class 2 Math",
+      "expected": "open_curriculum",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "2 class er গণিত porbo",
+      "expected": "open_curriculum",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "আমাকে দ্বিতীয় শ্রেণির গণিত পড়াও",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "দ্বিতীয় শ্রেণির বিজ্ঞান খোলো",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "ক্লাস 2 এর বিজ্ঞান দেখাও",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "class 2 Science open koro",
+      "expected": "open_curriculum",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Open class 2 Science",
+      "expected": "open_curriculum",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "2 class er বিজ্ঞান porbo",
+      "expected": "open_curriculum",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "আমাকে দ্বিতীয় শ্রেণির বিজ্ঞান পড়াও",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "দ্বিতীয় শ্রেণির বাংলাদেশ ও বিশ্বপরিচয় খোলো",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "ক্লাস 2 এর বাংলাদেশ ও বিশ্বপরিচয় দেখাও",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "class 2 BGS open koro",
+      "expected": "open_curriculum",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Open class 2 BGS",
+      "expected": "open_curriculum",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "2 class er বাংলাদেশ ও বিশ্বপরিচয় porbo",
+      "expected": "open_curriculum",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "আমাকে দ্বিতীয় শ্রেণির বাংলাদেশ ও বিশ্বপরিচয় পড়াও",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "দ্বিতীয় শ্রেণির ইসলাম ও নৈতিক শিক্ষা খোলো",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "ক্লাস 2 এর ইসলাম ও নৈতিক শিক্ষা দেখাও",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "class 2 Islam open koro",
+      "expected": "open_curriculum",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Open class 2 Islam",
+      "expected": "open_curriculum",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "2 class er ইসলাম ও নৈতিক শিক্ষা porbo",
+      "expected": "open_curriculum",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "আমাকে দ্বিতীয় শ্রেণির ইসলাম ও নৈতিক শিক্ষা পড়াও",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "তৃতীয় শ্রেণির বাংলা খোলো",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "ক্লাস 3 এর বাংলা দেখাও",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "class 3 Bangla open koro",
+      "expected": "open_curriculum",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Open class 3 Bangla",
+      "expected": "open_curriculum",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "3 class er বাংলা porbo",
+      "expected": "open_curriculum",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "আমাকে তৃতীয় শ্রেণির বাংলা পড়াও",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "তৃতীয় শ্রেণির ইংরেজি খোলো",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "ক্লাস 3 এর ইংরেজি দেখাও",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "class 3 English open koro",
+      "expected": "open_curriculum",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Open class 3 English",
+      "expected": "open_curriculum",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "3 class er ইংরেজি porbo",
+      "expected": "open_curriculum",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "আমাকে তৃতীয় শ্রেণির ইংরেজি পড়াও",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "তৃতীয় শ্রেণির গণিত খোলো",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "ক্লাস 3 এর গণিত দেখাও",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "class 3 Math open koro",
+      "expected": "open_curriculum",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Open class 3 Math",
+      "expected": "open_curriculum",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "3 class er গণিত porbo",
+      "expected": "open_curriculum",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "আমাকে তৃতীয় শ্রেণির গণিত পড়াও",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "তৃতীয় শ্রেণির বিজ্ঞান খোলো",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "ক্লাস 3 এর বিজ্ঞান দেখাও",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "class 3 Science open koro",
+      "expected": "open_curriculum",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Open class 3 Science",
+      "expected": "open_curriculum",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "3 class er বিজ্ঞান porbo",
+      "expected": "open_curriculum",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "আমাকে তৃতীয় শ্রেণির বিজ্ঞান পড়াও",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "তৃতীয় শ্রেণির বাংলাদেশ ও বিশ্বপরিচয় খোলো",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "ক্লাস 3 এর বাংলাদেশ ও বিশ্বপরিচয় দেখাও",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "class 3 BGS open koro",
+      "expected": "open_curriculum",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Open class 3 BGS",
+      "expected": "open_curriculum",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "3 class er বাংলাদেশ ও বিশ্বপরিচয় porbo",
+      "expected": "open_curriculum",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "আমাকে তৃতীয় শ্রেণির বাংলাদেশ ও বিশ্বপরিচয় পড়াও",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "তৃতীয় শ্রেণির ইসলাম ও নৈতিক শিক্ষা খোলো",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "ক্লাস 3 এর ইসলাম ও নৈতিক শিক্ষা দেখাও",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "class 3 Islam open koro",
+      "expected": "open_curriculum",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Open class 3 Islam",
+      "expected": "open_curriculum",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "3 class er ইসলাম ও নৈতিক শিক্ষা porbo",
+      "expected": "open_curriculum",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "আমাকে তৃতীয় শ্রেণির ইসলাম ও নৈতিক শিক্ষা পড়াও",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "চতুর্থ শ্রেণির বাংলা খোলো",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "ক্লাস 4 এর বাংলা দেখাও",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "class 4 Bangla open koro",
+      "expected": "open_curriculum",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Open class 4 Bangla",
+      "expected": "open_curriculum",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "4 class er বাংলা porbo",
+      "expected": "open_curriculum",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "আমাকে চতুর্থ শ্রেণির বাংলা পড়াও",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "চতুর্থ শ্রেণির ইংরেজি খোলো",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "ক্লাস 4 এর ইংরেজি দেখাও",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "class 4 English open koro",
+      "expected": "open_curriculum",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Open class 4 English",
+      "expected": "open_curriculum",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "4 class er ইংরেজি porbo",
+      "expected": "open_curriculum",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "আমাকে চতুর্থ শ্রেণির ইংরেজি পড়াও",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "চতুর্থ শ্রেণির গণিত খোলো",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "ক্লাস 4 এর গণিত দেখাও",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "class 4 Math open koro",
+      "expected": "open_curriculum",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Open class 4 Math",
+      "expected": "open_curriculum",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "4 class er গণিত porbo",
+      "expected": "open_curriculum",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "আমাকে চতুর্থ শ্রেণির গণিত পড়াও",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "চতুর্থ শ্রেণির বিজ্ঞান খোলো",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "ক্লাস 4 এর বিজ্ঞান দেখাও",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "class 4 Science open koro",
+      "expected": "open_curriculum",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Open class 4 Science",
+      "expected": "open_curriculum",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "4 class er বিজ্ঞান porbo",
+      "expected": "open_curriculum",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "আমাকে চতুর্থ শ্রেণির বিজ্ঞান পড়াও",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "চতুর্থ শ্রেণির বাংলাদেশ ও বিশ্বপরিচয় খোলো",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "ক্লাস 4 এর বাংলাদেশ ও বিশ্বপরিচয় দেখাও",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "class 4 BGS open koro",
+      "expected": "open_curriculum",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Open class 4 BGS",
+      "expected": "open_curriculum",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "4 class er বাংলাদেশ ও বিশ্বপরিচয় porbo",
+      "expected": "open_curriculum",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "আমাকে চতুর্থ শ্রেণির বাংলাদেশ ও বিশ্বপরিচয় পড়াও",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "চতুর্থ শ্রেণির ইসলাম ও নৈতিক শিক্ষা খোলো",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "ক্লাস 4 এর ইসলাম ও নৈতিক শিক্ষা দেখাও",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "class 4 Islam open koro",
+      "expected": "open_curriculum",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Open class 4 Islam",
+      "expected": "open_curriculum",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "4 class er ইসলাম ও নৈতিক শিক্ষা porbo",
+      "expected": "open_curriculum",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "আমাকে চতুর্থ শ্রেণির ইসলাম ও নৈতিক শিক্ষা পড়াও",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "পঞ্চম শ্রেণির বাংলা খোলো",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "ক্লাস 5 এর বাংলা দেখাও",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "class 5 Bangla open koro",
+      "expected": "open_curriculum",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Open class 5 Bangla",
+      "expected": "open_curriculum",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "5 class er বাংলা porbo",
+      "expected": "open_curriculum",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "আমাকে পঞ্চম শ্রেণির বাংলা পড়াও",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "পঞ্চম শ্রেণির ইংরেজি খোলো",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "ক্লাস 5 এর ইংরেজি দেখাও",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "class 5 English open koro",
+      "expected": "open_curriculum",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Open class 5 English",
+      "expected": "open_curriculum",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "5 class er ইংরেজি porbo",
+      "expected": "open_curriculum",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "আমাকে পঞ্চম শ্রেণির ইংরেজি পড়াও",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "পঞ্চম শ্রেণির গণিত খোলো",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "ক্লাস 5 এর গণিত দেখাও",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "class 5 Math open koro",
+      "expected": "open_curriculum",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Open class 5 Math",
+      "expected": "open_curriculum",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "5 class er গণিত porbo",
+      "expected": "open_curriculum",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "আমাকে পঞ্চম শ্রেণির গণিত পড়াও",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "পঞ্চম শ্রেণির বিজ্ঞান খোলো",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "ক্লাস 5 এর বিজ্ঞান দেখাও",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "class 5 Science open koro",
+      "expected": "open_curriculum",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Open class 5 Science",
+      "expected": "open_curriculum",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "5 class er বিজ্ঞান porbo",
+      "expected": "open_curriculum",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "আমাকে পঞ্চম শ্রেণির বিজ্ঞান পড়াও",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "পঞ্চম শ্রেণির বাংলাদেশ ও বিশ্বপরিচয় খোলো",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "ক্লাস 5 এর বাংলাদেশ ও বিশ্বপরিচয় দেখাও",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "class 5 BGS open koro",
+      "expected": "open_curriculum",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Open class 5 BGS",
+      "expected": "open_curriculum",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "5 class er বাংলাদেশ ও বিশ্বপরিচয় porbo",
+      "expected": "open_curriculum",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "আমাকে পঞ্চম শ্রেণির বাংলাদেশ ও বিশ্বপরিচয় পড়াও",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "পঞ্চম শ্রেণির ইসলাম ও নৈতিক শিক্ষা খোলো",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "ক্লাস 5 এর ইসলাম ও নৈতিক শিক্ষা দেখাও",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "class 5 Islam open koro",
+      "expected": "open_curriculum",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Open class 5 Islam",
+      "expected": "open_curriculum",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "5 class er ইসলাম ও নৈতিক শিক্ষা porbo",
+      "expected": "open_curriculum",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "আমাকে পঞ্চম শ্রেণির ইসলাম ও নৈতিক শিক্ষা পড়াও",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": true,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "বুঝিনি সহজ করে বোঝাও",
+      "expected": "explain_again",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "বুঝিনি সহজ করে বোঝাও।",
+      "expected": "explain_again",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "বুঝিনি সহজ করে বোঝাও please",
+      "expected": "explain_again",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "বুঝিনি সহজ করে বোঝাও?",
+      "expected": "explain_again",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "আরেকটু বুঝিয়ে দাও",
+      "expected": "explain_again",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "আরেকটু বুঝিয়ে দাও।",
+      "expected": "explain_again",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "আরেকটু বুঝিয়ে দাও please",
+      "expected": "explain_again",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "আরেকটু বুঝিয়ে দাও?",
+      "expected": "explain_again",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "ধাপে ধাপে দেখাও",
+      "expected": "explain_again",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "ধাপে ধাপে দেখাও।",
+      "expected": "explain_again",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "ধাপে ধাপে দেখাও please",
+      "expected": "explain_again",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "ধাপে ধাপে দেখাও?",
+      "expected": "explain_again",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "উদাহরণ দিয়ে বোঝাও",
+      "expected": "explain_again",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "উদাহরণ দিয়ে বোঝাও।",
+      "expected": "explain_again",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "উদাহরণ দিয়ে বোঝাও please",
+      "expected": "explain_again",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "উদাহরণ দিয়ে বোঝাও?",
+      "expected": "explain_again",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "সংক্ষেপে বলো",
+      "expected": "explain_again",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "সংক্ষেপে বলো।",
+      "expected": "explain_again",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "সংক্ষেপে বলো please",
+      "expected": "explain_again",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "সংক্ষেপে বলো?",
+      "expected": "explain_again",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "bujhini easy kore bujhao",
+      "expected": "explain_again",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "bujhini easy kore bujhao।",
+      "expected": "explain_again",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "bujhini easy kore bujhao please",
+      "expected": "explain_again",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "bujhini easy kore bujhao?",
+      "expected": "explain_again",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "arekbar explain koro",
+      "expected": "explain_again",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "arekbar explain koro।",
+      "expected": "explain_again",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "arekbar explain koro please",
+      "expected": "explain_again",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "arekbar explain koro?",
+      "expected": "explain_again",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "step by step dekhao",
+      "expected": "explain_again",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "step by step dekhao।",
+      "expected": "explain_again",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "step by step dekhao please",
+      "expected": "explain_again",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "step by step dekhao?",
+      "expected": "explain_again",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "example diye bujhao",
+      "expected": "explain_again",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "example diye bujhao।",
+      "expected": "explain_again",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "example diye bujhao please",
+      "expected": "explain_again",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "example diye bujhao?",
+      "expected": "explain_again",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "short kore bolo",
+      "expected": "explain_again",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "short kore bolo।",
+      "expected": "explain_again",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "short kore bolo please",
+      "expected": "explain_again",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "short kore bolo?",
+      "expected": "explain_again",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Explain it simply",
+      "expected": "explain_again",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Explain it simply।",
+      "expected": "explain_again",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Explain it simply please",
+      "expected": "explain_again",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Explain it simply?",
+      "expected": "explain_again",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Explain that again",
+      "expected": "explain_again",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Explain that again।",
+      "expected": "explain_again",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Explain that again please",
+      "expected": "explain_again",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Explain that again?",
+      "expected": "explain_again",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Show me step by step",
+      "expected": "explain_again",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Show me step by step।",
+      "expected": "explain_again",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Show me step by step please",
+      "expected": "explain_again",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Show me step by step?",
+      "expected": "explain_again",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Give me an example",
+      "expected": "explain_again",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Give me an example।",
+      "expected": "explain_again",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Give me an example please",
+      "expected": "explain_again",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Give me an example?",
+      "expected": "explain_again",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Make it shorter",
+      "expected": "explain_again",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Make it shorter।",
+      "expected": "explain_again",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Make it shorter please",
+      "expected": "explain_again",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Make it shorter?",
+      "expected": "explain_again",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "এই পাঠ থেকে কুইজ দাও",
+      "expected": "start_quiz",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "এই পাঠ থেকে কুইজ দাও।",
+      "expected": "start_quiz",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "এই পাঠ থেকে কুইজ দাও please",
+      "expected": "start_quiz",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "এই পাঠ থেকে কুইজ দাও?",
+      "expected": "start_quiz",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "গণিতের কুইজ শুরু করো",
+      "expected": "start_quiz",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "গণিতের কুইজ শুরু করো।",
+      "expected": "start_quiz",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "গণিতের কুইজ শুরু করো please",
+      "expected": "start_quiz",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "গণিতের কুইজ শুরু করো?",
+      "expected": "start_quiz",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "আমাকে পাঁচটি প্রশ্ন করো",
+      "expected": "start_quiz",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "আমাকে পাঁচটি প্রশ্ন করো।",
+      "expected": "start_quiz",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "আমাকে পাঁচটি প্রশ্ন করো please",
+      "expected": "start_quiz",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "আমাকে পাঁচটি প্রশ্ন করো?",
+      "expected": "start_quiz",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "অনুশীলনী শুরু করি",
+      "expected": "start_quiz",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "অনুশীলনী শুরু করি।",
+      "expected": "start_quiz",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "অনুশীলনী শুরু করি please",
+      "expected": "start_quiz",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "অনুশীলনী শুরু করি?",
+      "expected": "start_quiz",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "এই টপিক পরীক্ষা করো",
+      "expected": "start_quiz",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "এই টপিক পরীক্ষা করো।",
+      "expected": "start_quiz",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "এই টপিক পরীক্ষা করো please",
+      "expected": "start_quiz",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "এই টপিক পরীক্ষা করো?",
+      "expected": "start_quiz",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "ei lesson theke quiz dao",
+      "expected": "start_quiz",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "ei lesson theke quiz dao।",
+      "expected": "start_quiz",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "ei lesson theke quiz dao please",
+      "expected": "start_quiz",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "ei lesson theke quiz dao?",
+      "expected": "start_quiz",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "math quiz start koro",
+      "expected": "start_quiz",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "math quiz start koro।",
+      "expected": "start_quiz",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "math quiz start koro please",
+      "expected": "start_quiz",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "math quiz start koro?",
+      "expected": "start_quiz",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "amake five ta question koro",
+      "expected": "start_quiz",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "amake five ta question koro।",
+      "expected": "start_quiz",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "amake five ta question koro please",
+      "expected": "start_quiz",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "amake five ta question koro?",
+      "expected": "start_quiz",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "practice start kori",
+      "expected": "start_quiz",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "practice start kori।",
+      "expected": "start_quiz",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "practice start kori please",
+      "expected": "start_quiz",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "practice start kori?",
+      "expected": "start_quiz",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "ei topic test koro",
+      "expected": "start_quiz",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "ei topic test koro।",
+      "expected": "start_quiz",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "ei topic test koro please",
+      "expected": "start_quiz",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "ei topic test koro?",
+      "expected": "start_quiz",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Start a quiz from this lesson",
+      "expected": "start_quiz",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Start a quiz from this lesson।",
+      "expected": "start_quiz",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Start a quiz from this lesson please",
+      "expected": "start_quiz",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Start a quiz from this lesson?",
+      "expected": "start_quiz",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Start the math quiz",
+      "expected": "start_quiz",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Start the math quiz।",
+      "expected": "start_quiz",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Start the math quiz please",
+      "expected": "start_quiz",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Start the math quiz?",
+      "expected": "start_quiz",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Ask me five questions",
+      "expected": "start_quiz",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Ask me five questions।",
+      "expected": "start_quiz",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Ask me five questions please",
+      "expected": "start_quiz",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Ask me five questions?",
+      "expected": "start_quiz",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Start practice",
+      "expected": "start_quiz",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Start practice।",
+      "expected": "start_quiz",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Start practice please",
+      "expected": "start_quiz",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Start practice?",
+      "expected": "start_quiz",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Test this topic",
+      "expected": "start_quiz",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Test this topic।",
+      "expected": "start_quiz",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Test this topic please",
+      "expected": "start_quiz",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Test this topic?",
+      "expected": "start_quiz",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "বাচ্চাকে বাড়িতে কীভাবে পড়াব",
+      "expected": "open_parent_guide",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "বাচ্চাকে বাড়িতে কীভাবে পড়াব।",
+      "expected": "open_parent_guide",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "বাচ্চাকে বাড়িতে কীভাবে পড়াব please",
+      "expected": "open_parent_guide",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "বাচ্চাকে বাড়িতে কীভাবে পড়াব?",
+      "expected": "open_parent_guide",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "পড়ার রুটিন কীভাবে করব",
+      "expected": "open_parent_guide",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "পড়ার রুটিন কীভাবে করব।",
+      "expected": "open_parent_guide",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "পড়ার রুটিন কীভাবে করব please",
+      "expected": "open_parent_guide",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "পড়ার রুটিন কীভাবে করব?",
+      "expected": "open_parent_guide",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "আমার সন্তান মনোযোগ দেয় না",
+      "expected": "open_parent_guide",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "আমার সন্তান মনোযোগ দেয় না।",
+      "expected": "open_parent_guide",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "আমার সন্তান মনোযোগ দেয় না please",
+      "expected": "open_parent_guide",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "আমার সন্তান মনোযোগ দেয় না?",
+      "expected": "open_parent_guide",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "বাড়ির কাজ করাতে সাহায্য চাই",
+      "expected": "open_parent_guide",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "বাড়ির কাজ করাতে সাহায্য চাই।",
+      "expected": "open_parent_guide",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "বাড়ির কাজ করাতে সাহায্য চাই please",
+      "expected": "open_parent_guide",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "বাড়ির কাজ করাতে সাহায্য চাই?",
+      "expected": "open_parent_guide",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "অভিভাবকের পরামর্শ দেখাও",
+      "expected": "open_parent_guide",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "অভিভাবকের পরামর্শ দেখাও।",
+      "expected": "open_parent_guide",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "অভিভাবকের পরামর্শ দেখাও please",
+      "expected": "open_parent_guide",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "অভিভাবকের পরামর্শ দেখাও?",
+      "expected": "open_parent_guide",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "bacchake basay kivabe porabo",
+      "expected": "open_parent_guide",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "bacchake basay kivabe porabo।",
+      "expected": "open_parent_guide",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "bacchake basay kivabe porabo please",
+      "expected": "open_parent_guide",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "bacchake basay kivabe porabo?",
+      "expected": "open_parent_guide",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "porar routine kivabe korbo",
+      "expected": "open_parent_guide",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "porar routine kivabe korbo।",
+      "expected": "open_parent_guide",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "porar routine kivabe korbo please",
+      "expected": "open_parent_guide",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "porar routine kivabe korbo?",
+      "expected": "open_parent_guide",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "amar child focus kore na",
+      "expected": "open_parent_guide",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "amar child focus kore na।",
+      "expected": "open_parent_guide",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "amar child focus kore na please",
+      "expected": "open_parent_guide",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "amar child focus kore na?",
+      "expected": "open_parent_guide",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "homework korate help chai",
+      "expected": "open_parent_guide",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "homework korate help chai।",
+      "expected": "open_parent_guide",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "homework korate help chai please",
+      "expected": "open_parent_guide",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "homework korate help chai?",
+      "expected": "open_parent_guide",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "parent guide dekhao",
+      "expected": "open_parent_guide",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "parent guide dekhao।",
+      "expected": "open_parent_guide",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "parent guide dekhao please",
+      "expected": "open_parent_guide",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "parent guide dekhao?",
+      "expected": "open_parent_guide",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "How can I teach my child at home",
+      "expected": "open_parent_guide",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "How can I teach my child at home।",
+      "expected": "open_parent_guide",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "How can I teach my child at home please",
+      "expected": "open_parent_guide",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "How can I teach my child at home?",
+      "expected": "open_parent_guide",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Make a home study routine",
+      "expected": "open_parent_guide",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Make a home study routine।",
+      "expected": "open_parent_guide",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Make a home study routine please",
+      "expected": "open_parent_guide",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Make a home study routine?",
+      "expected": "open_parent_guide",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "My child cannot focus",
+      "expected": "open_parent_guide",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "My child cannot focus।",
+      "expected": "open_parent_guide",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "My child cannot focus please",
+      "expected": "open_parent_guide",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "My child cannot focus?",
+      "expected": "open_parent_guide",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Help with homework",
+      "expected": "open_parent_guide",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Help with homework।",
+      "expected": "open_parent_guide",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Help with homework please",
+      "expected": "open_parent_guide",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Help with homework?",
+      "expected": "open_parent_guide",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Show the parent guide",
+      "expected": "open_parent_guide",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Show the parent guide।",
+      "expected": "open_parent_guide",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Show the parent guide please",
+      "expected": "open_parent_guide",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Show the parent guide?",
+      "expected": "open_parent_guide",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "এই পাঠ কীভাবে পড়াব",
+      "expected": "open_teacher_guide",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "এই পাঠ কীভাবে পড়াব।",
+      "expected": "open_teacher_guide",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "এই পাঠ কীভাবে পড়াব please",
+      "expected": "open_teacher_guide",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "এই পাঠ কীভাবে পড়াব?",
+      "expected": "open_teacher_guide",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "শ্রেণিকক্ষের কাজ দাও",
+      "expected": "open_teacher_guide",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "শ্রেণিকক্ষের কাজ দাও।",
+      "expected": "open_teacher_guide",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "শ্রেণিকক্ষের কাজ দাও please",
+      "expected": "open_teacher_guide",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "শ্রেণিকক্ষের কাজ দাও?",
+      "expected": "open_teacher_guide",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "শিক্ষকের পরামর্শ দেখাও",
+      "expected": "open_teacher_guide",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "শিক্ষকের পরামর্শ দেখাও।",
+      "expected": "open_teacher_guide",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "শিক্ষকের পরামর্শ দেখাও please",
+      "expected": "open_teacher_guide",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "শিক্ষকের পরামর্শ দেখাও?",
+      "expected": "open_teacher_guide",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "দুর্বল শিক্ষার্থীকে কীভাবে বোঝাব",
+      "expected": "open_teacher_guide",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "দুর্বল শিক্ষার্থীকে কীভাবে বোঝাব।",
+      "expected": "open_teacher_guide",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "দুর্বল শিক্ষার্থীকে কীভাবে বোঝাব please",
+      "expected": "open_teacher_guide",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "দুর্বল শিক্ষার্থীকে কীভাবে বোঝাব?",
+      "expected": "open_teacher_guide",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "পাঠ পরিকল্পনা দাও",
+      "expected": "open_teacher_guide",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "পাঠ পরিকল্পনা দাও।",
+      "expected": "open_teacher_guide",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "পাঠ পরিকল্পনা দাও please",
+      "expected": "open_teacher_guide",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "পাঠ পরিকল্পনা দাও?",
+      "expected": "open_teacher_guide",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "ei lesson kivabe porabo",
+      "expected": "open_teacher_guide",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "ei lesson kivabe porabo।",
+      "expected": "open_teacher_guide",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "ei lesson kivabe porabo please",
+      "expected": "open_teacher_guide",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "ei lesson kivabe porabo?",
+      "expected": "open_teacher_guide",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "classroom activity dao",
+      "expected": "open_teacher_guide",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "classroom activity dao।",
+      "expected": "open_teacher_guide",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "classroom activity dao please",
+      "expected": "open_teacher_guide",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "classroom activity dao?",
+      "expected": "open_teacher_guide",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "teacher guide dekhao",
+      "expected": "open_teacher_guide",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "teacher guide dekhao।",
+      "expected": "open_teacher_guide",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "teacher guide dekhao please",
+      "expected": "open_teacher_guide",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "teacher guide dekhao?",
+      "expected": "open_teacher_guide",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "weak student ke kivabe bujhabo",
+      "expected": "open_teacher_guide",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "weak student ke kivabe bujhabo।",
+      "expected": "open_teacher_guide",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "weak student ke kivabe bujhabo please",
+      "expected": "open_teacher_guide",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "weak student ke kivabe bujhabo?",
+      "expected": "open_teacher_guide",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "lesson plan dao",
+      "expected": "open_teacher_guide",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "lesson plan dao।",
+      "expected": "open_teacher_guide",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "lesson plan dao please",
+      "expected": "open_teacher_guide",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "lesson plan dao?",
+      "expected": "open_teacher_guide",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "How should I teach this lesson",
+      "expected": "open_teacher_guide",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "How should I teach this lesson।",
+      "expected": "open_teacher_guide",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "How should I teach this lesson please",
+      "expected": "open_teacher_guide",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "How should I teach this lesson?",
+      "expected": "open_teacher_guide",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Give a classroom activity",
+      "expected": "open_teacher_guide",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Give a classroom activity।",
+      "expected": "open_teacher_guide",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Give a classroom activity please",
+      "expected": "open_teacher_guide",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Give a classroom activity?",
+      "expected": "open_teacher_guide",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Show the teacher guide",
+      "expected": "open_teacher_guide",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Show the teacher guide।",
+      "expected": "open_teacher_guide",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Show the teacher guide please",
+      "expected": "open_teacher_guide",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Show the teacher guide?",
+      "expected": "open_teacher_guide",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Help a struggling learner",
+      "expected": "open_teacher_guide",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Help a struggling learner।",
+      "expected": "open_teacher_guide",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Help a struggling learner please",
+      "expected": "open_teacher_guide",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Help a struggling learner?",
+      "expected": "open_teacher_guide",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Give me a lesson plan",
+      "expected": "open_teacher_guide",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Give me a lesson plan।",
+      "expected": "open_teacher_guide",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Give me a lesson plan please",
+      "expected": "open_teacher_guide",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Give me a lesson plan?",
+      "expected": "open_teacher_guide",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "এই উত্তরটা নোটে রাখো",
+      "expected": "save_note",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "এই উত্তরটা নোটে রাখো।",
+      "expected": "save_note",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "এই উত্তরটা নোটে রাখো please",
+      "expected": "save_note",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "এই উত্তরটা নোটে রাখো?",
+      "expected": "save_note",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "নোটে লিখে রাখ",
+      "expected": "save_note",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "নোটে লিখে রাখ।",
+      "expected": "save_note",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "নোটে লিখে রাখ please",
+      "expected": "save_note",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "নোটে লিখে রাখ?",
+      "expected": "save_note",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "এটা সেভ করো",
+      "expected": "save_note",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "এটা সেভ করো।",
+      "expected": "save_note",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "এটা সেভ করো please",
+      "expected": "save_note",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "এটা সেভ করো?",
+      "expected": "save_note",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "মূল কথাটা নোট করো",
+      "expected": "save_note",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "মূল কথাটা নোট করো।",
+      "expected": "save_note",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "মূল কথাটা নোট করো please",
+      "expected": "save_note",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "মূল কথাটা নোট করো?",
+      "expected": "save_note",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "আমার নোটে যোগ করো",
+      "expected": "save_note",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "আমার নোটে যোগ করো।",
+      "expected": "save_note",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "আমার নোটে যোগ করো please",
+      "expected": "save_note",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "আমার নোটে যোগ করো?",
+      "expected": "save_note",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "ei answer ta note e rakho",
+      "expected": "save_note",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "ei answer ta note e rakho।",
+      "expected": "save_note",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "ei answer ta note e rakho please",
+      "expected": "save_note",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "ei answer ta note e rakho?",
+      "expected": "save_note",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "note e likhe rakho",
+      "expected": "save_note",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "note e likhe rakho।",
+      "expected": "save_note",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "note e likhe rakho please",
+      "expected": "save_note",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "note e likhe rakho?",
+      "expected": "save_note",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "eta save koro",
+      "expected": "save_note",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "eta save koro।",
+      "expected": "save_note",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "eta save koro please",
+      "expected": "save_note",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "eta save koro?",
+      "expected": "save_note",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "main point note koro",
+      "expected": "save_note",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "main point note koro।",
+      "expected": "save_note",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "main point note koro please",
+      "expected": "save_note",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "main point note koro?",
+      "expected": "save_note",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "amar note e add koro",
+      "expected": "save_note",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "amar note e add koro।",
+      "expected": "save_note",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "amar note e add koro please",
+      "expected": "save_note",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "amar note e add koro?",
+      "expected": "save_note",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Save this answer as a note",
+      "expected": "save_note",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Save this answer as a note।",
+      "expected": "save_note",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Save this answer as a note please",
+      "expected": "save_note",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Save this answer as a note?",
+      "expected": "save_note",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Write it in my notes",
+      "expected": "save_note",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Write it in my notes।",
+      "expected": "save_note",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Write it in my notes please",
+      "expected": "save_note",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Write it in my notes?",
+      "expected": "save_note",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Save this",
+      "expected": "save_note",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Save this।",
+      "expected": "save_note",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Save this please",
+      "expected": "save_note",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Save this?",
+      "expected": "save_note",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Note the key point",
+      "expected": "save_note",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Note the key point।",
+      "expected": "save_note",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Note the key point please",
+      "expected": "save_note",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Note the key point?",
+      "expected": "save_note",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Add it to my notes",
+      "expected": "save_note",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Add it to my notes।",
+      "expected": "save_note",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Add it to my notes please",
+      "expected": "save_note",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Add it to my notes?",
+      "expected": "save_note",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "বাংলাদেশের জাতীয় কবি কে",
+      "expected": "ask_general_online",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "বাংলাদেশের জাতীয় কবি কে।",
+      "expected": "ask_general_online",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "বাংলাদেশের জাতীয় কবি কে please",
+      "expected": "ask_general_online",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "বাংলাদেশের জাতীয় কবি কে?",
+      "expected": "ask_general_online",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "আজকের আবহাওয়া কেমন",
+      "expected": "ask_general_online",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "আজকের আবহাওয়া কেমন।",
+      "expected": "ask_general_online",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "আজকের আবহাওয়া কেমন please",
+      "expected": "ask_general_online",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "আজকের আবহাওয়া কেমন?",
+      "expected": "ask_general_online",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "চাঁদ কেন দেখা যায়",
+      "expected": "ask_general_online",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "চাঁদ কেন দেখা যায়।",
+      "expected": "ask_general_online",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "চাঁদ কেন দেখা যায় please",
+      "expected": "ask_general_online",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "চাঁদ কেন দেখা যায়?",
+      "expected": "ask_general_online",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "কম্পিউটার কী",
+      "expected": "ask_general_online",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "কম্পিউটার কী।",
+      "expected": "ask_general_online",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "কম্পিউটার কী please",
+      "expected": "ask_general_online",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "কম্পিউটার কী?",
+      "expected": "ask_general_online",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "একটি গল্প বলো",
+      "expected": "ask_general_online",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "একটি গল্প বলো।",
+      "expected": "ask_general_online",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "একটি গল্প বলো please",
+      "expected": "ask_general_online",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "একটি গল্প বলো?",
+      "expected": "ask_general_online",
+      "language": "bn",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Bangladesher national poet ke",
+      "expected": "ask_general_online",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Bangladesher national poet ke।",
+      "expected": "ask_general_online",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Bangladesher national poet ke please",
+      "expected": "ask_general_online",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Bangladesher national poet ke?",
+      "expected": "ask_general_online",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "ajker weather kemon",
+      "expected": "ask_general_online",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "ajker weather kemon।",
+      "expected": "ask_general_online",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "ajker weather kemon please",
+      "expected": "ask_general_online",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "ajker weather kemon?",
+      "expected": "ask_general_online",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "chand keno dekha jay",
+      "expected": "ask_general_online",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "chand keno dekha jay।",
+      "expected": "ask_general_online",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "chand keno dekha jay please",
+      "expected": "ask_general_online",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "chand keno dekha jay?",
+      "expected": "ask_general_online",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "computer ki",
+      "expected": "ask_general_online",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "computer ki।",
+      "expected": "ask_general_online",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "computer ki please",
+      "expected": "ask_general_online",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "computer ki?",
+      "expected": "ask_general_online",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "ekta story bolo",
+      "expected": "ask_general_online",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "ekta story bolo।",
+      "expected": "ask_general_online",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "ekta story bolo please",
+      "expected": "ask_general_online",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "ekta story bolo?",
+      "expected": "ask_general_online",
+      "language": "banglish",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Who is the national poet of Bangladesh",
+      "expected": "ask_general_online",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Who is the national poet of Bangladesh।",
+      "expected": "ask_general_online",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Who is the national poet of Bangladesh please",
+      "expected": "ask_general_online",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Who is the national poet of Bangladesh?",
+      "expected": "ask_general_online",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "What is today's weather",
+      "expected": "ask_general_online",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "What is today's weather।",
+      "expected": "ask_general_online",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "What is today's weather please",
+      "expected": "ask_general_online",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "What is today's weather?",
+      "expected": "ask_general_online",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Why can we see the moon",
+      "expected": "ask_general_online",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Why can we see the moon।",
+      "expected": "ask_general_online",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Why can we see the moon please",
+      "expected": "ask_general_online",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Why can we see the moon?",
+      "expected": "ask_general_online",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "What is a computer",
+      "expected": "ask_general_online",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "What is a computer।",
+      "expected": "ask_general_online",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "What is a computer please",
+      "expected": "ask_general_online",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "What is a computer?",
+      "expected": "ask_general_online",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Tell me a story",
+      "expected": "ask_general_online",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Tell me a story।",
+      "expected": "ask_general_online",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Tell me a story please",
+      "expected": "ask_general_online",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    },
+    {
+      "input": "Tell me a story?",
+      "expected": "ask_general_online",
+      "language": "en",
+      "actual": "open_curriculum",
+      "correct": false,
+      "confidence": 0.6794,
+      "error": null
+    }
+  ]
+}

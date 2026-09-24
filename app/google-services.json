@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "project_number": "931933795460",
+    "project_id": "aalopro-e5afb",
+    "storage_bucket": "aalopro-e5afb.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:931933795460:android:f03322b33f7194e291fed1",
+        "android_client_info": {
+          "package_name": "com.aistudio.aalopro.eduxyz"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC0IHZ5UCu5mbndT4y8oTZh3jtBK87nbu8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:931933795460:android:c87bf6f4ea05e59291fed1",
+        "android_client_info": {
+          "package_name": "com.alopro.lite"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC0IHZ5UCu5mbndT4y8oTZh3jtBK87nbu8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:931933795460:android:4c1a58b4bb7d806391fed1",
+        "android_client_info": {
+          "package_name": "com.aistudio.alopro.bdai"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC0IHZ5UCu5mbndT4y8oTZh3jtBK87nbu8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

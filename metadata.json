@@ -1,0 +1,7 @@
+{
+  "name": "AaloPro Bangla Pri",
+  "description": "Offline AI study assistant with complete Bangladesh primary curriculum for Class 1-5 in natural Bangla.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+

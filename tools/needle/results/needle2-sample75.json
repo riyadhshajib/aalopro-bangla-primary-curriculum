@@ -1,0 +1,704 @@
+{
+  "model": "needle2",
+  "cases": 75,
+  "correct": 0,
+  "accuracy": 0.0,
+  "elapsed_seconds": 510.25,
+  "by_language": {
+    "bn": {
+      "cases": 38,
+      "correct": 0,
+      "accuracy": 0.0
+    },
+    "banglish": {
+      "cases": 25,
+      "correct": 0,
+      "accuracy": 0.0
+    },
+    "en": {
+      "cases": 12,
+      "correct": 0,
+      "accuracy": 0.0
+    }
+  },
+  "actual_counts": {
+    "None": 75
+  },
+  "results": [
+    {
+      "input": "প্রথম শ্রেণির বাংলা খোলো",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": null,
+      "correct": false,
+      "confidence": 0.2925,
+      "error": null
+    },
+    {
+      "input": "ক্লাস 1 এর বাংলা দেখাও",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": null,
+      "correct": false,
+      "confidence": 0.6689,
+      "error": null
+    },
+    {
+      "input": "class 1 Bangla open koro",
+      "expected": "open_curriculum",
+      "language": "banglish",
+      "actual": null,
+      "correct": false,
+      "confidence": 0.6689,
+      "error": null
+    },
+    {
+      "input": "Open class 1 Bangla",
+      "expected": "open_curriculum",
+      "language": "en",
+      "actual": null,
+      "correct": false,
+      "confidence": 0.6689,
+      "error": null
+    },
+    {
+      "input": "1 class er বাংলা porbo",
+      "expected": "open_curriculum",
+      "language": "banglish",
+      "actual": null,
+      "correct": false,
+      "confidence": 0.2925,
+      "error": null
+    },
+    {
+      "input": "আমাকে প্রথম শ্রেণির বাংলা পড়াও",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": null,
+      "correct": false,
+      "confidence": 0.6689,
+      "error": null
+    },
+    {
+      "input": "প্রথম শ্রেণির ইংরেজি খোলো",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": null,
+      "correct": false,
+      "confidence": 0.6689,
+      "error": null
+    },
+    {
+      "input": "ক্লাস 1 এর ইংরেজি দেখাও",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": null,
+      "correct": false,
+      "confidence": 0.6689,
+      "error": null
+    },
+    {
+      "input": "class 1 English open koro",
+      "expected": "open_curriculum",
+      "language": "banglish",
+      "actual": null,
+      "correct": false,
+      "confidence": 0.2925,
+      "error": null
+    },
+    {
+      "input": "Open class 1 English",
+      "expected": "open_curriculum",
+      "language": "en",
+      "actual": null,
+      "correct": false,
+      "confidence": 0.6689,
+      "error": null
+    },
+    {
+      "input": "1 class er ইংরেজি porbo",
+      "expected": "open_curriculum",
+      "language": "banglish",
+      "actual": null,
+      "correct": false,
+      "confidence": 0.6689,
+      "error": null
+    },
+    {
+      "input": "আমাকে প্রথম শ্রেণির ইংরেজি পড়াও",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": null,
+      "correct": false,
+      "confidence": 0.6689,
+      "error": null
+    },
+    {
+      "input": "প্রথম শ্রেণির গণিত খোলো",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": null,
+      "correct": false,
+      "confidence": 0.2925,
+      "error": null
+    },
+    {
+      "input": "ক্লাস 1 এর গণিত দেখাও",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": null,
+      "correct": false,
+      "confidence": 0.6689,
+      "error": null
+    },
+    {
+      "input": "class 1 Math open koro",
+      "expected": "open_curriculum",
+      "language": "banglish",
+      "actual": null,
+      "correct": false,
+      "confidence": 0.6689,
+      "error": null
+    },
+    {
+      "input": "Open class 1 Math",
+      "expected": "open_curriculum",
+      "language": "en",
+      "actual": null,
+      "correct": false,
+      "confidence": 0.6689,
+      "error": null
+    },
+    {
+      "input": "1 class er গণিত porbo",
+      "expected": "open_curriculum",
+      "language": "banglish",
+      "actual": null,
+      "correct": false,
+      "confidence": 0.2925,
+      "error": null
+    },
+    {
+      "input": "আমাকে প্রথম শ্রেণির গণিত পড়াও",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": null,
+      "correct": false,
+      "confidence": 0.6689,
+      "error": null
+    },
+    {
+      "input": "প্রথম শ্রেণির বিজ্ঞান খোলো",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": null,
+      "correct": false,
+      "confidence": 0.6689,
+      "error": null
+    },
+    {
+      "input": "ক্লাস 1 এর বিজ্ঞান দেখাও",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": null,
+      "correct": false,
+      "confidence": 0.6689,
+      "error": null
+    },
+    {
+      "input": "class 1 Science open koro",
+      "expected": "open_curriculum",
+      "language": "banglish",
+      "actual": null,
+      "correct": false,
+      "confidence": 0.2925,
+      "error": null
+    },
+    {
+      "input": "Open class 1 Science",
+      "expected": "open_curriculum",
+      "language": "en",
+      "actual": null,
+      "correct": false,
+      "confidence": 0.6689,
+      "error": null
+    },
+    {
+      "input": "1 class er বিজ্ঞান porbo",
+      "expected": "open_curriculum",
+      "language": "banglish",
+      "actual": null,
+      "correct": false,
+      "confidence": 0.6689,
+      "error": null
+    },
+    {
+      "input": "আমাকে প্রথম শ্রেণির বিজ্ঞান পড়াও",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": null,
+      "correct": false,
+      "confidence": 0.6689,
+      "error": null
+    },
+    {
+      "input": "প্রথম শ্রেণির বাংলাদেশ ও বিশ্বপরিচয় খোলো",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": null,
+      "correct": false,
+      "confidence": 0.2925,
+      "error": null
+    },
+    {
+      "input": "ক্লাস 1 এর বাংলাদেশ ও বিশ্বপরিচয় দেখাও",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": null,
+      "correct": false,
+      "confidence": 0.6689,
+      "error": null
+    },
+    {
+      "input": "class 1 BGS open koro",
+      "expected": "open_curriculum",
+      "language": "banglish",
+      "actual": null,
+      "correct": false,
+      "confidence": 0.6689,
+      "error": null
+    },
+    {
+      "input": "Open class 1 BGS",
+      "expected": "open_curriculum",
+      "language": "en",
+      "actual": null,
+      "correct": false,
+      "confidence": 0.6689,
+      "error": null
+    },
+    {
+      "input": "1 class er বাংলাদেশ ও বিশ্বপরিচয় porbo",
+      "expected": "open_curriculum",
+      "language": "banglish",
+      "actual": null,
+      "correct": false,
+      "confidence": 0.2925,
+      "error": null
+    },
+    {
+      "input": "আমাকে প্রথম শ্রেণির বাংলাদেশ ও বিশ্বপরিচয় পড়াও",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": null,
+      "correct": false,
+      "confidence": 0.6689,
+      "error": null
+    },
+    {
+      "input": "প্রথম শ্রেণির ইসলাম ও নৈতিক শিক্ষা খোলো",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": null,
+      "correct": false,
+      "confidence": 0.6689,
+      "error": null
+    },
+    {
+      "input": "ক্লাস 1 এর ইসলাম ও নৈতিক শিক্ষা দেখাও",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": null,
+      "correct": false,
+      "confidence": 0.6689,
+      "error": null
+    },
+    {
+      "input": "class 1 Islam open koro",
+      "expected": "open_curriculum",
+      "language": "banglish",
+      "actual": null,
+      "correct": false,
+      "confidence": 0.2925,
+      "error": null
+    },
+    {
+      "input": "Open class 1 Islam",
+      "expected": "open_curriculum",
+      "language": "en",
+      "actual": null,
+      "correct": false,
+      "confidence": 0.6689,
+      "error": null
+    },
+    {
+      "input": "1 class er ইসলাম ও নৈতিক শিক্ষা porbo",
+      "expected": "open_curriculum",
+      "language": "banglish",
+      "actual": null,
+      "correct": false,
+      "confidence": 0.6689,
+      "error": null
+    },
+    {
+      "input": "আমাকে প্রথম শ্রেণির ইসলাম ও নৈতিক শিক্ষা পড়াও",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": null,
+      "correct": false,
+      "confidence": 0.6689,
+      "error": null
+    },
+    {
+      "input": "দ্বিতীয় শ্রেণির বাংলা খোলো",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": null,
+      "correct": false,
+      "confidence": 0.2925,
+      "error": null
+    },
+    {
+      "input": "ক্লাস 2 এর বাংলা দেখাও",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": null,
+      "correct": false,
+      "confidence": 0.6689,
+      "error": null
+    },
+    {
+      "input": "class 2 Bangla open koro",
+      "expected": "open_curriculum",
+      "language": "banglish",
+      "actual": null,
+      "correct": false,
+      "confidence": 0.6689,
+      "error": null
+    },
+    {
+      "input": "Open class 2 Bangla",
+      "expected": "open_curriculum",
+      "language": "en",
+      "actual": null,
+      "correct": false,
+      "confidence": 0.6689,
+      "error": null
+    },
+    {
+      "input": "2 class er বাংলা porbo",
+      "expected": "open_curriculum",
+      "language": "banglish",
+      "actual": null,
+      "correct": false,
+      "confidence": 0.2925,
+      "error": null
+    },
+    {
+      "input": "আমাকে দ্বিতীয় শ্রেণির বাংলা পড়াও",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": null,
+      "correct": false,
+      "confidence": 0.6689,
+      "error": null
+    },
+    {
+      "input": "দ্বিতীয় শ্রেণির ইংরেজি খোলো",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": null,
+      "correct": false,
+      "confidence": 0.6689,
+      "error": null
+    },
+    {
+      "input": "ক্লাস 2 এর ইংরেজি দেখাও",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": null,
+      "correct": false,
+      "confidence": 0.6689,
+      "error": null
+    },
+    {
+      "input": "class 2 English open koro",
+      "expected": "open_curriculum",
+      "language": "banglish",
+      "actual": null,
+      "correct": false,
+      "confidence": 0.2925,
+      "error": null
+    },
+    {
+      "input": "Open class 2 English",
+      "expected": "open_curriculum",
+      "language": "en",
+      "actual": null,
+      "correct": false,
+      "confidence": 0.6689,
+      "error": null
+    },
+    {
+      "input": "2 class er ইংরেজি porbo",
+      "expected": "open_curriculum",
+      "language": "banglish",
+      "actual": null,
+      "correct": false,
+      "confidence": 0.6689,
+      "error": null
+    },
+    {
+      "input": "আমাকে দ্বিতীয় শ্রেণির ইংরেজি পড়াও",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": null,
+      "correct": false,
+      "confidence": 0.6689,
+      "error": null
+    },
+    {
+      "input": "দ্বিতীয় শ্রেণির গণিত খোলো",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": null,
+      "correct": false,
+      "confidence": 0.2925,
+      "error": null
+    },
+    {
+      "input": "ক্লাস 2 এর গণিত দেখাও",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": null,
+      "correct": false,
+      "confidence": 0.6689,
+      "error": null
+    },
+    {
+      "input": "class 2 Math open koro",
+      "expected": "open_curriculum",
+      "language": "banglish",
+      "actual": null,
+      "correct": false,
+      "confidence": 0.6689,
+      "error": null
+    },
+    {
+      "input": "Open class 2 Math",
+      "expected": "open_curriculum",
+      "language": "en",
+      "actual": null,
+      "correct": false,
+      "confidence": 0.6689,
+      "error": null
+    },
+    {
+      "input": "2 class er গণিত porbo",
+      "expected": "open_curriculum",
+      "language": "banglish",
+      "actual": null,
+      "correct": false,
+      "confidence": 0.2925,
+      "error": null
+    },
+    {
+      "input": "আমাকে দ্বিতীয় শ্রেণির গণিত পড়াও",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": null,
+      "correct": false,
+      "confidence": 0.6689,
+      "error": null
+    },
+    {
+      "input": "দ্বিতীয় শ্রেণির বিজ্ঞান খোলো",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": null,
+      "correct": false,
+      "confidence": 0.6689,
+      "error": null
+    },
+    {
+      "input": "ক্লাস 2 এর বিজ্ঞান দেখাও",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": null,
+      "correct": false,
+      "confidence": 0.6689,
+      "error": null
+    },
+    {
+      "input": "class 2 Science open koro",
+      "expected": "open_curriculum",
+      "language": "banglish",
+      "actual": null,
+      "correct": false,
+      "confidence": 0.2925,
+      "error": null
+    },
+    {
+      "input": "Open class 2 Science",
+      "expected": "open_curriculum",
+      "language": "en",
+      "actual": null,
+      "correct": false,
+      "confidence": 0.6689,
+      "error": null
+    },
+    {
+      "input": "2 class er বিজ্ঞান porbo",
+      "expected": "open_curriculum",
+      "language": "banglish",
+      "actual": null,
+      "correct": false,
+      "confidence": 0.6689,
+      "error": null
+    },
+    {
+      "input": "আমাকে দ্বিতীয় শ্রেণির বিজ্ঞান পড়াও",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": null,
+      "correct": false,
+      "confidence": 0.6689,
+      "error": null
+    },
+    {
+      "input": "দ্বিতীয় শ্রেণির বাংলাদেশ ও বিশ্বপরিচয় খোলো",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": null,
+      "correct": false,
+      "confidence": 0.2925,
+      "error": null
+    },
+    {
+      "input": "ক্লাস 2 এর বাংলাদেশ ও বিশ্বপরিচয় দেখাও",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": null,
+      "correct": false,
+      "confidence": 0.6689,
+      "error": null
+    },
+    {
+      "input": "class 2 BGS open koro",
+      "expected": "open_curriculum",
+      "language": "banglish",
+      "actual": null,
+      "correct": false,
+      "confidence": 0.6689,
+      "error": null
+    },
+    {
+      "input": "Open class 2 BGS",
+      "expected": "open_curriculum",
+      "language": "en",
+      "actual": null,
+      "correct": false,
+      "confidence": 0.6689,
+      "error": null
+    },
+    {
+      "input": "2 class er বাংলাদেশ ও বিশ্বপরিচয় porbo",
+      "expected": "open_curriculum",
+      "language": "banglish",
+      "actual": null,
+      "correct": false,
+      "confidence": 0.2925,
+      "error": null
+    },
+    {
+      "input": "আমাকে দ্বিতীয় শ্রেণির বাংলাদেশ ও বিশ্বপরিচয় পড়াও",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": null,
+      "correct": false,
+      "confidence": 0.6689,
+      "error": null
+    },
+    {
+      "input": "দ্বিতীয় শ্রেণির ইসলাম ও নৈতিক শিক্ষা খোলো",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": null,
+      "correct": false,
+      "confidence": 0.6689,
+      "error": null
+    },
+    {
+      "input": "ক্লাস 2 এর ইসলাম ও নৈতিক শিক্ষা দেখাও",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": null,
+      "correct": false,
+      "confidence": 0.6689,
+      "error": null
+    },
+    {
+      "input": "class 2 Islam open koro",
+      "expected": "open_curriculum",
+      "language": "banglish",
+      "actual": null,
+      "correct": false,
+      "confidence": 0.2925,
+      "error": null
+    },
+    {
+      "input": "Open class 2 Islam",
+      "expected": "open_curriculum",
+      "language": "en",
+      "actual": null,
+      "correct": false,
+      "confidence": 0.6689,
+      "error": null
+    },
+    {
+      "input": "2 class er ইসলাম ও নৈতিক শিক্ষা porbo",
+      "expected": "open_curriculum",
+      "language": "banglish",
+      "actual": null,
+      "correct": false,
+      "confidence": 0.6689,
+      "error": null
+    },
+    {
+      "input": "আমাকে দ্বিতীয় শ্রেণির ইসলাম ও নৈতিক শিক্ষা পড়াও",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": null,
+      "correct": false,
+      "confidence": 0.6689,
+      "error": null
+    },
+    {
+      "input": "তৃতীয় শ্রেণির বাংলা খোলো",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": null,
+      "correct": false,
+      "confidence": 0.2925,
+      "error": null
+    },
+    {
+      "input": "ক্লাস 3 এর বাংলা দেখাও",
+      "expected": "open_curriculum",
+      "language": "bn",
+      "actual": null,
+      "correct": false,
+      "confidence": 0.6689,
+      "error": null
+    },
+    {
+      "input": "class 3 Bangla open koro",
+      "expected": "open_curriculum",
+      "language": "banglish",
+      "actual": null,
+      "correct": false,
+      "confidence": 0.6689,
+      "error": null
+    }
+  ]
+}
