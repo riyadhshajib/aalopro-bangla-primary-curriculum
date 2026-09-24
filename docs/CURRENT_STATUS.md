@@ -12,6 +12,7 @@ Last checked: 2026-09-24 (Asia/Singapore)
 - Existing release APK is 134.88 MB and dated 2026-09-21.
 - A 608-example Needle fine-tuning dataset and benchmark outputs are present.
 - The ten-day Codex automation is active for the 10th, 20th, and final day of each month.
+- A reusable fast curriculum-structure audit now produces Markdown and CSV reports without consuming model tokens. Its first run found 154 literal curriculum-topic declarations, 41 generated chapter rows, 132 generated lesson rows, 161 literal `TopicQA` entries, but only 24 literal source-reference declarations. These source-level counts are prioritization signals, not completeness or accuracy proof.
 
 ## Not yet proven complete
 
@@ -28,7 +29,7 @@ Last checked: 2026-09-24 (Asia/Singapore)
 
 ## Immediate next execution order
 
-1. Generate a machine-readable curriculum coverage inventory and missing-content report.
+1. Turn the structural inventory into a page/exercise-level missing-content report using the official source PDFs.
 2. Build a source-traceable answer/follow-up evaluation set from that inventory.
 3. Fix the highest-impact content and logic gaps in one batch.
 4. Run the full automated suite once, then perform a real-device matrix pass.
@@ -42,4 +43,3 @@ Last checked: 2026-09-24 (Asia/Singapore)
 - Reuse deterministic scripts and stored audit reports instead of asking the model to re-read all textbooks or repeat the same reasoning.
 - Keep Needle work separate from curriculum truth so a failed experiment does not trigger a full app rebuild.
 - Notify only on completion, failure, or required user/device action.
-
