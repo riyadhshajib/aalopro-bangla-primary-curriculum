@@ -37,3 +37,6 @@ phone-now.png
 /installed-release.apk
 /releases/
 /tmp/
+/.venv-needle/
+/tools/needle/training/runs/
+/checkpoints/
