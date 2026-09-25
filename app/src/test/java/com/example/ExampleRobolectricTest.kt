@@ -174,6 +174,38 @@ class ExampleRobolectricTest {
   }
 
   @Test
+  fun `reviewed class three buddhist exercises and banglish follow ups stay offline`() = runBlocking {
+    val context = ApplicationProvider.getApplicationContext<Context>()
+    val topic = BangladeshCurriculumRepository.featuredClassLevels.single { it.levelNumber == 3 }
+      .subjects.single { it.id == "c3_buddhist" }.topics.first()
+    assertTrue(topic.qaList.size >= 20)
+    assertEquals(2, topic.visualExercises.size)
+    topic.visualExercises.forEach { exercise ->
+      context.assets.open(exercise.imageAssetPath!!).use { assertTrue(it.read() >= 0) }
+      assertTrue(exercise.pageQuestions.isNotEmpty())
+    }
+    topic.qaList.forEach { qa ->
+      val answer = AloTutorManager.answerQuestion(
+        context, qa.question, ChatAiMode.CURRICULUM, StudySection.CLASS_3,
+        chapterContext = topic.titleBangla
+      )
+      assertFalse("Online answer for ${qa.question}", answer.isOnlineGemini)
+      assertTrue("Missing verified answer for ${qa.question}", answer.text.contains(qa.answer))
+      val follow = AloTutorManager.answerQuestion(
+        context, "bujhini aro shohoj kore bujhao", ChatAiMode.CURRICULUM,
+        StudySection.CLASS_3, chapterContext = topic.titleBangla,
+        parentFollowUp = AloChatEntity(
+          query = qa.question, responseBangla = answer.text,
+          chapterTitle = topic.titleBangla, classCategory = StudySection.CLASS_3.id
+        )
+      )
+      assertFalse("Online follow-up for ${qa.question}", follow.isOnlineGemini)
+      assertTrue("Missing follow-up for ${qa.question}", follow.isFollowUpResponse)
+      assertTrue("Unexplained follow-up for ${qa.question}", follow.text.contains("সহজ করে বুঝি"))
+    }
+  }
+
+  @Test
   fun `class four books have complete offline questions visuals and contextual follow ups`() = runBlocking {
     val context = ApplicationProvider.getApplicationContext<Context>()
     val level = BangladeshCurriculumRepository.featuredClassLevels.single { it.levelNumber == 4 }

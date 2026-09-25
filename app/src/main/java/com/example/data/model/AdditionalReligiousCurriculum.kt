@@ -93,8 +93,26 @@ object AdditionalReligiousCurriculum {
                 nameBangla = book.name,
                 iconName = "religion",
                 topics = book.chapters.mapIndexed { index, title ->
-                    val reviewedQa = if (level.levelNumber == 3 && book.id == "hindu" && index == 0)
-                        FullOfflineQuestionBank.forPages(3, "hindu", 6, 20) else emptyList()
+                    val reviewedRange = when {
+                        level.levelNumber == 3 && book.id == "hindu" && index == 0 -> 6..20
+                        level.levelNumber == 3 && book.id == "buddhist" && index == 0 -> 7..16
+                        else -> null
+                    }
+                    val reviewedEntries = reviewedRange?.let { range ->
+                        FullOfflineQuestionBank.entries.filter {
+                            it.grade == level.levelNumber && it.book == book.id && it.page in range
+                        }
+                    }.orEmpty()
+                    val reviewedQa = reviewedEntries.map { TopicQA(it.question, it.answer) }
+                    val reviewedVisuals = reviewedEntries.groupBy { it.page }.map { (page, entries) ->
+                        VisualExercise(
+                            questionBangla = "পৃষ্ঠা $page-এর প্রশ্নগুলো দেখে উত্তর দাও।",
+                            answerBangla = "এই পৃষ্ঠার প্রতিটি প্রশ্নের বইভিত্তিক যাচাইকৃত উত্তর নিচে দেওয়া আছে।",
+                            sourceBangla = "২০২৬ NCTB ${book.name}, পৃষ্ঠা $page",
+                            imageAssetPath = "books/class${level.levelNumber}/${book.id}/page_${page.toString().padStart(3, '0')}.webp",
+                            pageQuestions = entries.map { TopicQA(it.question, it.answer) }
+                        )
+                    }
                     CurriculumTopic(
                         id = "nctb2026_c${level.levelNumber}_${book.id}_${index + 1}",
                         titleBangla = title,
@@ -104,6 +122,7 @@ object AdditionalReligiousCurriculum {
                         else "অধ্যায়ের ছাপা প্রশ্ন ও উত্তর সম্পাদকীয়ভাবে যাচাই চলছে। যাচাই শেষ না হওয়া পর্যন্ত অনুমানভিত্তিক উত্তর দেখানো হবে না।",
                         learningObjectives = listOf("অধ্যায়ের মূল বিষয় চেনা", "বইয়ের তথ্য থেকে উত্তর খোঁজা", "শ্রদ্ধা ও সহাবস্থানের আচরণ শেখা"),
                         qaList = reviewedQa,
+                        visualExercises = reviewedVisuals,
                         parentTeachingTips = listOf("শিশুকে তার নিজের ধর্মীয় বই ও শিক্ষকের নির্দেশনা অনুযায়ী শেখান।", "অন্য ধর্ম ও বিশ্বাস সম্পর্কে সম্মানজনক ভাষা ব্যবহার করতে উৎসাহ দিন।"),
                         catalogOnly = reviewedQa.isEmpty()
                     )
