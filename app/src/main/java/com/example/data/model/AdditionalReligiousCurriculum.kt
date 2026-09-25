@@ -96,6 +96,7 @@ object AdditionalReligiousCurriculum {
                     val reviewedRange = when {
                         level.levelNumber == 3 && book.id == "hindu" && index == 0 -> 6..20
                         level.levelNumber == 3 && book.id == "buddhist" && index == 0 -> 7..16
+                        level.levelNumber == 3 && book.id == "buddhist" && index == 1 -> 17..24
                         else -> null
                     }
                     val reviewedEntries = reviewedRange?.let { range ->

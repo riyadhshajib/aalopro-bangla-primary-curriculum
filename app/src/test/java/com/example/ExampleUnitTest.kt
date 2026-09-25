@@ -419,7 +419,10 @@ class ExampleUnitTest {
                 assertTrue(buddhist.topics.first().qaList.size >= 20)
                 assertTrue(!buddhist.topics.first().catalogOnly)
                 assertTrue(buddhist.topics.first().visualExercises.size == 2)
-                assertTrue(buddhist.topics.drop(1).all { it.catalogOnly })
+                assertTrue(buddhist.topics[1].qaList.size >= 20)
+                assertTrue(!buddhist.topics[1].catalogOnly)
+                assertTrue(buddhist.topics[1].visualExercises.size == 2)
+                assertTrue(buddhist.topics.drop(2).all { it.catalogOnly })
             } else assertTrue(buddhist.topics.all { it.catalogOnly })
             assertTrue(religionSubjects.first { it.id.endsWith("christian") }.topics.all { it.catalogOnly })
 

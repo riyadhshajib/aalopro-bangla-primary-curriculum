@@ -176,15 +176,17 @@ class ExampleRobolectricTest {
   @Test
   fun `reviewed class three buddhist exercises and banglish follow ups stay offline`() = runBlocking {
     val context = ApplicationProvider.getApplicationContext<Context>()
-    val topic = BangladeshCurriculumRepository.featuredClassLevels.single { it.levelNumber == 3 }
-      .subjects.single { it.id == "c3_buddhist" }.topics.first()
-    assertTrue(topic.qaList.size >= 20)
-    assertEquals(2, topic.visualExercises.size)
-    topic.visualExercises.forEach { exercise ->
-      context.assets.open(exercise.imageAssetPath!!).use { assertTrue(it.read() >= 0) }
-      assertTrue(exercise.pageQuestions.isNotEmpty())
-    }
-    topic.qaList.forEach { qa ->
+    val topics = BangladeshCurriculumRepository.featuredClassLevels.single { it.levelNumber == 3 }
+      .subjects.single { it.id == "c3_buddhist" }.topics.filterNot { it.catalogOnly }
+    assertEquals(2, topics.size)
+    topics.forEach { topic ->
+      assertTrue(topic.qaList.size >= 20)
+      assertEquals(2, topic.visualExercises.size)
+      topic.visualExercises.forEach { exercise ->
+        context.assets.open(exercise.imageAssetPath!!).use { assertTrue(it.read() >= 0) }
+        assertTrue(exercise.pageQuestions.isNotEmpty())
+      }
+      topic.qaList.forEach { qa ->
       val answer = AloTutorManager.answerQuestion(
         context, qa.question, ChatAiMode.CURRICULUM, StudySection.CLASS_3,
         chapterContext = topic.titleBangla
@@ -202,6 +204,7 @@ class ExampleRobolectricTest {
       assertFalse("Online follow-up for ${qa.question}", follow.isOnlineGemini)
       assertTrue("Missing follow-up for ${qa.question}", follow.isFollowUpResponse)
       assertTrue("Unexplained follow-up for ${qa.question}", follow.text.contains("সহজ করে বুঝি"))
+      }
     }
   }
 
