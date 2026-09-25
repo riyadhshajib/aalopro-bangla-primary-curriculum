@@ -1,6 +1,6 @@
 # AaloPro current engineering status
 
-Last checked: 2026-09-24 (Asia/Singapore)
+Last checked: 2026-09-25 (Asia/Singapore)
 
 ## Confirmed now
 
@@ -13,6 +13,10 @@ Last checked: 2026-09-24 (Asia/Singapore)
 - A 608-example Needle fine-tuning dataset and benchmark outputs are present.
 - The ten-day Codex automation is active for the 10th, 20th, and final day of each month.
 - A reusable fast curriculum-structure audit now produces Markdown and CSV reports without consuming model tokens. Its first run found 154 literal curriculum-topic declarations, 41 generated chapter rows, 132 generated lesson rows, 161 literal `TopicQA` entries, but only 24 literal source-reference declarations. These source-level counts are prioritization signals, not completeness or accuracy proof.
+- A PDF/asset manifest now confirms all 33 expected source-book slots are available. Twelve slots do not yet have bundled page assets, and 29 PDFs require OCR or visual extraction rather than reliable embedded-text extraction.
+- The verified-answer audit confirms 12 human-reviewed question-answer entries, all currently in Class 2 Bangla lesson 18. Another 382 OCR candidates are quarantined from user-facing answers until editorial review.
+- Generic page guidance can no longer be returned or labelled as a verified textbook answer. Only reviewed page questions or the existing manually reviewed drawable exercises pass that route.
+- The refreshed debug build completed successfully on 2026-09-25. The APK is 197.73 MB. All 71 automated unit/Robolectric tests pass with 0 failures.
 
 ## Not yet proven complete
 
@@ -29,11 +33,11 @@ Last checked: 2026-09-24 (Asia/Singapore)
 
 ## Immediate next execution order
 
-1. Turn the structural inventory into a page/exercise-level missing-content report using the official source PDFs.
-2. Build a source-traceable answer/follow-up evaluation set from that inventory.
-3. Fix the highest-impact content and logic gaps in one batch.
-4. Run the full automated suite once, then perform a real-device matrix pass.
-5. Audit Firebase/online AI and security/release configuration.
+1. Editorially review the quarantined OCR queue book by book, beginning with core Class 1 and Class 2 subjects, and attach a page/source reference to every accepted answer.
+2. Build a source-traceable answer/follow-up evaluation set from the accepted entries and require at least 95% relevance before claiming coverage.
+3. Add the still-missing religious-book assets/content for Classes 3–5 without inflating the APK with pages that are not needed in the learning flow.
+4. Perform the real-device matrix pass on Android 7+ and agreed low-cost/4 GB devices.
+5. Verify online random-answer delivery, Firebase event arrival/privacy, App Check, release signing/obfuscation and Play delivery.
 6. Register a new test artifact only when evidence and limitations are attached.
 
 ## Usage-saving policy

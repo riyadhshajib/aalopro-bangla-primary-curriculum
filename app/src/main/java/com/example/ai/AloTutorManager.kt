@@ -249,7 +249,12 @@ object AloTutorManager {
                     subjectTag = "যাচাইকৃত ছবি অনুশীলনী",
                     isFollowUpResponse = isFollowUp
                 )
-                val verifiedExercise = catalogTopic.visualExercises.firstOrNull { exercise ->
+                val reviewedExercises = catalogTopic.visualExercises.filter { exercise ->
+                    // Generated book-page guidance has neither a drawable nor reviewed page Q&A.
+                    // It is useful in the reader, but must never be presented as a verified answer.
+                    exercise.imageResId != 0 || exercise.pageQuestions.isNotEmpty()
+                }
+                val verifiedExercise = reviewedExercises.firstOrNull { exercise ->
                     (pageNumber != null && exercise.sourceBangla.endsWith(
                         "পৃষ্ঠা " + pageNumber.map { ('০'.code + it.code - '0'.code).toChar() }.joinToString(""))) ||
                         exercise.questionBangla == cleanQuery
@@ -260,8 +265,8 @@ object AloTutorManager {
                     subjectTag = "যাচাইকৃত ছবি অনুশীলনী",
                     isFollowUpResponse = isFollowUp
                 )
-                val availability = if (catalogTopic.visualExercises.isNotEmpty())
-                    " এই অধ্যায়ের ${catalogTopic.visualExercises.size}টি ছবি-অনুশীলনী যাচাই করা আছে; সংশ্লিষ্ট PDF পৃষ্ঠা নম্বর লিখে নির্দিষ্ট উত্তর জানতে পারো।" else ""
+                val availability = if (reviewedExercises.isNotEmpty())
+                    " এই অধ্যায়ের ${reviewedExercises.size}টি ছবি-অনুশীলনী যাচাই করা আছে; সংশ্লিষ্ট PDF পৃষ্ঠা নম্বর লিখে নির্দিষ্ট উত্তর জানতে পারো।" else ""
                 return@withContext TutorResponse(
                 query = cleanQuery,
                 text = "এই অধ্যায়ের পূর্ণ পাঠ ও প্রশ্নোত্তর এখনো যাচাই করা হয়নি। তাই বইয়ের নামে অনুমান করে উত্তর দিচ্ছি না।$availability সাধারণ প্রশ্ন হিসেবে আলাদা করে জিজ্ঞাসা করতে পারো।",
