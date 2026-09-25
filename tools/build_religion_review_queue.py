@@ -19,6 +19,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = ROOT / "build/reports/curriculum/pdf_asset_manifest.csv"
+ASSETS = ROOT / "app/src/main/assets/books"
 OUT_DIR = ROOT / "build/reports/curriculum/religion-review"
 TMP_DIR = ROOT / "tmp/pdfs/religion-ocr"
 TESSDATA = ROOT / "tmp/tessdata"
@@ -49,15 +50,18 @@ def ocr_image(path: Path) -> str:
 def process_book(row: dict[str, str]) -> dict[str, object]:
     grade, subject = row["grade"], row["subject"]
     pdf = Path(row["pdf"])
-    book_dir = TMP_DIR / f"g{grade}-{subject}"
-    book_dir.mkdir(parents=True, exist_ok=True)
-    prefix = book_dir / "page"
-    subprocess.run(
-        [str(PDFTOPPM), "-jpeg", "-r", "115", str(pdf), str(prefix)],
-        check=True,
-        capture_output=True,
-    )
-    images = sorted(book_dir.glob("page-*.jpg"))
+    asset_dir = ASSETS / f"class{grade}" / subject
+    images = sorted(asset_dir.glob("page_*.webp"))
+    if not images:
+        book_dir = TMP_DIR / f"g{grade}-{subject}"
+        book_dir.mkdir(parents=True, exist_ok=True)
+        prefix = book_dir / "page"
+        subprocess.run(
+            [str(PDFTOPPM), "-jpeg", "-r", "115", str(pdf), str(prefix)],
+            check=True,
+            capture_output=True,
+        )
+        images = sorted(book_dir.glob("page-*.jpg"))
     with ThreadPoolExecutor(max_workers=4) as pool:
         texts = list(pool.map(ocr_image, images))
     pages = []
