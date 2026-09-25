@@ -36,6 +36,13 @@ class ExampleUnitTest {
     }
 
     @Test
+    fun `verified bank tolerates harmless punctuation differences`() {
+        val answer = FullOfflineQuestionBank.exact(2, "তিথির কেন গ্রাম ভালো লাগে")
+        assertNotNull(answer)
+        assertTrue(answer!!.answer.contains("শান্ত ও সবুজ"))
+    }
+
+    @Test
     fun `class two village and city official exercises have direct offline answers`() {
         val questions = FullOfflineQuestionBank.forPages(2, "bangla", 44, 46)
         assertTrue(questions.size >= 12)
@@ -244,6 +251,11 @@ class ExampleUnitTest {
         levels.forEach { level ->
             assertTrue("No subjects in grade ${level.levelNumber}", level.subjects.isNotEmpty())
             level.subjects.forEach { subject ->
+                if (subject.topics.all { it.catalogOnly }) {
+                    assertTrue("Empty catalog subject ${subject.id}", subject.topics.isNotEmpty())
+                    assertTrue(subject.topics.all { it.titleBangla.isNotBlank() && it.detailsBangla.isNotBlank() })
+                    return@forEach
+                }
                 val expandedCount = mapOf(
                     "c1_math" to 18, "c1_bangla" to 54, "c1_english" to 39,
                     "c2_math" to 7, "c2_bangla" to 29, "c2_english" to 10,
@@ -348,11 +360,11 @@ class ExampleUnitTest {
     }
 
     @Test
-    fun fifthGradeOfficialCoreBookChaptersAreIndexed() {
+    fun fifthGradeOfficialBookChaptersAreIndexed() {
         val fifthGrade = BangladeshCurriculumRepository.classLevels.single { it.levelNumber == 5 }
         val indexed = fifthGrade.subjects.flatMap { it.topics }.filter { it.catalogOnly }
-        assertEquals(87, indexed.size)
-        assertEquals(87, indexed.map { it.id }.distinct().size)
+        assertEquals(102, indexed.size)
+        assertEquals(102, indexed.map { it.id }.distinct().size)
         assertTrue(indexed.any { it.titleBangla == "বৈচিত্র্যময় বাংলাদেশ" })
         assertTrue(indexed.any { it.titleBangla == "জীবের আবাসস্থল" })
     }
@@ -383,7 +395,7 @@ class ExampleUnitTest {
     }
 
     @Test
-    fun onlyIslamicReligionSupportAppearsAcrossGradesOneToFive() {
+    fun officialReligionChoicesAppearOnlyFromGradesThreeToFive() {
         assertTrue(BangladeshCurriculumRepository.classLevels.single { it.levelNumber == 1 }
             .subjects.none { it.iconName == "religion" })
         assertTrue(BangladeshCurriculumRepository.classLevels.single { it.levelNumber == 2 }
@@ -391,8 +403,18 @@ class ExampleUnitTest {
         for (grade in 3..5) {
             val religionSubjects = BangladeshCurriculumRepository.classLevels
                 .single { it.levelNumber == grade }.subjects.filter { it.iconName == "religion" }
-            assertEquals(1, religionSubjects.size)
-            assertTrue(religionSubjects.single().nameBangla.contains("ইসলাম"))
+            assertEquals(4, religionSubjects.size)
+            assertEquals(
+                setOf("c${grade}_religion", "c${grade}_hindu", "c${grade}_buddhist", "c${grade}_christian"),
+                religionSubjects.map { it.id }.toSet()
+            )
+            assertTrue(religionSubjects.first { it.id.endsWith("hindu") }.topics.all { it.catalogOnly })
+            assertTrue(religionSubjects.first { it.id.endsWith("buddhist") }.topics.all { it.catalogOnly })
+            assertTrue(religionSubjects.first { it.id.endsWith("christian") }.topics.all { it.catalogOnly })
+
+            val visibleIds = BangladeshCurriculumRepository.featuredClassLevels
+                .single { it.levelNumber == grade }.subjects.map { it.id }.toSet()
+            assertTrue("Class $grade religion choices must be visible in the app", religionSubjects.all { it.id in visibleIds })
         }
     }
 
@@ -413,6 +435,7 @@ class ExampleUnitTest {
         val incomplete = BangladeshCurriculumRepository.featuredClassLevels
             .flatMap { it.subjects }
             .flatMap { it.topics }
+            .filterNot { it.catalogOnly }
             .filter { topic ->
                 topic.titleBangla.isBlank() ||
                     topic.summaryBangla.isBlank() ||

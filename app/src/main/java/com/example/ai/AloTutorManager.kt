@@ -132,7 +132,18 @@ object AloTutorManager {
                     val exercise = featured.visualExercises.firstOrNull {
                         extractPdfPage(it.sourceBangla) == requestedPage
                     }
-                    if (exercise != null) {
+                    if (exercise != null && exercise.pageQuestions.isNotEmpty()) {
+                        val reviewedAnswers = exercise.pageQuestions.joinToString("\n\n") { qa ->
+                            "প্রশ্ন: ${qa.question}\nউত্তর: ${qa.answer}"
+                        }
+                        return@withContext TutorResponse(
+                            cleanQuery,
+                            AloTextSanitizer.cleanText("$reviewedAnswers\n\nউৎস: ${exercise.sourceBangla}"),
+                            "যাচাইকৃত ছবি অনুশীলনী",
+                            isFollowUpResponse = isFollowUp
+                        )
+                    }
+                    if (exercise != null && exercise.imageResId != 0) {
                         return@withContext TutorResponse(
                             cleanQuery,
                             AloTextSanitizer.cleanText("${exercise.answerBangla}\n\nউৎস: ${exercise.sourceBangla}"),

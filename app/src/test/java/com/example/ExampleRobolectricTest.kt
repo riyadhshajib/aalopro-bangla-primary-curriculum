@@ -97,6 +97,11 @@ class ExampleRobolectricTest {
     assertEquals(listOf(1, 2, 3, 4, 5), levels.map { it.levelNumber })
     levels.forEach { level ->
       level.subjects.forEach { subject ->
+        if (subject.topics.all { it.catalogOnly }) {
+          assertTrue("Empty catalog subject ${subject.id}", subject.topics.isNotEmpty())
+          assertTrue(subject.topics.all { it.titleBangla.isNotBlank() && it.detailsBangla.isNotBlank() })
+          return@forEach
+        }
         val expandedCount = mapOf(
           "c1_math" to 18, "c1_bangla" to 54, "c1_english" to 39,
           "c2_math" to 7, "c2_bangla" to 29, "c2_english" to 10,
@@ -126,9 +131,10 @@ class ExampleRobolectricTest {
   fun `class three books have complete offline questions visuals and contextual follow ups`() = runBlocking {
     val context = ApplicationProvider.getApplicationContext<Context>()
     val level = BangladeshCurriculumRepository.featuredClassLevels.single { it.levelNumber == 3 }
-    assertEquals(setOf("c3_bangla", "c3_english", "c3_math", "c3_science", "c3_social", "c3_religion"),
+    assertEquals(setOf("c3_bangla", "c3_english", "c3_math", "c3_science", "c3_social", "c3_religion",
+      "c3_hindu", "c3_buddhist", "c3_christian"),
       level.subjects.map { it.id }.toSet())
-    level.subjects.forEach { subject ->
+    level.subjects.filterNot { subject -> subject.topics.all { it.catalogOnly } }.forEach { subject ->
       subject.topics.forEach { topic ->
         assertTrue("No visual pages for ${topic.id}", topic.visualExercises.isNotEmpty())
         topic.visualExercises.forEach { exercise ->
@@ -171,9 +177,10 @@ class ExampleRobolectricTest {
   fun `class four books have complete offline questions visuals and contextual follow ups`() = runBlocking {
     val context = ApplicationProvider.getApplicationContext<Context>()
     val level = BangladeshCurriculumRepository.featuredClassLevels.single { it.levelNumber == 4 }
-    assertEquals(setOf("c4_bangla", "c4_english", "c4_math", "c4_science", "c4_social", "c4_religion"),
+    assertEquals(setOf("c4_bangla", "c4_english", "c4_math", "c4_science", "c4_social", "c4_religion",
+      "c4_hindu", "c4_buddhist", "c4_christian"),
       level.subjects.map { it.id }.toSet())
-    level.subjects.forEach { subject ->
+    level.subjects.filterNot { subject -> subject.topics.all { it.catalogOnly } }.forEach { subject ->
       subject.topics.forEach { topic ->
         assertTrue("Expected offline QAs for ${topic.id}", topic.qaList.size >= 3)
         assertTrue("No visual pages for ${topic.id}", topic.visualExercises.isNotEmpty())
@@ -202,9 +209,10 @@ class ExampleRobolectricTest {
   fun `class five books have complete offline questions visuals and contextual follow ups`() = runBlocking {
     val context = ApplicationProvider.getApplicationContext<Context>()
     val level = BangladeshCurriculumRepository.featuredClassLevels.single { it.levelNumber == 5 }
-    assertEquals(setOf("c5_bangla", "c5_english", "c5_math", "c5_science", "c5_social", "c5_religion"),
+    assertEquals(setOf("c5_bangla", "c5_english", "c5_math", "c5_science", "c5_social", "c5_religion",
+      "c5_hindu", "c5_buddhist", "c5_christian"),
       level.subjects.map { it.id }.toSet())
-    level.subjects.forEach { subject ->
+    level.subjects.filterNot { subject -> subject.topics.all { it.catalogOnly } }.forEach { subject ->
       subject.topics.forEach { topic ->
         assertTrue("Expected offline QAs for ${topic.id}", topic.qaList.size >= 3)
         assertTrue("No visual pages for ${topic.id}", topic.visualExercises.isNotEmpty())

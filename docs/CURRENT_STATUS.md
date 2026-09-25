@@ -17,6 +17,9 @@ Last checked: 2026-09-25 (Asia/Singapore)
 - The verified-answer audit confirms 12 human-reviewed question-answer entries, all currently in Class 2 Bangla lesson 18. Another 382 OCR candidates are quarantined from user-facing answers until editorial review.
 - Generic page guidance can no longer be returned or labelled as a verified textbook answer. Only reviewed page questions or the existing manually reviewed drawable exercises pass that route.
 - The refreshed debug build completed successfully on 2026-09-25. The APK is 197.73 MB. All 71 automated unit/Robolectric tests pass with 0 failures.
+- The official 2026 chapter structures for Hindu, Buddhist and Christian Religion have been added for Classes 3-5 and are visible beside the existing Islam subject. These new chapters are deliberately catalog-only until their printed exercises receive visual editorial review.
+- Page-number answer routing now returns reviewed page Q&A as Q&A, and no longer promotes generated page guidance to a verified answer. Harmless punctuation differences are normalized for exact reviewed-question matching.
+- The expanded regression suite now contains 72 tests, all passing.
 
 ## Not yet proven complete
 

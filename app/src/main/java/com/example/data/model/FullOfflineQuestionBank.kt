@@ -398,7 +398,15 @@ object FullOfflineQuestionBank {
       .filter { it.question.isNotBlank() && it.answer.isNotBlank() }
       .distinctBy { it.question.lowercase() }
       .toList()
-  fun exact(grade:Int, query:String): OfflineBookQuestion? = entries.firstOrNull { it.grade == grade && it.question.trim().equals(query.trim(), ignoreCase=true) }
+  private fun matchKey(value: String): String = value.lowercase()
+      .replace(Regex("[?!.।,:;“”\"‘’()\\-–—]"), " ")
+      .replace(Regex("\\s+"), " ")
+      .trim()
+
+  fun exact(grade:Int, query:String): OfflineBookQuestion? {
+      val wanted = matchKey(query)
+      return entries.firstOrNull { it.grade == grade && matchKey(it.question) == wanted }
+  }
   fun all(grade:Int, book:String): List<TopicQA> = entries.asSequence().filter { it.grade==grade && it.book==book }.map { TopicQA(it.question,it.answer) }.toList()
   fun forPages(grade:Int, book:String, start:Int, end:Int): List<TopicQA> = entries.asSequence().filter { it.grade==grade && it.book==book && it.page in start..end }.map { TopicQA(it.question,it.answer) }.toList()
 }

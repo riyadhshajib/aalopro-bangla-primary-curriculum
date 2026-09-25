@@ -1,0 +1,111 @@
+package com.example.data.model
+
+/**
+ * Official 2026 NCTB chapter structure for the optional religion books in Classes 3-5.
+ *
+ * These entries intentionally remain catalog-only until each printed exercise and answer has
+ * completed editorial review. A table of contents proves structure, not answer accuracy.
+ */
+object AdditionalReligiousCurriculum {
+    private data class Book(val id: String, val name: String, val chapters: List<String>)
+
+    private val booksByGrade = mapOf(
+        3 to listOf(
+            Book("hindu", "হিন্দুধর্ম ও নৈতিক শিক্ষা", listOf(
+                "স্রষ্টা ও সৃষ্টি এবং উপাসনা ও প্রার্থনা",
+                "আদর্শ জীবনচরিত",
+                "নৈতিক ও মানবিক গুণাবলি",
+                "ধর্মগ্রন্থ, পূজা-পার্বণ ও ধর্মীয় উৎসব এবং শান্তিপূর্ণ সহাবস্থান",
+                "প্রকৃতি ও পরিবেশ এবং দেশপ্রেম"
+            )),
+            Book("buddhist", "বৌদ্ধধর্ম ও নৈতিক শিক্ষা", listOf(
+                "সিদ্ধার্থ গৌতমের গৃহত্যাগ ও বুদ্ধত্ব লাভ",
+                "ত্রিপিটক পরিচয়",
+                "বন্দনা",
+                "পঞ্চশীল",
+                "সংঘদান",
+                "আদর্শ জীবনচরিত",
+                "পূজা ও উৎসব",
+                "তীর্থস্থান",
+                "জাতকে জীব ও প্রকৃতি"
+            )),
+            Book("christian", "খ্রিষ্টধর্ম ও নৈতিক শিক্ষা", listOf(
+                "সিনাই পর্বতে ঈশ্বরের দশ আজ্ঞা",
+                "যিশুর কর্মজীবন",
+                "পরোপকার ও শ্রদ্ধাবোধ",
+                "প্রার্থনা ও বিশ্বশান্তি",
+                "মানুষ, প্রকৃতি ও জীবজগৎ"
+            ))
+        ),
+        4 to listOf(
+            Book("hindu", "হিন্দুধর্ম ও নৈতিক শিক্ষা", listOf(
+                "স্রষ্টা ও সৃষ্টি এবং উপাসনা ও প্রার্থনা",
+                "আদর্শ জীবনচরিত",
+                "নৈতিক ও মানবিক গুণাবলি",
+                "ধর্মগ্রন্থ, দেব-দেবী ও পূজা-পার্বণ, যোগব্যায়াম, মন্দির ও তীর্থক্ষেত্র",
+                "জীবসেবা ও দেশপ্রেম"
+            )),
+            Book("buddhist", "বৌদ্ধধর্ম ও নৈতিক শিক্ষা", listOf(
+                "গৌতম বুদ্ধের জীবন ও সূত্র পিটক",
+                "আদর্শ জীবনচরিত",
+                "নীতিশিক্ষা ও কর্ম",
+                "পূজা-উৎসব ও ঐতিহাসিক স্থান",
+                "জাতকে জীব ও প্রকৃতি"
+            )),
+            Book("christian", "খ্রিষ্টধর্ম ও নৈতিক শিক্ষা", listOf(
+                "ঈশ্বরের দশ আজ্ঞা ও নৈতিক শিক্ষা",
+                "যিশু ঈশ্বর ও মানুষ",
+                "উদারতা ও ন্যায়-অন্যায়বোধ",
+                "শান্তিপূর্ণ সহাবস্থান",
+                "জলবায়ু পরিবর্তন ও খ্রিষ্টীয় দায়িত্ব"
+            ))
+        ),
+        5 to listOf(
+            Book("hindu", "হিন্দুধর্ম ও নৈতিক শিক্ষা", listOf(
+                "সৃষ্টিকর্তা ও ঈশ্বরের স্বরূপ",
+                "অবতার ও আদর্শ জীবনচরিত",
+                "নৈতিক ও মানবিক গুণাবলি",
+                "ধর্মগ্রন্থ, দেব-দেবী ও পূজা, মন্দির ও তীর্থক্ষেত্র",
+                "জীবসেবা ও দেশপ্রেম"
+            )),
+            Book("buddhist", "বৌদ্ধধর্ম ও নৈতিক শিক্ষা", listOf(
+                "গৌতম বুদ্ধের মহাজীবন ও শিক্ষা",
+                "আদর্শ জীবনচরিত",
+                "দশশীল, দান ও কর্মফল",
+                "ধর্মীয় আচার-অনুষ্ঠান ও মহাতীর্থ",
+                "জাতকে জীব ও প্রকৃতি"
+            )),
+            Book("christian", "খ্রিষ্টধর্ম ও নৈতিক শিক্ষা", listOf(
+                "বিশ্বাসমন্ত্র ও খ্রিষ্টবিশ্বাসী জীবন",
+                "যিশু খ্রিষ্টের ক্রুশীয় মৃত্যু ও পুনরুত্থান",
+                "পরমতসহিষ্ণুতা ও সম্প্রীতি",
+                "সাক্রামেন্ট ও ধর্মীয় মূল্যবোধ",
+                "ঈশ্বরসৃষ্ট পৃথিবী আমাদের আবাসভূমি"
+            ))
+        )
+    )
+
+    fun mergeInto(levels: List<CurriculumClassLevel>): List<CurriculumClassLevel> = levels.map { level ->
+        val books = booksByGrade[level.levelNumber] ?: return@map level
+        val additions = books.map { book ->
+            CurriculumSubject(
+                id = "c${level.levelNumber}_${book.id}",
+                nameBangla = book.name,
+                iconName = "religion",
+                topics = book.chapters.mapIndexed { index, title ->
+                    CurriculumTopic(
+                        id = "nctb2026_c${level.levelNumber}_${book.id}_${index + 1}",
+                        titleBangla = title,
+                        summaryBangla = "২০২৬ সালের ${level.classNameBangla} ${book.name} বইয়ের ${index + 1} নম্বর অধ্যায়।",
+                        detailsBangla = "অধ্যায়ের ছাপা প্রশ্ন ও উত্তর সম্পাদকীয়ভাবে যাচাই চলছে। যাচাই শেষ না হওয়া পর্যন্ত অনুমানভিত্তিক উত্তর দেখানো হবে না।",
+                        learningObjectives = listOf("অধ্যায়ের মূল বিষয় চেনা", "বইয়ের তথ্য থেকে উত্তর খোঁজা", "শ্রদ্ধা ও সহাবস্থানের আচরণ শেখা"),
+                        parentTeachingTips = listOf("শিশুকে তার নিজের ধর্মীয় বই ও শিক্ষকের নির্দেশনা অনুযায়ী শেখান।", "অন্য ধর্ম ও বিশ্বাস সম্পর্কে সম্মানজনক ভাষা ব্যবহার করতে উৎসাহ দিন।"),
+                        catalogOnly = true
+                    )
+                }
+            )
+        }
+        val additionIds = additions.mapTo(mutableSetOf()) { it.id }
+        level.copy(subjects = level.subjects.filterNot { it.id in additionIds } + additions)
+    }
+}
