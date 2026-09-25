@@ -207,14 +207,16 @@ class AloViewModel(
         _isShowingSplash.value = false
     }
 
-    fun completeOnboarding(name: String) {
+    fun completeOnboarding(name: String, guardianPhone: String) {
         val safeName = name.trim().take(40)
         if (safeName.isBlank()) return
         viewModelScope.launch {
             // A new tester profile must never inherit this device's earlier test chats,
             // notes or points. This touches local app data only, not Firebase.
             repository.clearLocalStudyDataForNewProfile()
-            profilePrefs.edit().putString("name", safeName).putString("role", AaloUserRole.STUDENT.name)
+            profilePrefs.edit().putString("name", safeName)
+                .putString("guardian_phone", guardianPhone)
+                .putString("role", AaloUserRole.STUDENT.name)
                 .putBoolean("completed", true).remove("completed_topics").apply()
             _completedTopicIds.value = emptySet()
             _profileName.value = safeName

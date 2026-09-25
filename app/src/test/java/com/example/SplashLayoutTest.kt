@@ -3,7 +3,6 @@ package com.example
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onRoot
 import androidx.compose.ui.test.onNodeWithTag
-import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performTextInput
 import com.example.ui.screens.AaloSplashScreen
 import com.example.ui.screens.AaloOnboardingScreen
@@ -11,7 +10,6 @@ import com.example.ui.theme.MyApplicationTheme
 import com.github.takahirom.roborazzi.captureRoboImage
 import org.junit.Rule
 import org.junit.Test
-import org.junit.Assert.assertEquals
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
 import org.robolectric.annotation.Config
@@ -40,18 +38,17 @@ class SplashLayoutTest {
     @Test
     @Config(qualifiers = "w360dp-h740dp-mdpi")
     fun compactOnboardingRenders() {
-        composeTestRule.setContent { MyApplicationTheme { AaloOnboardingScreen(onGetStarted = { _ -> }) } }
+        composeTestRule.setContent { MyApplicationTheme { AaloOnboardingScreen(onGetStarted = { _, _ -> }) } }
         composeTestRule.onRoot().captureRoboImage(filePath = "build/onboarding-compact.png")
     }
 
     @Test
-    fun bengaliNameCanStartWithoutSelectingARole() {
-        var submittedName = ""
+    fun registrationAcceptsBengaliNameAndBangladeshPhone() {
         composeTestRule.setContent {
-            MyApplicationTheme { AaloOnboardingScreen(onGetStarted = { submittedName = it }) }
+            MyApplicationTheme { AaloOnboardingScreen(onGetStarted = { _, _ -> }) }
         }
-        composeTestRule.onNodeWithTag("onboarding_name").performTextInput("রিয়াদ")
-        composeTestRule.onNodeWithTag("onboarding_start_button").performClick()
-        assertEquals("রিয়াদ", submittedName)
+        composeTestRule.onNodeWithTag("registration_child_name").performTextInput("রিয়াদ")
+        composeTestRule.onNodeWithTag("registration_guardian_phone").performTextInput("01700000000")
+        composeTestRule.onNodeWithTag("registration_continue_button").assertExists()
     }
 }

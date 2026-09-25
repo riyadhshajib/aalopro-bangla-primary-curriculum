@@ -143,7 +143,7 @@ fun AloProApp(
         )
     } else if (!isOnboardingCompleted) {
         AaloOnboardingScreen(
-            onGetStarted = { name -> viewModel.completeOnboarding(name) }
+            onGetStarted = { name, guardianPhone -> viewModel.completeOnboarding(name, guardianPhone) }
         )
     } else if (currentTab == AloTab.CHAT) {
         // The tutor is a destination of its own. It is intentionally outside the

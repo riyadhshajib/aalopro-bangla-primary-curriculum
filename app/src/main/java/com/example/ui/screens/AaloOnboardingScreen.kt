@@ -1,133 +1,244 @@
 package com.example.ui.screens
 
-import androidx.compose.foundation.BorderStroke
+import android.app.Activity
+import android.content.Context
+import android.content.ContextWrapper
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.statusBarsPadding
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowForward
-import androidx.compose.material.icons.filled.AutoStories
-import androidx.compose.material.icons.filled.ChatBubbleOutline
-import androidx.compose.material.icons.filled.Groups
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.Icon
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedTextField
-import androidx.compose.material3.OutlinedTextFieldDefaults
-import androidx.compose.material3.Surface
-import com.example.ui.screens.DigitText as Text
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
+import androidx.compose.material.icons.filled.CheckCircle
+import androidx.compose.material.icons.filled.Person
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.example.R
 import com.example.ui.theme.AaloWordmark
-import com.example.ui.theme.PremiumPurple
+import com.example.ui.theme.WarmPaperBg
 import com.example.ui.theme.WarmTextPrimary
 import com.example.ui.theme.WarmTextSecondary
-import com.example.ui.theme.WarmPaperBg
+import com.google.firebase.Timestamp
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.PhoneAuthCredential
+import com.google.firebase.auth.PhoneAuthOptions
+import com.google.firebase.auth.PhoneAuthProvider
+import com.google.firebase.firestore.FirebaseFirestore
+import java.util.concurrent.TimeUnit
 
+private val RegistrationTeal = Color(0xFF2B8D80)
+private val RegistrationGold = Color(0xFFE8A900)
+
+/** First-run registration shown immediately after splash. PII is never sent to Analytics. */
 @Composable
-fun AaloOnboardingScreen(onGetStarted: (String) -> Unit, modifier: Modifier = Modifier) {
-    var name by rememberSaveable { mutableStateOf("") }
+fun AaloOnboardingScreen(onGetStarted: (String, String) -> Unit, modifier: Modifier = Modifier) {
+    val activity = LocalContext.current.findActivity()
+    var childName by rememberSaveable { mutableStateOf("") }
+    var mobile by rememberSaveable { mutableStateOf("") }
+    var otp by rememberSaveable { mutableStateOf("") }
+    var verificationId by rememberSaveable { mutableStateOf<String?>(null) }
+    var busy by rememberSaveable { mutableStateOf(false) }
+    var error by rememberSaveable { mutableStateOf<String?>(null) }
+
+    fun finishRegistration(credential: PhoneAuthCredential) {
+        val safeName = childName.trim().take(40)
+        val phone = normalizeBangladeshPhone(mobile) ?: return
+        busy = true
+        error = null
+        FirebaseAuth.getInstance().signInWithCredential(credential)
+            .addOnSuccessListener { result ->
+                val uid = result.user?.uid
+                if (uid == null) {
+                    busy = false
+                    error = "রেজিস্ট্রেশন শেষ করা যায়নি। আবার চেষ্টা করুন।"
+                    return@addOnSuccessListener
+                }
+                val profile = mapOf(
+                    "childName" to safeName,
+                    "guardianPhone" to phone,
+                    "phoneVerified" to true,
+                    "app" to "AaloPro Bangla Pri",
+                    "updatedAt" to Timestamp.now()
+                )
+                FirebaseFirestore.getInstance().collection("users").document(uid).set(profile)
+                    .addOnSuccessListener { busy = false; onGetStarted(safeName, phone) }
+                    .addOnFailureListener {
+                        busy = false
+                        error = "নম্বর যাচাই হয়েছে, কিন্তু প্রোফাইল সংরক্ষণ হয়নি। ইন্টারনেট দেখে আবার চেষ্টা করুন।"
+                    }
+            }
+            .addOnFailureListener {
+                busy = false
+                error = "OTP সঠিক নয় বা মেয়াদ শেষ হয়েছে। আবার চেষ্টা করুন।"
+            }
+    }
+
+    fun sendOtp() {
+        val phone = normalizeBangladeshPhone(mobile)
+        when {
+            childName.trim().length < 2 -> error = "শিশুর নাম লিখুন।"
+            phone == null -> error = "সঠিক ১১ সংখ্যার মোবাইল নম্বর লিখুন।"
+            activity == null -> error = "OTP চালু করা যায়নি। অ্যাপটি আবার খুলুন।"
+            else -> {
+                busy = true
+                error = null
+                val callbacks = object : PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
+                    override fun onVerificationCompleted(credential: PhoneAuthCredential) = finishRegistration(credential)
+                    override fun onVerificationFailed(exception: com.google.firebase.FirebaseException) {
+                        busy = false
+                        error = exception.localizedMessage ?: "OTP পাঠানো যায়নি। কিছুক্ষণ পর আবার চেষ্টা করুন।"
+                    }
+                    override fun onCodeSent(id: String, token: PhoneAuthProvider.ForceResendingToken) {
+                        busy = false
+                        verificationId = id
+                    }
+                }
+                PhoneAuthProvider.verifyPhoneNumber(
+                    PhoneAuthOptions.newBuilder(FirebaseAuth.getInstance())
+                        .setPhoneNumber(phone).setTimeout(60L, TimeUnit.SECONDS)
+                        .setActivity(activity).setCallbacks(callbacks).build()
+                )
+            }
+        }
+    }
+
     Column(
-        modifier = modifier.fillMaxSize().background(
-            Brush.verticalGradient(listOf(Color(0xFFFFF8E8), WarmPaperBg, Color(0xFFF3FAF6)))
-        )
+        modifier = modifier.fillMaxSize()
+            .background(Brush.verticalGradient(listOf(Color(0xFFFFF8E8), WarmPaperBg, Color(0xFFF3FAF6))))
             .statusBarsPadding().verticalScroll(rememberScrollState())
-            .padding(horizontal = 24.dp, vertical = 28.dp).testTag("aalo_onboarding_screen"),
+            .padding(horizontal = 24.dp, vertical = 22.dp).testTag("aalo_registration_screen"),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Spacer(Modifier.height(8.dp))
-        Image(painter = painterResource(R.drawable.aalo_brand_logo_soft),
-            contentDescription = "AaloPro লোগো", modifier = Modifier.size(80.dp).clip(CircleShape))
-        Spacer(Modifier.height(12.dp))
+        Image(painterResource(R.drawable.aalo_brand_logo_soft), "AaloPro লোগো",
+            Modifier.size(76.dp).clip(CircleShape))
+        Spacer(Modifier.height(10.dp))
         Text("AaloPro", style = MaterialTheme.typography.headlineLarge, fontFamily = AaloWordmark,
             fontWeight = FontWeight.Black, color = WarmTextPrimary)
+        Spacer(Modifier.height(14.dp))
+        Text("অভিভাবকের সাহায্যে\nশেখা শুরু করি", style = MaterialTheme.typography.headlineMedium,
+            fontWeight = FontWeight.Bold, color = WarmTextPrimary, textAlign = TextAlign.Center)
         Spacer(Modifier.height(8.dp))
-        Text("প্রশ্ন করো। বুঝে শেখো।", style = MaterialTheme.typography.headlineSmall,
-            color = WarmTextPrimary, textAlign = TextAlign.Center)
-        Spacer(Modifier.height(8.dp))
-        Text("প্রথম থেকে পঞ্চম শ্রেণির বাছাই করা টপিক দেখো, আলো শিক্ষককে প্রশ্ন করো, আর আগের আলোচনা থেকে শেখা চালিয়ে যাও।",
+        Text("শিশুর জন্য একটি নিরাপদ শেখার প্রোফাইল তৈরি করতে নিচের তথ্য দিন।",
             style = MaterialTheme.typography.bodyMedium, color = WarmTextSecondary, textAlign = TextAlign.Center)
-        Spacer(Modifier.height(18.dp))
-        Text("আপনার নাম লিখুন", style = MaterialTheme.typography.titleSmall,
-            color = WarmTextPrimary, modifier = Modifier.fillMaxWidth())
-        Spacer(Modifier.height(8.dp))
-        OutlinedTextField(value = name, onValueChange = { name = it.take(40) },
-            modifier = Modifier.fillMaxWidth().testTag("onboarding_name"),
-            label = { Text("আপনার নাম") }, singleLine = true,
-            shape = RoundedCornerShape(14.dp),
-            colors = OutlinedTextFieldDefaults.colors(focusedBorderColor = PremiumPurple))
-        Spacer(Modifier.height(16.dp))
-        Button(onClick = { onGetStarted(name) }, enabled = name.isNotBlank(),
-            modifier = Modifier.fillMaxWidth().height(54.dp)
-            .testTag("onboarding_start_button"),
-            colors = ButtonDefaults.buttonColors(containerColor = PremiumPurple),
-            shape = RoundedCornerShape(16.dp)) {
-            Text("শেখা শুরু করি", style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.Bold)
-            Icon(Icons.AutoMirrored.Filled.ArrowForward, null, modifier = Modifier.padding(start = 8.dp))
+        Spacer(Modifier.height(14.dp))
+        Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+            StepMark(verificationId == null)
+            StepMark(verificationId != null)
         }
         Spacer(Modifier.height(22.dp))
-        OnboardingPath(Icons.Filled.AutoStories, "শেখার টপিক", "শ্রেণি ও বিষয় বেছে সব শেখার টপিক দেখো",
-            wash = Color(0xFFFFF0D1), accent = Color(0xFF936B22))
-        Spacer(Modifier.height(8.dp))
-        OnboardingPath(Icons.Filled.ChatBubbleOutline, "আলো শিক্ষক", "পূর্ণ পর্দায় প্রশ্ন ও ফলো-আপ করো",
-            wash = Color(0xFFE8F5EF), accent = Color(0xFF2B8075))
-        Spacer(Modifier.height(8.dp))
-        OnboardingPath(Icons.Filled.Groups, "অভিভাবক ও শিক্ষক", "শেখানোর সহজ পরামর্শ দেখো",
-            wash = Color(0xFFFFEEE6), accent = Color(0xFFB9684B))
-        Spacer(Modifier.height(14.dp))
-        Text("কিছু পাঠ ও নিয়ম অফলাইনে আছে। নতুন বা খোলা প্রশ্নের জন্য ইন্টারনেট লাগতে পারে।",
-            style = MaterialTheme.typography.bodySmall, color = WarmTextSecondary,
-            textAlign = TextAlign.Center)
+
+        if (verificationId == null) {
+            RegistrationLabel("শিশুর নাম")
+            OutlinedTextField(childName, { childName = it.take(40); error = null },
+                placeholder = { Text("নাম বা ডাকনাম লিখুন") }, singleLine = true,
+                modifier = Modifier.fillMaxWidth().testTag("registration_child_name"),
+                leadingIcon = { Icon(Icons.Filled.Person, null, tint = RegistrationGold) },
+                shape = RoundedCornerShape(18.dp), colors = registrationFieldColors())
+            Spacer(Modifier.height(16.dp))
+            RegistrationLabel("অভিভাবকের মোবাইল নম্বর")
+            OutlinedTextField(mobile, { mobile = it.filter(Char::isDigit).take(11); error = null },
+                prefix = { Text("+880  ", fontWeight = FontWeight.Bold) },
+                placeholder = { Text("1XXXXXXXXX") }, singleLine = true,
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Phone),
+                modifier = Modifier.fillMaxWidth().testTag("registration_guardian_phone"),
+                shape = RoundedCornerShape(18.dp), colors = registrationFieldColors())
+            Spacer(Modifier.height(12.dp))
+            Row(verticalAlignment = Alignment.Top, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                Icon(Icons.Filled.CheckCircle, null, tint = RegistrationTeal, modifier = Modifier.size(20.dp))
+                Text("এই নম্বরে OTP পাঠিয়ে অভিভাবককে যাচাই করা হবে। শিশুর নিজের নম্বর লাগবে না।",
+                    style = MaterialTheme.typography.bodySmall, color = WarmTextSecondary)
+            }
+            Text("রেজিস্ট্রেশন করলে নম্বরটি যাচাই ও অ্যাকাউন্ট সুরক্ষার জন্য Google Firebase-এ পাঠানো ও সংরক্ষণে সম্মতি দেওয়া হবে।",
+                style = MaterialTheme.typography.labelSmall, color = WarmTextSecondary,
+                modifier = Modifier.fillMaxWidth().padding(top = 8.dp))
+        } else {
+            RegistrationLabel("OTP লিখুন")
+            Text("${normalizeBangladeshPhone(mobile)} নম্বরে পাঠানো ৬ সংখ্যার কোড দিন।",
+                style = MaterialTheme.typography.bodyMedium, color = WarmTextSecondary,
+                modifier = Modifier.fillMaxWidth().padding(bottom = 10.dp))
+            OutlinedTextField(otp, { otp = it.filter(Char::isDigit).take(6); error = null },
+                placeholder = { Text("••••••") }, singleLine = true,
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.NumberPassword),
+                modifier = Modifier.fillMaxWidth().testTag("registration_otp"),
+                shape = RoundedCornerShape(18.dp), colors = registrationFieldColors())
+        }
+
+        error?.let {
+            Spacer(Modifier.height(10.dp))
+            Text(it, color = MaterialTheme.colorScheme.error, style = MaterialTheme.typography.bodySmall,
+                modifier = Modifier.fillMaxWidth())
+        }
+        Spacer(Modifier.height(18.dp))
+        Button(onClick = {
+            if (verificationId == null) sendOtp()
+            else if (otp.length == 6) finishRegistration(PhoneAuthProvider.getCredential(verificationId!!, otp))
+            else error = "৬ সংখ্যার OTP লিখুন।"
+        }, enabled = !busy, modifier = Modifier.fillMaxWidth().height(56.dp).testTag("registration_continue_button"),
+            colors = ButtonDefaults.buttonColors(containerColor = RegistrationTeal), shape = RoundedCornerShape(18.dp)) {
+            if (busy) CircularProgressIndicator(Modifier.size(22.dp), color = Color.White, strokeWidth = 2.dp)
+            else {
+                Text(if (verificationId == null) "রেজিস্ট্রেশন করুন" else "OTP যাচাই করুন",
+                    style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
+                Icon(Icons.AutoMirrored.Filled.ArrowForward, null, modifier = Modifier.padding(start = 10.dp))
+            }
+        }
+        Spacer(Modifier.height(22.dp))
+        Surface(color = Color(0xFFFFF1C9), shape = RoundedCornerShape(20.dp), shadowElevation = 4.dp,
+            modifier = Modifier.fillMaxWidth()) {
+            Row(Modifier.padding(16.dp), horizontalArrangement = Arrangement.spacedBy(12.dp),
+                verticalAlignment = Alignment.CenterVertically) {
+                Icon(Icons.Filled.Person, null, tint = RegistrationGold, modifier = Modifier.size(34.dp))
+                Column {
+                    Text("নিরাপদ শেখার প্রোফাইল", fontWeight = FontWeight.Bold, color = WarmTextPrimary)
+                    Text("যাচাই করা নম্বরের সঙ্গে শিশুর নাম ও শেখার প্রোফাইল নিরাপদে যুক্ত থাকবে।",
+                        style = MaterialTheme.typography.bodySmall, color = WarmTextSecondary)
+                }
+            }
+        }
     }
 }
 
-@Composable
-private fun OnboardingPath(icon: androidx.compose.ui.graphics.vector.ImageVector, title: String, subtitle: String,
-                           wash: Color, accent: Color) {
-    Surface(shape = RoundedCornerShape(20.dp), color = wash,
-        border = BorderStroke(1.dp, accent.copy(alpha = 0.16f)), shadowElevation = 6.dp,
-        modifier = Modifier.fillMaxWidth()) {
-        Row(Modifier.background(Brush.horizontalGradient(listOf(Color.White, wash.copy(alpha = 0.88f)))).padding(16.dp),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(13.dp)) {
-            Box(Modifier.size(42.dp).background(accent.copy(alpha = 0.13f), RoundedCornerShape(12.dp)),
-                contentAlignment = Alignment.Center) {
-                Icon(icon, null, tint = accent, modifier = Modifier.size(23.dp))
-            }
-            Column {
-                Text(title, style = MaterialTheme.typography.titleSmall, color = WarmTextPrimary)
-                Text(subtitle, style = MaterialTheme.typography.bodySmall, color = WarmTextSecondary)
-            }
-        }
+@Composable private fun StepMark(active: Boolean) = Box(Modifier.size(50.dp, 5.dp).background(
+    if (active) RegistrationGold else Color(0xFFE3D8BD), CircleShape))
+
+@Composable private fun RegistrationLabel(value: String) = Text(value,
+    style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.Bold, color = WarmTextPrimary,
+    modifier = Modifier.fillMaxWidth().padding(bottom = 7.dp))
+
+@Composable private fun registrationFieldColors() = OutlinedTextFieldDefaults.colors(
+    focusedBorderColor = RegistrationTeal, unfocusedBorderColor = Color(0xFFE7D7B5),
+    focusedContainerColor = Color.White.copy(alpha = 0.82f), unfocusedContainerColor = Color.White.copy(alpha = 0.72f))
+
+private fun normalizeBangladeshPhone(raw: String): String? {
+    val digits = raw.filter(Char::isDigit)
+    val local = when {
+        digits.length == 11 && digits.startsWith("01") -> digits.drop(1)
+        digits.length == 10 && digits.startsWith("1") -> digits
+        digits.length == 13 && digits.startsWith("8801") -> digits.drop(3)
+        else -> return null
     }
+    return if (local.length == 10 && local.startsWith("1")) "+880$local" else null
+}
+
+private tailrec fun Context.findActivity(): Activity? = when (this) {
+    is Activity -> this
+    is ContextWrapper -> baseContext.findActivity()
+    else -> null
 }

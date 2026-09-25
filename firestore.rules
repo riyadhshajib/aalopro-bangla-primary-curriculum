@@ -1,0 +1,17 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /users/{userId} {
+      allow create, read, update: if request.auth != null
+        && request.auth.uid == userId
+        && request.resource.data.keys().hasOnly(['childName', 'guardianPhone', 'phoneVerified', 'app', 'updatedAt'])
+        && request.resource.data.childName is string
+        && request.resource.data.childName.size() >= 2
+        && request.resource.data.childName.size() <= 40
+        && request.resource.data.guardianPhone is string
+        && request.resource.data.guardianPhone.matches('^\\+8801[0-9]{9}$')
+        && request.resource.data.phoneVerified == true;
+      allow delete: if false;
+    }
+  }
+}
