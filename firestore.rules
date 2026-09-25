@@ -10,7 +10,7 @@ service cloud.firestore {
         && request.resource.data.childName.size() <= 40
         && request.resource.data.guardianPhone is string
         && request.resource.data.guardianPhone.matches('^\\+8801[0-9]{9}$')
-        && request.resource.data.phoneVerified == true;
+        && request.resource.data.phoneVerified is bool;
       allow delete: if false;
     }
   }
