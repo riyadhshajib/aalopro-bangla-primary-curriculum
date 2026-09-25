@@ -26,7 +26,7 @@ TESSERACT = Path(r"C:\Program Files\Tesseract-OCR\tesseract.exe")
 PDFTOPPM = shutil.which("pdftoppm") or r"C:\Users\riyad\.cache\codex-runtimes\codex-primary-runtime\dependencies\native\poppler\Library\bin\pdftoppm.exe"
 
 EXERCISE_RE = re.compile(
-    r"প্রশ্ন|অনুশীলন|কাজ|শূন্যস্থান|উত্তর|বলি|লিখি|লেখো|আলোচনা|দলগত|একক কাজ|activity|answer|write|fill in",
+    r"প্রশ্ন|অনুশীলন|শূন্যস্থান|উত্তর|বলি|লিখি|লেখো|আলোচনা কর|দলগত কাজ|একক কাজ|activity|answer the|write|fill in",
     re.IGNORECASE,
 )
 

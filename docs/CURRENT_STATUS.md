@@ -20,6 +20,7 @@ Last checked: 2026-09-25 (Asia/Singapore)
 - The official 2026 chapter structures for Hindu, Buddhist and Christian Religion have been added for Classes 3-5 and are visible beside the existing Islam subject. These new chapters are deliberately catalog-only until their printed exercises receive visual editorial review.
 - Page-number answer routing now returns reviewed page Q&A as Q&A, and no longer promotes generated page guidance to a verified answer. Harmless punctuation differences are normalized for exact reviewed-question matching.
 - The expanded regression suite now contains 72 tests, all passing.
+- Bengali+English OCR has indexed all nine optional religion PDFs and produced an initial 634-page visual editorial queue. These are candidate exercise pages, not approved answers; each accepted entry still requires comparison with the rendered page before it can enter the verified offline bank.
 
 ## Not yet proven complete
 
