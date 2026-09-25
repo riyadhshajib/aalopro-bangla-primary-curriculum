@@ -93,14 +93,19 @@ object AdditionalReligiousCurriculum {
                 nameBangla = book.name,
                 iconName = "religion",
                 topics = book.chapters.mapIndexed { index, title ->
+                    val reviewedQa = if (level.levelNumber == 3 && book.id == "hindu" && index == 0)
+                        FullOfflineQuestionBank.forPages(3, "hindu", 6, 20) else emptyList()
                     CurriculumTopic(
                         id = "nctb2026_c${level.levelNumber}_${book.id}_${index + 1}",
                         titleBangla = title,
                         summaryBangla = "২০২৬ সালের ${level.classNameBangla} ${book.name} বইয়ের ${index + 1} নম্বর অধ্যায়।",
-                        detailsBangla = "অধ্যায়ের ছাপা প্রশ্ন ও উত্তর সম্পাদকীয়ভাবে যাচাই চলছে। যাচাই শেষ না হওয়া পর্যন্ত অনুমানভিত্তিক উত্তর দেখানো হবে না।",
+                        detailsBangla = if (reviewedQa.isNotEmpty())
+                            "এই অধ্যায়ের ${reviewedQa.size}টি প্রশ্ন ও উত্তর সরকারি বইয়ের দৃশ্যমান পাঠের সঙ্গে মিলিয়ে যাচাই করা হয়েছে।"
+                        else "অধ্যায়ের ছাপা প্রশ্ন ও উত্তর সম্পাদকীয়ভাবে যাচাই চলছে। যাচাই শেষ না হওয়া পর্যন্ত অনুমানভিত্তিক উত্তর দেখানো হবে না।",
                         learningObjectives = listOf("অধ্যায়ের মূল বিষয় চেনা", "বইয়ের তথ্য থেকে উত্তর খোঁজা", "শ্রদ্ধা ও সহাবস্থানের আচরণ শেখা"),
+                        qaList = reviewedQa,
                         parentTeachingTips = listOf("শিশুকে তার নিজের ধর্মীয় বই ও শিক্ষকের নির্দেশনা অনুযায়ী শেখান।", "অন্য ধর্ম ও বিশ্বাস সম্পর্কে সম্মানজনক ভাষা ব্যবহার করতে উৎসাহ দিন।"),
-                        catalogOnly = true
+                        catalogOnly = reviewedQa.isEmpty()
                     )
                 }
             )

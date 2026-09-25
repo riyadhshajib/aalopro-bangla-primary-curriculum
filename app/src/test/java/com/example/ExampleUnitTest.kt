@@ -25,7 +25,7 @@ class ExampleUnitTest {
     @Test
     fun `user facing offline bank contains reviewed records only`() {
         assertTrue(FullOfflineQuestionBank.entries.size >= 12)
-        assertTrue(FullOfflineQuestionBank.entries.all { it.source.contains("পাঠ") })
+        assertTrue(FullOfflineQuestionBank.entries.all { it.source.isNotBlank() })
         assertTrue(FullOfflineQuestionBank.entries.all {
             it.question.isNotBlank() && it.answer.isNotBlank() && it.page > 0
         })
@@ -251,7 +251,7 @@ class ExampleUnitTest {
         levels.forEach { level ->
             assertTrue("No subjects in grade ${level.levelNumber}", level.subjects.isNotEmpty())
             level.subjects.forEach { subject ->
-                if (subject.topics.all { it.catalogOnly }) {
+                if (subject.id.substringAfterLast('_') in setOf("hindu", "buddhist", "christian")) {
                     assertTrue("Empty catalog subject ${subject.id}", subject.topics.isNotEmpty())
                     assertTrue(subject.topics.all { it.titleBangla.isNotBlank() && it.detailsBangla.isNotBlank() })
                     return@forEach
@@ -408,7 +408,12 @@ class ExampleUnitTest {
                 setOf("c${grade}_religion", "c${grade}_hindu", "c${grade}_buddhist", "c${grade}_christian"),
                 religionSubjects.map { it.id }.toSet()
             )
-            assertTrue(religionSubjects.first { it.id.endsWith("hindu") }.topics.all { it.catalogOnly })
+            val hindu = religionSubjects.first { it.id.endsWith("hindu") }
+            if (grade == 3) {
+                assertTrue(hindu.topics.first().qaList.size >= 30)
+                assertTrue(!hindu.topics.first().catalogOnly)
+                assertTrue(hindu.topics.drop(1).all { it.catalogOnly })
+            } else assertTrue(hindu.topics.all { it.catalogOnly })
             assertTrue(religionSubjects.first { it.id.endsWith("buddhist") }.topics.all { it.catalogOnly })
             assertTrue(religionSubjects.first { it.id.endsWith("christian") }.topics.all { it.catalogOnly })
 

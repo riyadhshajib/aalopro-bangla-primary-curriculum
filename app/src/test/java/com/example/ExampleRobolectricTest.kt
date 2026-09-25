@@ -97,7 +97,7 @@ class ExampleRobolectricTest {
     assertEquals(listOf(1, 2, 3, 4, 5), levels.map { it.levelNumber })
     levels.forEach { level ->
       level.subjects.forEach { subject ->
-        if (subject.topics.all { it.catalogOnly }) {
+        if (subject.id.substringAfterLast('_') in setOf("hindu", "buddhist", "christian")) {
           assertTrue("Empty catalog subject ${subject.id}", subject.topics.isNotEmpty())
           assertTrue(subject.topics.all { it.titleBangla.isNotBlank() && it.detailsBangla.isNotBlank() })
           return@forEach
@@ -134,7 +134,7 @@ class ExampleRobolectricTest {
     assertEquals(setOf("c3_bangla", "c3_english", "c3_math", "c3_science", "c3_social", "c3_religion",
       "c3_hindu", "c3_buddhist", "c3_christian"),
       level.subjects.map { it.id }.toSet())
-    level.subjects.filterNot { subject -> subject.topics.all { it.catalogOnly } }.forEach { subject ->
+    level.subjects.filterNot { it.id.substringAfterLast('_') in setOf("hindu", "buddhist", "christian") }.forEach { subject ->
       subject.topics.forEach { topic ->
         assertTrue("No visual pages for ${topic.id}", topic.visualExercises.isNotEmpty())
         topic.visualExercises.forEach { exercise ->
@@ -180,7 +180,7 @@ class ExampleRobolectricTest {
     assertEquals(setOf("c4_bangla", "c4_english", "c4_math", "c4_science", "c4_social", "c4_religion",
       "c4_hindu", "c4_buddhist", "c4_christian"),
       level.subjects.map { it.id }.toSet())
-    level.subjects.filterNot { subject -> subject.topics.all { it.catalogOnly } }.forEach { subject ->
+    level.subjects.filterNot { it.id.substringAfterLast('_') in setOf("hindu", "buddhist", "christian") }.forEach { subject ->
       subject.topics.forEach { topic ->
         assertTrue("Expected offline QAs for ${topic.id}", topic.qaList.size >= 3)
         assertTrue("No visual pages for ${topic.id}", topic.visualExercises.isNotEmpty())
@@ -212,7 +212,7 @@ class ExampleRobolectricTest {
     assertEquals(setOf("c5_bangla", "c5_english", "c5_math", "c5_science", "c5_social", "c5_religion",
       "c5_hindu", "c5_buddhist", "c5_christian"),
       level.subjects.map { it.id }.toSet())
-    level.subjects.filterNot { subject -> subject.topics.all { it.catalogOnly } }.forEach { subject ->
+    level.subjects.filterNot { it.id.substringAfterLast('_') in setOf("hindu", "buddhist", "christian") }.forEach { subject ->
       subject.topics.forEach { topic ->
         assertTrue("Expected offline QAs for ${topic.id}", topic.qaList.size >= 3)
         assertTrue("No visual pages for ${topic.id}", topic.visualExercises.isNotEmpty())
