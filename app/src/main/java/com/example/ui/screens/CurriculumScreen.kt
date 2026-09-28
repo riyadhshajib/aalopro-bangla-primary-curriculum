@@ -1994,6 +1994,7 @@ private fun getSubjectIcon(iconName: String): ImageVector {
         "social", "history" -> Icons.Filled.Public
         "ict" -> Icons.Filled.Computer
         "commerce", "finance", "accounting" -> Icons.Filled.School
+        "scholarship" -> Icons.Filled.School
         "health" -> Icons.Filled.Favorite
         "religion", "moral" -> Icons.Filled.MenuBook
         else -> Icons.Filled.MenuBook

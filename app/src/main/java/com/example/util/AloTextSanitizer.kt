@@ -13,7 +13,9 @@ object AloTextSanitizer {
     private val HASH_HEADER_REGEX = "(?m)^#{1,6}\\s*".toRegex()
     private val BACKTICK_BLOCK_REGEX = "```(?:[a-zA-Z]*\n)?([\\s\\S]*?)```".toRegex()
     private val INLINE_CODE_REGEX = "`([^`]+)`".toRegex()
-    private val LEADING_GREETING_REGEX = Regex("^(?:নমস্কার|হ্যালো|আসসালামু আলাইকুম|Namaskar|Namaste|Hello|Hi)[!।,.ঃ:]+\\s*", RegexOption.IGNORE_CASE)
+    // A comma can be part of a textbook answer, for example
+    // "Hello, Riya. How are you today?". Do not strip that instructional text.
+    private val LEADING_GREETING_REGEX = Regex("^(?:নমস্কার|হ্যালো|আসসালামু আলাইকুম|Namaskar|Namaste|Hello|Hi)[!।.ঃ:]+\\s*", RegexOption.IGNORE_CASE)
     private val LEADING_SELF_INTRO_REGEX = Regex("^আমি\\s+আলোপ্রো(?:\\s*\\(AaloPro\\))?[^।.!\\n]*[।.!]\\s*", RegexOption.IGNORE_CASE)
 
     // Decorative emojis that cause visual clutter

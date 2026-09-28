@@ -9,6 +9,30 @@ package com.example.data.model
 object AdditionalReligiousCurriculum {
     private data class Book(val id: String, val name: String, val chapters: List<String>)
 
+    /**
+     * PDF source-page ranges, not the printed folio numbers shown inside the books.
+     * FullOfflineQuestionBank and the bundled page assets both use these source-page numbers.
+     * The boundaries come from each supplied book's table of contents, translated from printed
+     * folio numbers to the PDF source-page numbers used by the bundled assets.
+     */
+    private val sourcePageRangesByGrade = mapOf(
+        3 to mapOf(
+            "hindu" to listOf(6..21, 22..34, 35..48, 49..75, 76..94),
+            "buddhist" to listOf(7..18, 19..24, 25..30, 31..38, 39..46, 47..54, 55..64, 65..76, 77..94),
+            "christian" to listOf(8..27, 28..47, 48..75, 76..95, 96..114)
+        ),
+        4 to mapOf(
+            "hindu" to listOf(6..18, 19..38, 39..60, 61..91, 92..110),
+            "buddhist" to listOf(7..27, 28..40, 41..58, 59..81, 82..94),
+            "christian" to listOf(8..27, 28..51, 52..93, 94..129, 130..150)
+        ),
+        5 to mapOf(
+            "hindu" to listOf(6..25, 26..45, 46..60, 61..86, 87..102),
+            "buddhist" to listOf(7..36, 37..47, 48..71, 72..89, 90..106),
+            "christian" to listOf(8..33, 34..61, 62..89, 90..117, 118..150)
+        )
+    )
+
     private val booksByGrade = mapOf(
         3 to listOf(
             Book("hindu", "হিন্দুধর্ম ও নৈতিক শিক্ষা", listOf(
@@ -93,12 +117,9 @@ object AdditionalReligiousCurriculum {
                 nameBangla = book.name,
                 iconName = "religion",
                 topics = book.chapters.mapIndexed { index, title ->
-                    val reviewedRange = when {
-                        level.levelNumber == 3 && book.id == "hindu" && index == 0 -> 6..20
-                        level.levelNumber == 3 && book.id == "buddhist" && index == 0 -> 7..16
-                        level.levelNumber == 3 && book.id == "buddhist" && index == 1 -> 17..24
-                        else -> null
-                    }
+                    val reviewedRange = sourcePageRangesByGrade[level.levelNumber]
+                        ?.get(book.id)
+                        ?.getOrNull(index)
                     val reviewedEntries = reviewedRange?.let { range ->
                         FullOfflineQuestionBank.entries.filter {
                             it.grade == level.levelNumber && it.book == book.id && it.page in range

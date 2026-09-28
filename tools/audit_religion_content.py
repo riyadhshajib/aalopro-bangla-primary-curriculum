@@ -16,6 +16,7 @@ MANIFEST = ROOT / "build/reports/curriculum/pdf_asset_manifest.csv"
 ASSETS = ROOT / "app/src/main/assets/books"
 BATCHES = ROOT / "build/reports/curriculum/religion-review/batches"
 VERIFIED = ROOT / "app/src/main/java/com/example/data/model/VerifiedOfflineQuestionBank.kt"
+AGENT_VERIFIED = ROOT / "app/src/main/java/com/example/data/model/VerifiedAgentQuestionBank.kt"
 OUT = ROOT / "build/reports/curriculum/religion-content-audit.md"
 SUBJECTS = {"hindu", "buddhist", "christian"}
 ENTRY_RE = re.compile(r'OfflineBookQuestion\(\s*(\d+)\s*,\s*"([^"]+)"')
@@ -26,7 +27,8 @@ def main() -> None:
         row for row in csv.DictReader(MANIFEST.open(encoding="utf-8-sig"))
         if row["subject"] in SUBJECTS and int(row["grade"]) in range(3, 6)
     ]
-    verified_counts = Counter((int(g), subject) for g, subject in ENTRY_RE.findall(VERIFIED.read_text(encoding="utf-8")))
+    verified_text = VERIFIED.read_text(encoding="utf-8") + "\n" + AGENT_VERIFIED.read_text(encoding="utf-8")
+    verified_counts = Counter((int(g), subject) for g, subject in ENTRY_RE.findall(verified_text))
     review_counts: Counter[tuple[int, str, str]] = Counter()
     focused_counts: Counter[tuple[int, str]] = Counter()
     for batch in BATCHES.glob("g*-*-batch-*.csv"):

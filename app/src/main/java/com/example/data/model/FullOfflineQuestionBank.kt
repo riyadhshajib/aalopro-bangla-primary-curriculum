@@ -1,7 +1,18 @@
 package com.example.data.model
 
 /** Generated from the supplied 2026 NCTB PDFs. Do not hand-edit; run generate_full_offline_question_bank.py. */
-data class OfflineBookQuestion(val grade:Int,val book:String,val page:Int,val source:String,val question:String,val answer:String)
+data class OfflineBookQuestion(
+    val grade: Int,
+    val book: String,
+    val page: Int,
+    val source: String,
+    val question: String,
+    val answer: String,
+    val explanation: String = "",
+    val followUpBangla: String = "",
+    val followUpBanglish: String = "",
+    val followUpEnglish: String = ""
+)
 
 object FullOfflineQuestionBank {
   // OCR output is retained only as an editorial audit queue. It must never be shown as an answer.
@@ -398,15 +409,24 @@ object FullOfflineQuestionBank {
       .filter { it.question.isNotBlank() && it.answer.isNotBlank() }
       .distinctBy { it.question.lowercase() }
       .toList()
-  private fun matchKey(value: String): String = value.lowercase()
-      .replace(Regex("[?!.।,:;“”\"‘’()\\-–—]"), " ")
-      .replace(Regex("\\s+"), " ")
-      .trim()
+  private val retrievalGate by lazy { VerifiedAnswerRetrievalGate(entries) }
 
   fun exact(grade:Int, query:String): OfflineBookQuestion? {
-      val wanted = matchKey(query)
-      return entries.firstOrNull { it.grade == grade && matchKey(it.question) == wanted }
+      return (retrievalGate.retrieve(query, grade) as? VerifiedAnswerRetrievalResult.Match)?.entry
   }
+  fun retrieveVerified(
+      grade: Int,
+      query: String,
+      candidateProvider: VerifiedAnswerCandidateProvider,
+  ): VerifiedAnswerRetrievalResult = VerifiedAnswerRetrievalGate(
+      entries,
+      candidateProvider,
+      VerifiedAnswerRetrievalConfig(
+          semanticEnabled = true,
+          minimumConfidence = 0.84,
+          minimumMargin = 0.01,
+      ),
+  ).retrieve(query, grade)
   fun all(grade:Int, book:String): List<TopicQA> = entries.asSequence().filter { it.grade==grade && it.book==book }.map { TopicQA(it.question,it.answer) }.toList()
   fun forPages(grade:Int, book:String, start:Int, end:Int): List<TopicQA> = entries.asSequence().filter { it.grade==grade && it.book==book && it.page in start..end }.map { TopicQA(it.question,it.answer) }.toList()
 }

@@ -1,0 +1,611 @@
+{
+  "model": "Xenova/multilingual-e5-small model_int8.onnx",
+  "bank": "app/src/main/java/com/example/data/model/VerifiedOfflineQuestionBank.kt",
+  "verified_entries": 90,
+  "exact_question": {
+    "cases": 90,
+    "top1": 0.9667,
+    "top3": 1.0
+  },
+  "baseline_paraphrase": {
+    "cases": 36,
+    "languages": {
+      "bn": {
+        "cases": 12,
+        "top1": 0.8333,
+        "top3": 1.0
+      },
+      "banglish": {
+        "cases": 12,
+        "top1": 0.0833,
+        "top3": 0.1667
+      },
+      "en": {
+        "cases": 12,
+        "top1": 0.75,
+        "top3": 1.0
+      }
+    },
+    "overall": {
+      "cases": 36,
+      "top1": 0.5556,
+      "top3": 0.7222
+    },
+    "false_positive_count": 16
+  },
+  "paraphrase": {
+    "preprocessing": "Banglish-only deterministic romanized verified-bank alias plus 2:1 alias/E5 RRF",
+    "cases": 36,
+    "languages": {
+      "bn": {
+        "cases": 12,
+        "top1": 0.8333,
+        "top3": 1.0
+      },
+      "banglish": {
+        "cases": 12,
+        "top1": 0.5,
+        "top3": 0.6667
+      },
+      "en": {
+        "cases": 12,
+        "top1": 0.75,
+        "top3": 1.0
+      }
+    },
+    "overall": {
+      "cases": 36,
+      "top1": 0.6944,
+      "top3": 0.8889
+    }
+  },
+  "false_positive_count": 11,
+  "false_positives": [
+    {
+      "language": "bn",
+      "query": "সিদ্ধার্থের সবচেয়ে পছন্দের ঘোড়ার নাম বলো।",
+      "expected_question": "সিদ্ধার্থের প্রিয় ঘোড়ার নাম কী ছিল?",
+      "top1_question": "সিদ্ধার্থের প্রিয় ঘোড়ার নাম ছিল কন্থক—শুদ্ধ না অশুদ্ধ?",
+      "top1_score": 0.8627,
+      "top1_margin": 0.0002,
+      "expected_rank": 2,
+      "alias_match": null
+    },
+    {
+      "language": "bn",
+      "query": "ত্রিপিটক বলতে কী বোঝায়?",
+      "expected_question": "ত্রিপিটক কাকে বলে?",
+      "top1_question": "মিলকরণ করো: ত্রিপিটক শব্দের অর্থ; বুদ্ধ যেসব ধর্মোপদেশ দান করেছেন; সূত্রাকারে দেশিত ধর্মোপদেশ; মহাবর্গ ও চুল্লবর্গ; ত্রিপিটকের তিনটি ভাগ।",
+      "top1_score": 0.8983,
+      "top1_margin": 0.0024,
+      "expected_rank": 3,
+      "alias_match": null
+    },
+    {
+      "language": "banglish",
+      "query": "Shohor ar gramer moddhe ki ki parthokko ache?",
+      "expected_question": "গ্রাম ও শহরের মিল-অমিল বলি।",
+      "top1_question": "অভিধর্ম পিটকে সাতটি গ্রন্থ আছে—শুদ্ধ না অশুদ্ধ?",
+      "top1_score": 0.0458,
+      "top1_margin": 0.002,
+      "expected_rank": 24,
+      "alias_match": {
+        "matched_question": "গ্রাম ও শহরের পার্থক্য আরেকটু বুঝিয়ে দাও।",
+        "similarity": 0.6481
+      }
+    },
+    {
+      "language": "banglish",
+      "query": "Shob srishtike amader bhalobasha uchit keno?",
+      "expected_question": "আমরা সকল সৃষ্টিকে ভালোবাসব কেন?",
+      "top1_question": "শিশুপার্কে ঘুরতে আমিনের কেন ভালো লাগল?",
+      "top1_score": 0.0448,
+      "top1_margin": 0.0007,
+      "expected_rank": 3,
+      "alias_match": {
+        "matched_question": "আমরা সকল সৃষ্টিকে ভালোবাসব কেন?",
+        "similarity": 0.7543
+      }
+    },
+    {
+      "language": "banglish",
+      "query": "Upashona bolte ki bojhay?",
+      "expected_question": "উপাসনার অর্থ কী?",
+      "top1_question": "চারি নিমিত্ত দর্শন করে সিদ্ধার্থ গৌতম কী বুঝতে পেরেছিলেন?",
+      "top1_score": 0.0461,
+      "top1_margin": 0.0025,
+      "expected_rank": 10,
+      "alias_match": {
+        "matched_question": "উপাসনা ও প্রার্থনার উপকারিতা কী?",
+        "similarity": 0.7092
+      }
+    },
+    {
+      "language": "banglish",
+      "query": "Tripitok bolte ki bojhay?",
+      "expected_question": "ত্রিপিটক কাকে বলে?",
+      "top1_question": "মিলকরণ করো: ত্রিপিটক শব্দের অর্থ; বুদ্ধ যেসব ধর্মোপদেশ দান করেছেন; সূত্রাকারে দেশিত ধর্মোপদেশ; মহাবর্গ ও চুল্লবর্গ; ত্রিপিটকের তিনটি ভাগ।",
+      "top1_score": 0.0484,
+      "top1_margin": 0.0002,
+      "expected_rank": 2,
+      "alias_match": {
+        "matched_question": "‘নিমিত্ত’ বলতে কী বোঝায়?",
+        "similarity": 0.6932
+      }
+    },
+    {
+      "language": "banglish",
+      "query": "Buddha koto bochor dhormo prochar korechhilen?",
+      "expected_question": "গৌতম বুদ্ধ কত বছর ধর্ম প্রচার করেন?",
+      "top1_question": "শূন্যস্থান পূরণ করো: বুদ্ধ সূত্রাকারে অনেক ___ দান করেছেন।",
+      "top1_score": 0.0479,
+      "top1_margin": 0.0024,
+      "expected_rank": 7,
+      "alias_match": {
+        "matched_question": "গৌতম বুদ্ধ কত বছর ধর্ম প্রচার করেন?",
+        "similarity": 0.8943
+      }
+    },
+    {
+      "language": "banglish",
+      "query": "Sutro pitok porle ki upokar hoy?",
+      "expected_question": "সূত্র পিটক পাঠের উপকারিতা কী কী?",
+      "top1_question": "পারাজিকা গ্রন্থটি সূত্র পিটকের অন্তর্ভুক্ত—শুদ্ধ না অশুদ্ধ?",
+      "top1_score": 0.0469,
+      "top1_margin": 0.001,
+      "expected_rank": 7,
+      "alias_match": {
+        "matched_question": "সূত্র পিটক পাঠের উপকারিতা কী কী?",
+        "similarity": 0.7613
+      }
+    },
+    {
+      "language": "en",
+      "query": "How are a village and a city different?",
+      "expected_question": "গ্রাম ও শহরের মিল-অমিল বলি।",
+      "top1_question": "গ্রাম ও শহরের পার্থক্য আরেকটু বুঝিয়ে দাও।",
+      "top1_score": 0.8424,
+      "top1_margin": 0.0047,
+      "expected_rank": 2,
+      "alias_match": null
+    },
+    {
+      "language": "en",
+      "query": "What does worship mean?",
+      "expected_question": "উপাসনার অর্থ কী?",
+      "top1_question": "প্রার্থনা কী?",
+      "top1_score": 0.7816,
+      "top1_margin": 0.0001,
+      "expected_rank": 3,
+      "alias_match": null
+    },
+    {
+      "language": "en",
+      "query": "What objects make up the solar system?",
+      "expected_question": "সৌরজগৎ কী কী নিয়ে গঠিত?",
+      "top1_question": "মহাবিশ্ব কী?",
+      "top1_score": 0.8266,
+      "top1_margin": 0.0125,
+      "expected_rank": 2,
+      "alias_match": null
+    }
+  ],
+  "empirical_top1_gate": {
+    "minimum_similarity": 0.84,
+    "minimum_top1_margin": 0.01,
+    "accepted": 11,
+    "accepted_correct": 11,
+    "coverage": 0.3056,
+    "observed_precision": 1.0,
+    "warning": "Small labelled set; use as a conservative starting gate, not a calibrated probability."
+  },
+  "empirical_top3_gate": {
+    "minimum_top1_similarity": 0.85,
+    "minimum_top1_margin": 0.0,
+    "accepted": 14,
+    "accepted_with_expected_in_top3": 14,
+    "coverage": 0.3889,
+    "observed_recall": 1.0,
+    "recommendation": "Return top 3 only for deterministic disambiguation; never auto-answer from ranks 2-3."
+  },
+  "cases": [
+    {
+      "language": "bn",
+      "query": "শহরে গিয়ে আমিন কোন কোন জিনিস দেখে অবাক হয়েছিল?",
+      "expected_question": "আমিন শহরে কী কী দেখে অবাক হয়েছে?",
+      "top1_question": "আমিন শহরে কী কী দেখে অবাক হয়েছে?",
+      "top1_score": 0.9006,
+      "top1_margin": 0.0409,
+      "expected_rank": 1,
+      "alias_match": null
+    },
+    {
+      "language": "bn",
+      "query": "শহর ও গ্রামের মধ্যে কী কী তফাৎ আছে?",
+      "expected_question": "গ্রাম ও শহরের মিল-অমিল বলি।",
+      "top1_question": "গ্রাম ও শহরের মিল-অমিল বলি।",
+      "top1_score": 0.8814,
+      "top1_margin": 0.0132,
+      "expected_rank": 1,
+      "alias_match": null
+    },
+    {
+      "language": "bn",
+      "query": "আমিনের ওই ফুপাতো বোনটির নাম কী?",
+      "expected_question": "আমিনের ফুপাতো বোন কে?",
+      "top1_question": "আমিনের ফুপাতো বোন কে?",
+      "top1_score": 0.8967,
+      "top1_margin": 0.0351,
+      "expected_rank": 1,
+      "alias_match": null
+    },
+    {
+      "language": "bn",
+      "query": "সব সৃষ্ট জীবকে আমাদের ভালোবাসা উচিত কেন?",
+      "expected_question": "আমরা সকল সৃষ্টিকে ভালোবাসব কেন?",
+      "top1_question": "আমরা সকল সৃষ্টিকে ভালোবাসব কেন?",
+      "top1_score": 0.8677,
+      "top1_margin": 0.0115,
+      "expected_rank": 1,
+      "alias_match": null
+    },
+    {
+      "language": "bn",
+      "query": "উপাসনা বলতে কী বোঝানো হয়?",
+      "expected_question": "উপাসনার অর্থ কী?",
+      "top1_question": "উপাসনার অর্থ কী?",
+      "top1_score": 0.9147,
+      "top1_margin": 0.0391,
+      "expected_rank": 1,
+      "alias_match": null
+    },
+    {
+      "language": "bn",
+      "query": "কোন কোন বস্তু নিয়ে সৌরজগৎ তৈরি?",
+      "expected_question": "সৌরজগৎ কী কী নিয়ে গঠিত?",
+      "top1_question": "সৌরজগৎ কী কী নিয়ে গঠিত?",
+      "top1_score": 0.8905,
+      "top1_margin": 0.0369,
+      "expected_rank": 1,
+      "alias_match": null
+    },
+    {
+      "language": "bn",
+      "query": "দিন আর রাত হওয়ার কারণ কী?",
+      "expected_question": "দিন-রাত কীভাবে হয়?",
+      "top1_question": "দিন-রাত কীভাবে হয়?",
+      "top1_score": 0.8743,
+      "top1_margin": 0.0129,
+      "expected_rank": 1,
+      "alias_match": null
+    },
+    {
+      "language": "bn",
+      "query": "সিদ্ধার্থ গৌতমের স্ত্রী কে ছিলেন?",
+      "expected_question": "সিদ্ধার্থ গৌতমের স্ত্রীর নাম কী ছিল?",
+      "top1_question": "সিদ্ধার্থ গৌতমের স্ত্রীর নাম কী ছিল?",
+      "top1_score": 0.8931,
+      "top1_margin": 0.0523,
+      "expected_rank": 1,
+      "alias_match": null
+    },
+    {
+      "language": "bn",
+      "query": "সিদ্ধার্থের সবচেয়ে পছন্দের ঘোড়ার নাম বলো।",
+      "expected_question": "সিদ্ধার্থের প্রিয় ঘোড়ার নাম কী ছিল?",
+      "top1_question": "সিদ্ধার্থের প্রিয় ঘোড়ার নাম ছিল কন্থক—শুদ্ধ না অশুদ্ধ?",
+      "top1_score": 0.8627,
+      "top1_margin": 0.0002,
+      "expected_rank": 2,
+      "alias_match": null
+    },
+    {
+      "language": "bn",
+      "query": "ত্রিপিটক বলতে কী বোঝায়?",
+      "expected_question": "ত্রিপিটক কাকে বলে?",
+      "top1_question": "মিলকরণ করো: ত্রিপিটক শব্দের অর্থ; বুদ্ধ যেসব ধর্মোপদেশ দান করেছেন; সূত্রাকারে দেশিত ধর্মোপদেশ; মহাবর্গ ও চুল্লবর্গ; ত্রিপিটকের তিনটি ভাগ।",
+      "top1_score": 0.8983,
+      "top1_margin": 0.0024,
+      "expected_rank": 3,
+      "alias_match": null
+    },
+    {
+      "language": "bn",
+      "query": "বুদ্ধ কত বছর ধরে ধর্মের বাণী প্রচার করেছিলেন?",
+      "expected_question": "গৌতম বুদ্ধ কত বছর ধর্ম প্রচার করেন?",
+      "top1_question": "গৌতম বুদ্ধ কত বছর ধর্ম প্রচার করেন?",
+      "top1_score": 0.8845,
+      "top1_margin": 0.0069,
+      "expected_rank": 1,
+      "alias_match": null
+    },
+    {
+      "language": "bn",
+      "query": "সূত্র পিটক পড়লে কী লাভ হয়?",
+      "expected_question": "সূত্র পিটক পাঠের উপকারিতা কী কী?",
+      "top1_question": "সূত্র পিটক পাঠের উপকারিতা কী কী?",
+      "top1_score": 0.8832,
+      "top1_margin": 0.0221,
+      "expected_rank": 1,
+      "alias_match": null
+    },
+    {
+      "language": "banglish",
+      "query": "Shohore giye Amin kon kon jinis dekhe obak hoyechilo?",
+      "expected_question": "আমিন শহরে কী কী দেখে অবাক হয়েছে?",
+      "top1_question": "আমিন শহরে কী কী দেখে অবাক হয়েছে?",
+      "top1_score": 0.0485,
+      "top1_margin": 0.001,
+      "expected_rank": 1,
+      "alias_match": {
+        "matched_question": "আমিন শহরে কী কী দেখে অবাক হয়েছে?",
+        "similarity": 0.7099
+      }
+    },
+    {
+      "language": "banglish",
+      "query": "Shohor ar gramer moddhe ki ki parthokko ache?",
+      "expected_question": "গ্রাম ও শহরের মিল-অমিল বলি।",
+      "top1_question": "অভিধর্ম পিটকে সাতটি গ্রন্থ আছে—শুদ্ধ না অশুদ্ধ?",
+      "top1_score": 0.0458,
+      "top1_margin": 0.002,
+      "expected_rank": 24,
+      "alias_match": {
+        "matched_question": "গ্রাম ও শহরের পার্থক্য আরেকটু বুঝিয়ে দাও।",
+        "similarity": 0.6481
+      }
+    },
+    {
+      "language": "banglish",
+      "query": "Aminer oi fupato boner nam ki?",
+      "expected_question": "আমিনের ফুপাতো বোন কে?",
+      "top1_question": "আমিনের ফুপাতো বোন কে?",
+      "top1_score": 0.05,
+      "top1_margin": 0.0019,
+      "expected_rank": 1,
+      "alias_match": {
+        "matched_question": "আমিনের ফুপাতো বোন কে?",
+        "similarity": 0.8864
+      }
+    },
+    {
+      "language": "banglish",
+      "query": "Shob srishtike amader bhalobasha uchit keno?",
+      "expected_question": "আমরা সকল সৃষ্টিকে ভালোবাসব কেন?",
+      "top1_question": "শিশুপার্কে ঘুরতে আমিনের কেন ভালো লাগল?",
+      "top1_score": 0.0448,
+      "top1_margin": 0.0007,
+      "expected_rank": 3,
+      "alias_match": {
+        "matched_question": "আমরা সকল সৃষ্টিকে ভালোবাসব কেন?",
+        "similarity": 0.7543
+      }
+    },
+    {
+      "language": "banglish",
+      "query": "Upashona bolte ki bojhay?",
+      "expected_question": "উপাসনার অর্থ কী?",
+      "top1_question": "চারি নিমিত্ত দর্শন করে সিদ্ধার্থ গৌতম কী বুঝতে পেরেছিলেন?",
+      "top1_score": 0.0461,
+      "top1_margin": 0.0025,
+      "expected_rank": 10,
+      "alias_match": {
+        "matched_question": "উপাসনা ও প্রার্থনার উপকারিতা কী?",
+        "similarity": 0.7092
+      }
+    },
+    {
+      "language": "banglish",
+      "query": "Kon kon bostu niye shourojogot toiri?",
+      "expected_question": "সৌরজগৎ কী কী নিয়ে গঠিত?",
+      "top1_question": "সৌরজগৎ কী কী নিয়ে গঠিত?",
+      "top1_score": 0.0478,
+      "top1_margin": 0.0004,
+      "expected_rank": 1,
+      "alias_match": {
+        "matched_question": "সৌরজগৎ কী কী নিয়ে গঠিত?",
+        "similarity": 0.7208
+      }
+    },
+    {
+      "language": "banglish",
+      "query": "Din ar raat howar karon ki?",
+      "expected_question": "দিন-রাত কীভাবে হয়?",
+      "top1_question": "দিন-রাত কীভাবে হয়?",
+      "top1_score": 0.0492,
+      "top1_margin": 0.0041,
+      "expected_rank": 1,
+      "alias_match": {
+        "matched_question": "মিলকরণ করো: ত্রিপিটক শব্দের অর্থ; বুদ্ধ যেসব ধর্মোপদেশ দান করেছেন; সূত্রাকারে দেশিত ধর্মোপদেশ; মহাবর্গ ও চুল্লবর্গ; ত্রিপিটকের তিনটি ভাগ।",
+        "similarity": 0.6905
+      }
+    },
+    {
+      "language": "banglish",
+      "query": "Siddhartha Gautamer stri ke chhilen?",
+      "expected_question": "সিদ্ধার্থ গৌতমের স্ত্রীর নাম কী ছিল?",
+      "top1_question": "সিদ্ধার্থ গৌতমের স্ত্রীর নাম কী ছিল?",
+      "top1_score": 0.049,
+      "top1_margin": 0.0006,
+      "expected_rank": 1,
+      "alias_match": {
+        "matched_question": "সিদ্ধার্থ গৌতমের স্ত্রীর নাম কী ছিল?",
+        "similarity": 0.8173
+      }
+    },
+    {
+      "language": "banglish",
+      "query": "Siddharthar priyo ghorar nam bolo.",
+      "expected_question": "সিদ্ধার্থের প্রিয় ঘোড়ার নাম কী ছিল?",
+      "top1_question": "সিদ্ধার্থের প্রিয় ঘোড়ার নাম কী ছিল?",
+      "top1_score": 0.0492,
+      "top1_margin": 0.001,
+      "expected_rank": 1,
+      "alias_match": {
+        "matched_question": "সিদ্ধার্থের প্রিয় ঘোড়ার নাম কী ছিল?",
+        "similarity": 0.878
+      }
+    },
+    {
+      "language": "banglish",
+      "query": "Tripitok bolte ki bojhay?",
+      "expected_question": "ত্রিপিটক কাকে বলে?",
+      "top1_question": "মিলকরণ করো: ত্রিপিটক শব্দের অর্থ; বুদ্ধ যেসব ধর্মোপদেশ দান করেছেন; সূত্রাকারে দেশিত ধর্মোপদেশ; মহাবর্গ ও চুল্লবর্গ; ত্রিপিটকের তিনটি ভাগ।",
+      "top1_score": 0.0484,
+      "top1_margin": 0.0002,
+      "expected_rank": 2,
+      "alias_match": {
+        "matched_question": "‘নিমিত্ত’ বলতে কী বোঝায়?",
+        "similarity": 0.6932
+      }
+    },
+    {
+      "language": "banglish",
+      "query": "Buddha koto bochor dhormo prochar korechhilen?",
+      "expected_question": "গৌতম বুদ্ধ কত বছর ধর্ম প্রচার করেন?",
+      "top1_question": "শূন্যস্থান পূরণ করো: বুদ্ধ সূত্রাকারে অনেক ___ দান করেছেন।",
+      "top1_score": 0.0479,
+      "top1_margin": 0.0024,
+      "expected_rank": 7,
+      "alias_match": {
+        "matched_question": "গৌতম বুদ্ধ কত বছর ধর্ম প্রচার করেন?",
+        "similarity": 0.8943
+      }
+    },
+    {
+      "language": "banglish",
+      "query": "Sutro pitok porle ki upokar hoy?",
+      "expected_question": "সূত্র পিটক পাঠের উপকারিতা কী কী?",
+      "top1_question": "পারাজিকা গ্রন্থটি সূত্র পিটকের অন্তর্ভুক্ত—শুদ্ধ না অশুদ্ধ?",
+      "top1_score": 0.0469,
+      "top1_margin": 0.001,
+      "expected_rank": 7,
+      "alias_match": {
+        "matched_question": "সূত্র পিটক পাঠের উপকারিতা কী কী?",
+        "similarity": 0.7613
+      }
+    },
+    {
+      "language": "en",
+      "query": "What things surprised Amin when he visited the city?",
+      "expected_question": "আমিন শহরে কী কী দেখে অবাক হয়েছে?",
+      "top1_question": "আমিন শহরে কী কী দেখে অবাক হয়েছে?",
+      "top1_score": 0.8343,
+      "top1_margin": 0.0267,
+      "expected_rank": 1,
+      "alias_match": null
+    },
+    {
+      "language": "en",
+      "query": "How are a village and a city different?",
+      "expected_question": "গ্রাম ও শহরের মিল-অমিল বলি।",
+      "top1_question": "গ্রাম ও শহরের পার্থক্য আরেকটু বুঝিয়ে দাও।",
+      "top1_score": 0.8424,
+      "top1_margin": 0.0047,
+      "expected_rank": 2,
+      "alias_match": null
+    },
+    {
+      "language": "en",
+      "query": "What is the name of Amin's paternal aunt's daughter?",
+      "expected_question": "আমিনের ফুপাতো বোন কে?",
+      "top1_question": "আমিনের ফুপাতো বোন কে?",
+      "top1_score": 0.7933,
+      "top1_margin": 0.0056,
+      "expected_rank": 1,
+      "alias_match": null
+    },
+    {
+      "language": "en",
+      "query": "Why should we love every creation?",
+      "expected_question": "আমরা সকল সৃষ্টিকে ভালোবাসব কেন?",
+      "top1_question": "আমরা সকল সৃষ্টিকে ভালোবাসব কেন?",
+      "top1_score": 0.8647,
+      "top1_margin": 0.023,
+      "expected_rank": 1,
+      "alias_match": null
+    },
+    {
+      "language": "en",
+      "query": "What does worship mean?",
+      "expected_question": "উপাসনার অর্থ কী?",
+      "top1_question": "প্রার্থনা কী?",
+      "top1_score": 0.7816,
+      "top1_margin": 0.0001,
+      "expected_rank": 3,
+      "alias_match": null
+    },
+    {
+      "language": "en",
+      "query": "What objects make up the solar system?",
+      "expected_question": "সৌরজগৎ কী কী নিয়ে গঠিত?",
+      "top1_question": "মহাবিশ্ব কী?",
+      "top1_score": 0.8266,
+      "top1_margin": 0.0125,
+      "expected_rank": 2,
+      "alias_match": null
+    },
+    {
+      "language": "en",
+      "query": "What causes day and night?",
+      "expected_question": "দিন-রাত কীভাবে হয়?",
+      "top1_question": "দিন-রাত কীভাবে হয়?",
+      "top1_score": 0.8618,
+      "top1_margin": 0.0123,
+      "expected_rank": 1,
+      "alias_match": null
+    },
+    {
+      "language": "en",
+      "query": "Who was Siddhartha Gautama's wife?",
+      "expected_question": "সিদ্ধার্থ গৌতমের স্ত্রীর নাম কী ছিল?",
+      "top1_question": "সিদ্ধার্থ গৌতমের স্ত্রীর নাম কী ছিল?",
+      "top1_score": 0.8349,
+      "top1_margin": 0.043,
+      "expected_rank": 1,
+      "alias_match": null
+    },
+    {
+      "language": "en",
+      "query": "What was the name of Siddhartha's favourite horse?",
+      "expected_question": "সিদ্ধার্থের প্রিয় ঘোড়ার নাম কী ছিল?",
+      "top1_question": "সিদ্ধার্থের প্রিয় ঘোড়ার নাম কী ছিল?",
+      "top1_score": 0.822,
+      "top1_margin": 0.0109,
+      "expected_rank": 1,
+      "alias_match": null
+    },
+    {
+      "language": "en",
+      "query": "What is the Tripitaka?",
+      "expected_question": "ত্রিপিটক কাকে বলে?",
+      "top1_question": "ত্রিপিটক কাকে বলে?",
+      "top1_score": 0.821,
+      "top1_margin": 0.0001,
+      "expected_rank": 1,
+      "alias_match": null
+    },
+    {
+      "language": "en",
+      "query": "For how many years did Buddha preach the Dharma?",
+      "expected_question": "গৌতম বুদ্ধ কত বছর ধর্ম প্রচার করেন?",
+      "top1_question": "গৌতম বুদ্ধ কত বছর ধর্ম প্রচার করেন?",
+      "top1_score": 0.807,
+      "top1_margin": 0.0038,
+      "expected_rank": 1,
+      "alias_match": null
+    },
+    {
+      "language": "en",
+      "query": "What are the benefits of studying the Sutta Pitaka?",
+      "expected_question": "সূত্র পিটক পাঠের উপকারিতা কী কী?",
+      "top1_question": "সূত্র পিটক পাঠের উপকারিতা কী কী?",
+      "top1_score": 0.837,
+      "top1_margin": 0.0177,
+      "expected_rank": 1,
+      "alias_match": null
+    }
+  ],
+  "model_bytes": 118054593,
+  "tokenizer_bytes": 17082730
+}

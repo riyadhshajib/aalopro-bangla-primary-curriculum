@@ -48,6 +48,7 @@ fun AloTopBar(
     userMode: AppUserMode = AppUserMode.KIDS,
     profileName: String = "",
     onUserModeChanged: (AppUserMode) -> Unit = {},
+    onProfileClick: () -> Unit = {},
     modifier: Modifier = Modifier
 ) {
     Surface(modifier = modifier.fillMaxWidth().testTag("alo_top_bar"), color = WarmPaperBg) {
@@ -56,7 +57,9 @@ fun AloTopBar(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
-            Row(modifier = Modifier.weight(1f), verticalAlignment = Alignment.CenterVertically) {
+            Row(modifier = Modifier.weight(1f).clip(RoundedCornerShape(12.dp))
+                .clickable(onClick = onProfileClick).padding(vertical = 2.dp)
+                .testTag("open_profile"), verticalAlignment = Alignment.CenterVertically) {
                 Image(painterResource(R.drawable.aalo_brand_logo_soft), "AaloPro Logo",
                     Modifier.size(35.dp).clip(CircleShape))
                 Spacer(Modifier.width(9.dp))

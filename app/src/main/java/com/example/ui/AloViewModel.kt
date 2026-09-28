@@ -17,6 +17,13 @@ import com.example.data.local.AloChatEntity
 import com.example.data.local.AloNoteEntity
 import com.example.data.local.AloRepository
 import com.example.data.local.AloStudyStatEntity
+import com.example.data.profile.ChildProfile
+import com.example.data.profile.ParentProfile
+import com.example.data.profile.ProfileRepository
+import com.example.data.profile.ProfileSyncCoordinator
+import com.example.data.profile.ProfileSyncState
+import com.example.data.profile.ProfileValidation
+import com.example.data.profile.ProfileValidator
 import com.example.data.model.BangladeshCurriculumRepository
 import com.example.data.model.CurriculumClassLevel
 import com.example.data.model.CurriculumStage
@@ -32,6 +39,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
+import com.google.firebase.auth.FirebaseAuth
 
 enum class AppUserMode(val titleBangla: String) {
     KIDS("শিশুদের পড়াশোনা"),
@@ -52,11 +60,17 @@ enum class AloTab(val labelBangla: String) {
 
 class AloViewModel(
     private val repository: AloRepository,
-    private val context: Context
+    private val context: Context,
+    private val profileRepository: ProfileRepository,
+    private val profileSyncCoordinator: ProfileSyncCoordinator
 ) : ViewModel() {
     private val profilePrefs = context.getSharedPreferences("aalo_profile", Context.MODE_PRIVATE)
-    private val _profileName = MutableStateFlow(profilePrefs.getString("name", "").orEmpty())
+    private val _profileName = MutableStateFlow(
+        profileRepository.household.value.activeChild?.displayName
+            ?: profilePrefs.getString("name", "").orEmpty()
+    )
     val profileName: StateFlow<String> = _profileName.asStateFlow()
+    val profileHousehold = profileRepository.household
     private val _profileRole = MutableStateFlow(
         runCatching { AaloUserRole.valueOf(profilePrefs.getString("role", "STUDENT").orEmpty()) }
             .getOrDefault(AaloUserRole.STUDENT)
@@ -201,32 +215,60 @@ class AloViewModel(
 
     init {
         refreshStats()
+        if (profileSyncCoordinator.state.value is ProfileSyncState.RetryPending) {
+            syncProfileAsync()
+        }
     }
 
     fun dismissSplash() {
         _isShowingSplash.value = false
     }
 
-    fun completeOnboarding(name: String, guardianPhone: String) {
-        val safeName = name.trim().take(40)
-        if (safeName.isBlank()) return
+    fun completeOnboarding(parent: ParentProfile, child: ChildProfile) {
+        val normalizedChild = ProfileValidator.normalizeChild(child)
+        if (ProfileValidator.validateChild(normalizedChild) !is ProfileValidation.Valid) return
         viewModelScope.launch {
-            // A new tester profile must never inherit this device's earlier test chats,
-            // notes or points. This touches local app data only, not Firebase.
-            repository.clearLocalStudyDataForNewProfile()
-            profilePrefs.edit().putString("name", safeName)
-                .putString("guardian_phone", guardianPhone)
+            val current = profileRepository.household.value
+            profileRepository.updateParent(parent)
+            val active = current.activeChild
+            val saved = if (active == null) {
+                profileRepository.addChild(normalizedChild)
+            } else {
+                profileRepository.updateChild(normalizedChild.copy(id = active.id))
+            }
+            if (saved.isFailure) return@launch
+            val savedChild = saved.getOrThrow().activeChild ?: return@launch
+            // Keep the legacy keys while older screens migrate to the household repository.
+            // Existing chats, notes, points and completed topics are never cleared here.
+            profilePrefs.edit().putString("name", savedChild.displayName)
+                .putString("guardian_phone", parent.guardianPhone)
                 .putString("role", AaloUserRole.STUDENT.name)
-                .putBoolean("completed", true).remove("completed_topics").apply()
-            _completedTopicIds.value = emptySet()
-            _profileName.value = safeName
+                .putBoolean("completed", true).apply()
+            _profileName.value = savedChild.displayName
             _profileRole.value = AaloUserRole.STUDENT
             _userMode.value = AppUserMode.KIDS
             _isOnboardingCompleted.value = true
             _isShowingSplash.value = false
             AaloAnalytics.event(AaloAnalytics.Events.ONBOARDING_COMPLETED)
             refreshStats()
+            syncProfileAsync()
         }
+    }
+
+    private fun syncProfileAsync() {
+        val auth = FirebaseAuth.getInstance()
+        auth.currentUser?.uid?.let { userId ->
+            viewModelScope.launch { profileSyncCoordinator.sync(userId, profileRepository.household.value) }
+            return
+        }
+        profileSyncCoordinator.defer("auth_pending")
+        auth.signInAnonymously()
+            .addOnSuccessListener { result ->
+                result.user?.uid?.let { userId ->
+                    viewModelScope.launch { profileSyncCoordinator.sync(userId, profileRepository.household.value) }
+                } ?: profileSyncCoordinator.defer("anonymous_auth_missing_user")
+            }
+            .addOnFailureListener { profileSyncCoordinator.defer("anonymous_auth_failed") }
     }
 
     fun setTab(tab: AloTab) {
@@ -402,12 +444,19 @@ class AloViewModel(
                     parentFollowUp = parentFollowUp,
                     chapterContext = currentChapter
                 )
-                AaloAnalytics.event(
-                    AaloAnalytics.Events.TUTOR_ANSWER,
-                    "mode" to _chatAiMode.value.name.lowercase(),
-                    "source" to if (tutorResponse.isOnlineGemini) "online" else "offline",
-                    "follow_up" to if (parentFollowUp != null) "yes" else "no"
-                )
+                if (tutorResponse.failureCategory != null) {
+                    AaloAnalytics.event(
+                        AaloAnalytics.Events.TUTOR_ERROR,
+                        "category" to tutorResponse.failureCategory
+                    )
+                } else {
+                    AaloAnalytics.event(
+                        AaloAnalytics.Events.TUTOR_ANSWER,
+                        "mode" to _chatAiMode.value.name.lowercase(),
+                        "source" to if (tutorResponse.isOnlineGemini) "online" else "offline",
+                        "follow_up" to if (parentFollowUp != null) "yes" else "no"
+                    )
+                }
 
                 repository.saveChat(
                     query = trimmed,
@@ -697,12 +746,14 @@ class AloViewModel(
 
     class Factory(
         private val repository: AloRepository,
-        private val context: Context
+        private val context: Context,
+        private val profileRepository: ProfileRepository,
+        private val profileSyncCoordinator: ProfileSyncCoordinator
     ) : ViewModelProvider.Factory {
         @Suppress("UNCHECKED_CAST")
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
             if (modelClass.isAssignableFrom(AloViewModel::class.java)) {
-                return AloViewModel(repository, context) as T
+                return AloViewModel(repository, context, profileRepository, profileSyncCoordinator) as T
             }
             throw IllegalArgumentException("Unknown ViewModel class")
         }

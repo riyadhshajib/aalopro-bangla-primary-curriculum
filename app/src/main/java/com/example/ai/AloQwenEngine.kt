@@ -35,7 +35,8 @@ object AloQwenEngine {
         val text: String,
         val modelName: String = "অফলাইন সহায়ক",
         val subjectTag: String = "সাধারণ প্রশ্ন",
-        val isOnline: Boolean = false
+        val isOnline: Boolean = false,
+        val failureCategory: String? = null
     )
 
     /**
@@ -45,7 +46,7 @@ object AloQwenEngine {
         val cleanQuery = query.trim()
         val isBengaliOrBanglish = prefersBangla(cleanQuery)
 
-        val online = hasValidatedInternet(context)
+        val online = hasInternetCapability(context)
         // The Firebase SDK calls a managed proxy; no model API key is embedded.
         if (online && FirebaseAiTutor.isConfigured(context)) {
             try {
@@ -56,22 +57,23 @@ object AloQwenEngine {
                 }
                 // A stalled network/App Check request must never leave the child
                 // watching an endless loading indicator.
-                val text = withTimeoutOrNull(55_000L) {
+                val result = withTimeoutOrNull(50_000L) {
                     FirebaseAiTutor.answer(cleanQuery, history, languageInstruction)
                 }
-                if (text == null && BuildConfig.DEBUG) {
+                if (result == null && BuildConfig.DEBUG) {
                     Log.w("AaloProAI", "Firebase AI returned no text or timed out")
                 }
-                if (!text.isNullOrBlank()) {
+                if (!result?.text.isNullOrBlank()) {
                     val tag = if (isBengaliOrBanglish) "অনলাইন এআই শিক্ষক (বাংলা)" else "Online AI tutor (English)"
                     return@withContext QwenResponse(
                         query = cleanQuery,
-                        text = AloTextSanitizer.cleanText(text),
+                        text = AloTextSanitizer.cleanText(result!!.text!!),
                         modelName = "অনলাইন এআই শিক্ষক",
                         subjectTag = tag,
                         isOnline = true
                     )
                 }
+                return@withContext unavailableResponse(cleanQuery, isBengaliOrBanglish, result?.failureCategory)
             } catch (e: Exception) {
                 if (BuildConfig.DEBUG) {
                     Log.w(
@@ -85,25 +87,55 @@ object AloQwenEngine {
             }
         }
 
-        val message = when {
-            !online && isBengaliOrBanglish -> "সাধারণ প্রশ্নের উত্তর পেতে ইন্টারনেট সংযোগ চালু করুন, তারপর আবার পাঠান।"
-            !online -> "Turn on your internet connection and send the question again."
-            isBengaliOrBanglish -> "অনলাইন AI এই মুহূর্তে উত্তর দিতে পারছে না। কিছুক্ষণ পরে আবার চেষ্টা করুন।"
-            else -> "The online tutor is unavailable right now. Please try again shortly."
-        }
-        return@withContext QwenResponse(
-            query = cleanQuery,
-            text = message,
-            subjectTag = "অনলাইন উত্তর পাওয়া যায়নি"
+        return@withContext unavailableResponse(
+            cleanQuery,
+            isBengaliOrBanglish,
+            if (online) FirebaseAiTutor.FailureCategory.UNKNOWN else FirebaseAiTutor.FailureCategory.NETWORK
         )
     }
 
-    private fun hasValidatedInternet(context: Context): Boolean {
+    private fun hasInternetCapability(context: Context): Boolean {
         val manager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as? ConnectivityManager
             ?: return false
         val network = manager.activeNetwork ?: return false
         val capabilities = manager.getNetworkCapabilities(network) ?: return false
-        return capabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_VALIDATED)
+        return capabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) &&
+            !capabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_CAPTIVE_PORTAL)
+    }
+
+    private fun unavailableResponse(
+        query: String,
+        prefersBangla: Boolean,
+        category: FirebaseAiTutor.FailureCategory?
+    ): QwenResponse {
+        val message = when (category) {
+            FirebaseAiTutor.FailureCategory.NETWORK -> if (prefersBangla) {
+                "ইন্টারনেট সংযোগ পাওয়া যাচ্ছে না। সংযোগ ঠিক করে আবার পাঠাও।"
+            } else {
+                "I cannot reach the internet right now. Check the connection and try again."
+            }
+            FirebaseAiTutor.FailureCategory.APP_CHECK_OR_PERMISSION -> if (prefersBangla) {
+                "এই test build-এর online tutor অনুমোদন পায়নি। Play testing build ব্যবহার করে আবার চেষ্টা করুন।"
+            } else {
+                "This test build is not authorized for the online tutor. Please use the Play testing build."
+            }
+            FirebaseAiTutor.FailureCategory.QUOTA -> if (prefersBangla) {
+                "অনলাইন শিক্ষকের আজকের ব্যবহারের সীমা পূর্ণ হয়েছে। পরে আবার চেষ্টা করো।"
+            } else {
+                "The online tutor has reached its current usage limit. Please try again later."
+            }
+            else -> if (prefersBangla) {
+                "অনলাইন শিক্ষক এখন সাড়া দিচ্ছে না। আবার পাঠাও। সমস্যা থাকলে support-কে জানান।"
+            } else {
+                "The online tutor is not responding. Try again, and contact support if it continues."
+            }
+        }
+        return QwenResponse(
+            query = query,
+            text = message,
+            subjectTag = "অনলাইন উত্তর পাওয়া যায়নি",
+            failureCategory = category?.name?.lowercase()
+        )
     }
 
     /**

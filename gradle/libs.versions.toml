@@ -23,6 +23,8 @@ retrofit = "2.12.0"
 converterMoshi = "2.12.0"
 kotlinxCoroutinesAndroid = "1.10.2"
 kotlinxCoroutinesCore = "1.10.2"
+onnxruntime = "1.19.2"
+onnxruntimeExtensions = "0.13.0"
 accompanistPermissions = "0.37.3"
 playServicesLocation = "21.3.0"
 cameraCamera2 = "1.5.0"
@@ -44,6 +46,8 @@ googleid = "1.1.1"
 
 
 [libraries]
+onnxruntime-android = { module = "com.microsoft.onnxruntime:onnxruntime-android", version.ref = "onnxruntime" }
+onnxruntime-extensions-android = { module = "com.microsoft.onnxruntime:onnxruntime-extensions-android", version.ref = "onnxruntimeExtensions" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }

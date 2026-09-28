@@ -1,17 +1,90 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
+    function owns(userId) {
+      return request.auth != null && request.auth.uid == userId;
+    }
+
+    function validUserProfile() {
+      return request.resource.data.keys().hasOnly([
+        'childName', 'guardianName', 'guardianPhone', 'phoneVerified',
+        'classLevel', 'avatar', 'preferredLanguage', 'consentGiven',
+        'consentVersion', 'consentGivenAtEpochMs',
+        'profileSchemaVersion', 'activeChildId', 'childIds', 'children',
+        'app', 'updatedAt'
+      ])
+      && (!request.resource.data.keys().hasAny(['childName'])
+        || (request.resource.data.childName is string
+          && request.resource.data.childName.size() >= 2
+          && request.resource.data.childName.size() <= 40))
+      && (!request.resource.data.keys().hasAny(['guardianName'])
+        || (request.resource.data.guardianName is string
+          && request.resource.data.guardianName.size() <= 40))
+      && (!request.resource.data.keys().hasAny(['guardianPhone'])
+        || (request.resource.data.guardianPhone is string
+          && request.resource.data.guardianPhone.matches('^\\+8801[0-9]{9}$')))
+      && (!request.resource.data.keys().hasAny(['phoneVerified'])
+        || request.resource.data.phoneVerified == false)
+      && (!request.resource.data.keys().hasAny(['classLevel'])
+        || (request.resource.data.classLevel is int
+          && request.resource.data.classLevel >= 1
+          && request.resource.data.classLevel <= 5))
+      && (!request.resource.data.keys().hasAny(['avatar'])
+        || (request.resource.data.avatar is string
+          && request.resource.data.avatar.size() <= 32))
+      && (!request.resource.data.keys().hasAny(['preferredLanguage'])
+        || request.resource.data.preferredLanguage in ['bn', 'en', 'bn_latn', 'বাংলা', 'English', 'Banglish'])
+      && (!request.resource.data.keys().hasAny(['consentGiven'])
+        || request.resource.data.consentGiven is bool)
+      && (!request.resource.data.keys().hasAny(['consentVersion'])
+        || (request.resource.data.consentVersion is string
+          && request.resource.data.consentVersion.size() <= 32))
+      && (!request.resource.data.keys().hasAny(['consentGivenAtEpochMs'])
+        || (request.resource.data.consentGivenAtEpochMs is int
+          && request.resource.data.consentGivenAtEpochMs >= 0))
+      && (!request.resource.data.keys().hasAny(['profileSchemaVersion'])
+        || (request.resource.data.profileSchemaVersion is int
+          && request.resource.data.profileSchemaVersion >= 1
+          && request.resource.data.profileSchemaVersion <= 2))
+      && (!request.resource.data.keys().hasAny(['activeChildId'])
+        || request.resource.data.activeChildId == null
+        || (request.resource.data.activeChildId is string
+          && request.resource.data.activeChildId.size() <= 80))
+      && (!request.resource.data.keys().hasAny(['childIds'])
+        || (request.resource.data.childIds is list
+          && request.resource.data.childIds.size() <= 8))
+      && (!request.resource.data.keys().hasAny(['children'])
+        || (request.resource.data.children is list
+          && request.resource.data.children.size() <= 8))
+      && (!request.resource.data.keys().hasAny(['app'])
+        || request.resource.data.app is map)
+      && (!request.resource.data.keys().hasAny(['updatedAt'])
+        || request.resource.data.updatedAt is timestamp);
+    }
+
     match /users/{userId} {
-      allow create, read, update: if request.auth != null
-        && request.auth.uid == userId
-        && request.resource.data.keys().hasOnly(['childName', 'guardianPhone', 'phoneVerified', 'app', 'updatedAt'])
-        && request.resource.data.childName is string
-        && request.resource.data.childName.size() >= 2
-        && request.resource.data.childName.size() <= 40
-        && request.resource.data.guardianPhone is string
-        && request.resource.data.guardianPhone.matches('^\\+8801[0-9]{9}$')
-        && request.resource.data.phoneVerified is bool;
+      allow read: if owns(userId);
+      allow create, update: if owns(userId) && validUserProfile();
       allow delete: if false;
+
+      match /children/{childId} {
+        allow read: if owns(userId);
+        allow create, update: if owns(userId)
+          && request.resource.data.keys().hasOnly([
+            'id', 'displayName', 'classNumber', 'avatarId', 'language', 'updatedAt'
+          ])
+          && request.resource.data.id == childId
+          && request.resource.data.displayName is string
+          && request.resource.data.displayName.size() >= 2
+          && request.resource.data.displayName.size() <= 40
+          && request.resource.data.classNumber is int
+          && request.resource.data.classNumber >= 1
+          && request.resource.data.classNumber <= 5
+          && request.resource.data.avatarId in ['learner_1', 'learner_2', 'learner_3', 'learner_4']
+          && request.resource.data.language in ['bn', 'en', 'bn_latn']
+          && request.resource.data.updatedAt is timestamp;
+        allow delete: if owns(userId);
+      }
     }
   }
 }

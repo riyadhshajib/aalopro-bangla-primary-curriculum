@@ -40,3 +40,9 @@ phone-now.png
 /.venv-needle/
 /tools/needle/training/runs/
 /checkpoints/
+/.tools/
+/outputs/
+/e5proof-android/
+**/build/
+**/__pycache__/
+/app/src/androidTest/assets/e5-proof/

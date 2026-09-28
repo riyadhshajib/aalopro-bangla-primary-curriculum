@@ -12,7 +12,9 @@ val HindSiliguri = FontFamily(
   Font(R.font.hind_siliguri_regular, weight = FontWeight.Normal),
   Font(R.font.hind_siliguri_semibold, weight = FontWeight.Medium),
   Font(R.font.hind_siliguri_semibold, weight = FontWeight.SemiBold),
-  Font(R.font.hind_siliguri_semibold, weight = FontWeight.Bold)
+  Font(R.font.hind_siliguri_bold, weight = FontWeight.Bold),
+  Font(R.font.hind_siliguri_bold, weight = FontWeight.ExtraBold),
+  Font(R.font.hind_siliguri_bold, weight = FontWeight.Black)
 )
 val AaloWordmark = FontFamily(Font(R.font.nunito_black, weight = FontWeight.Black))
 
@@ -20,6 +22,7 @@ val AaloWordmark = FontFamily(Font(R.font.nunito_black, weight = FontWeight.Blac
 val Typography =
   Typography(
     displaySmall = TextStyle(fontFamily = HindSiliguri, fontWeight = FontWeight.ExtraBold, fontSize = 32.sp, lineHeight = 40.sp),
+    headlineMedium = TextStyle(fontFamily = HindSiliguri, fontWeight = FontWeight.Bold, fontSize = 28.sp, lineHeight = 35.sp),
     headlineSmall = TextStyle(fontFamily = HindSiliguri, fontWeight = FontWeight.ExtraBold, fontSize = 24.sp, lineHeight = 31.sp),
     titleLarge = TextStyle(fontFamily = HindSiliguri, fontWeight = FontWeight.Bold, fontSize = 21.sp, lineHeight = 28.sp),
     titleMedium = TextStyle(fontFamily = HindSiliguri, fontWeight = FontWeight.Bold, fontSize = 17.sp, lineHeight = 25.sp),

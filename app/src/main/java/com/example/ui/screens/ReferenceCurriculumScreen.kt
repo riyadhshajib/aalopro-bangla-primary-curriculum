@@ -666,6 +666,7 @@ private fun gradeArtRes(grade: Int): Int = when (grade) {
 }
 
 private fun subjectMark(subject: CurriculumSubject): String = when {
+    subject.id == "c5_scholarship" -> "★"
     subject.nameBangla.contains("গণিত") -> "∑"
     subject.nameBangla.contains("বাংলা") -> "আ"
     subject.nameBangla.contains("ইংরেজ") -> "A"
@@ -674,6 +675,7 @@ private fun subjectMark(subject: CurriculumSubject): String = when {
 }
 
 private fun subjectAccent(subject: CurriculumSubject): Color = when {
+    subject.id == "c5_scholarship" -> Color(0xFF6F4AA8)
     subject.nameBangla.contains("গণিত") -> Color(0xFF2B8075)
     subject.nameBangla.contains("বাংলা") -> Color(0xFFC56D51)
     subject.nameBangla.contains("English") || subject.nameBangla.contains("ইংরেজ") -> Color(0xFF966B21)
@@ -683,6 +685,7 @@ private fun subjectAccent(subject: CurriculumSubject): Color = when {
 }
 
 private fun subjectCardWash(subject: CurriculumSubject): Color = when {
+    subject.id == "c5_scholarship" -> Color(0xFFF2ECFA)
     subject.nameBangla.contains("গণিত") -> Color(0xFFEAF5F1)
     subject.nameBangla.contains("বাংলা") -> Color(0xFFFFEEE7)
     subject.nameBangla.contains("English") || subject.nameBangla.contains("ইংরেজ") -> Color(0xFFFFF5DC)

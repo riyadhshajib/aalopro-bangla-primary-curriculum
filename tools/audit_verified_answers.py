@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Report what AaloPro can honestly call a verified offline answer.
 
-The generated OCR queue is intentionally excluded. Only entries in
-VerifiedOfflineQuestionBank.kt count as reviewed answers.
+The generated OCR queue is intentionally excluded. Only entries in the two
+reviewed production banks count as reviewed answers.
 """
 
 from __future__ import annotations
@@ -16,6 +16,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 MODEL_DIR = ROOT / "app/src/main/java/com/example/data/model"
 VERIFIED = MODEL_DIR / "VerifiedOfflineQuestionBank.kt"
+AGENT_VERIFIED = MODEL_DIR / "VerifiedAgentQuestionBank.kt"
 GENERATED = MODEL_DIR / "FullOfflineQuestionBank.kt"
 OUT_DIR = ROOT / "build/reports/curriculum"
 
@@ -39,7 +40,7 @@ def entries(path: Path) -> list[tuple[int, str, int]]:
 
 
 def main() -> None:
-    reviewed = entries(VERIFIED)
+    reviewed = entries(VERIFIED) + entries(AGENT_VERIFIED)
     ocr_candidates = entries(GENERATED)
     counts = Counter((grade, book) for grade, book, _ in reviewed)
     page_counts = Counter((grade, book, page) for grade, book, page in reviewed)
@@ -73,7 +74,7 @@ def main() -> None:
     lines = [
         "# Verified offline-answer audit",
         "",
-        "This report counts only human-reviewed entries in `VerifiedOfflineQuestionBank.kt`.",
+        "This report counts only human-reviewed entries in `VerifiedOfflineQuestionBank.kt` and `VerifiedAgentQuestionBank.kt`.",
         "OCR candidates and generic learning guidance are deliberately excluded.",
         "",
         f"- Expected book slots in current scope: **{len(rows)}**",

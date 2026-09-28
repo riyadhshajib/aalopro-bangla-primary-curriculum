@@ -71,6 +71,9 @@ import com.example.ui.theme.MyApplicationTheme
 import com.example.ui.AppUserMode
 import com.example.ai.ChatAiMode
 import com.example.ai.StudySection
+import com.example.data.profile.FirebaseProfileSyncGateway
+import com.example.data.profile.ProfileSyncCoordinator
+import com.example.data.profile.SharedPreferencesProfileRepository
 
 class MainActivity : ComponentActivity() {
 
@@ -79,7 +82,9 @@ class MainActivity : ComponentActivity() {
     private val viewModel: AloViewModel by viewModels {
         val database = AloDatabase.getDatabase(applicationContext)
         val repository = AloRepository(database.aloDao())
-        AloViewModel.Factory(repository, applicationContext)
+        val profileRepository = SharedPreferencesProfileRepository(applicationContext)
+        val syncCoordinator = ProfileSyncCoordinator(applicationContext, FirebaseProfileSyncGateway())
+        AloViewModel.Factory(repository, applicationContext, profileRepository, syncCoordinator)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -119,6 +124,7 @@ fun AloProApp(
     val todayStats by viewModel.todayStats.collectAsStateWithLifecycle()
     val userMode by viewModel.userMode.collectAsStateWithLifecycle()
     val profileName by viewModel.profileName.collectAsStateWithLifecycle()
+    val profileHousehold by viewModel.profileHousehold.collectAsStateWithLifecycle()
     val completedTopicIds by viewModel.completedTopicIds.collectAsStateWithLifecycle()
     val learningStars = (todayStats.queriesAnswered * 2) +
         (todayStats.quizScoreSum * 5) + (completedTopicIds.size * 10)
@@ -129,6 +135,7 @@ fun AloProApp(
         }
     }
     var homeResetToken by remember { mutableIntStateOf(0) }
+    var isEditingProfile by remember { mutableStateOf(false) }
     val goHome: () -> Unit = {
         viewModel.openTopicDetail(null)
         viewModel.selectSubject(null)
@@ -143,7 +150,18 @@ fun AloProApp(
         )
     } else if (!isOnboardingCompleted) {
         AaloOnboardingScreen(
-            onGetStarted = { name, guardianPhone -> viewModel.completeOnboarding(name, guardianPhone) }
+            onComplete = { draft -> viewModel.completeOnboarding(draft.parent, draft.child) }
+        )
+    } else if (isEditingProfile) {
+        AaloOnboardingScreen(
+            initialConsent = true,
+            initialParent = profileHousehold.parent,
+            initialChild = profileHousehold.activeChild,
+            onExit = { isEditingProfile = false },
+            onComplete = { draft ->
+                viewModel.completeOnboarding(draft.parent, draft.child)
+                isEditingProfile = false
+            }
         )
     } else if (currentTab == AloTab.CHAT) {
         // The tutor is a destination of its own. It is intentionally outside the
@@ -165,6 +183,7 @@ fun AloProApp(
                         completedTopicCount = completedTopicIds.size,
                         userMode = userMode,
                         profileName = profileName,
+                        onProfileClick = { isEditingProfile = true },
                         onUserModeChanged = { mode ->
                             viewModel.setUserMode(mode)
                             viewModel.openTopicDetail(null)

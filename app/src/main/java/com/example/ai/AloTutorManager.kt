@@ -2,11 +2,13 @@ package com.example.ai
 
 import android.content.Context
 import com.example.ai.gemini.ChatTurn
+import com.example.ai.retrieval.E5VerifiedAnswerCandidateProvider
 import com.example.data.local.AloChatEntity
 import com.example.data.model.BangladeshCurriculumRepository
 import com.example.data.model.CurriculumPedagogyEngine
 import com.example.data.model.CurriculumTopic
 import com.example.data.model.FullOfflineQuestionBank
+import com.example.data.model.VerifiedAnswerRetrievalResult
 import com.example.util.AloTextSanitizer
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -28,7 +30,8 @@ data class TutorResponse(
     val subjectTag: String,
     val isOnlineGemini: Boolean = false,
     val modelLabel: String = "অফলাইন পাঠ সহায়িকা",
-    val isFollowUpResponse: Boolean = false
+    val isFollowUpResponse: Boolean = false,
+    val failureCategory: String? = null
 )
 
 object AloTutorManager {
@@ -66,15 +69,34 @@ object AloTutorManager {
         if (mode == ChatAiMode.CURRICULUM && !chapterContext.isNullOrBlank()) {
             val bankGrade = section.id.removePrefix("CLASS_").toIntOrNull()
             if (bankGrade != null) {
-                val bankQuestion = FullOfflineQuestionBank.exact(
+                val bankQuestion = (FullOfflineQuestionBank.retrieveVerified(
                     bankGrade,
-                    if (isFollowUp) parentFollowUp?.query.orEmpty() else cleanQuery
-                )
+                    if (isFollowUp) parentFollowUp?.query.orEmpty() else cleanQuery,
+                    E5VerifiedAnswerCandidateProvider.get(context),
+                ) as? VerifiedAnswerRetrievalResult.Match)?.entry
                 if (bankQuestion != null) {
-                    val lead = if (isFollowUp)
-                        "আরও সহজ করে বুঝি: প্রশ্নটি ছোট অংশে ভাগ করো, পৃষ্ঠার ছবি বা দেওয়া তথ্য চিহ্নিত করো, তারপর এক ধাপ করে উত্তর তৈরি করো।\n\n"
-                    else ""
-                    val reply = "$lead${bankQuestion.answer}\n\nউৎস: ${bankQuestion.source}, PDF পৃষ্ঠা ${bankQuestion.page}"
+                    val lead = if (isFollowUp) "আরও সহজ করে বুঝি।\n\n" else ""
+                    val reply = buildString {
+                        append(lead).append(bankQuestion.answer)
+                        if (bankQuestion.explanation.isNotBlank()) {
+                            append("\n\nব্যাখ্যা: ").append(bankQuestion.explanation)
+                        }
+                        if (isFollowUp) {
+                            val nextPrompt = when {
+                                cleanQuery.any { it in 'a'..'z' || it in 'A'..'Z' } &&
+                                    Regex("bujh|keno|kivabe|mane").containsMatchIn(cleanQuery.lowercase()) ->
+                                    bankQuestion.followUpBanglish
+                                cleanQuery.any { it in 'a'..'z' || it in 'A'..'Z' } ->
+                                    bankQuestion.followUpEnglish
+                                else -> bankQuestion.followUpBangla
+                            }
+                            if (nextPrompt.isNotBlank()) {
+                                append("\n\nএবার ভাবো: ").append(nextPrompt)
+                            }
+                        }
+                        append("\n\nউৎস: ").append(bankQuestion.source)
+                            .append(", PDF পৃষ্ঠা ").append(bankQuestion.page)
+                    }
                     return@withContext TutorResponse(cleanQuery, AloTextSanitizer.cleanText(reply),
                         "যাচাইকৃত অফলাইন প্রশ্নব্যাংক", isOnlineGemini = false,
                         modelLabel = "২০২৬ NCTB অফলাইন পাঠ সহায়িকা", isFollowUpResponse = isFollowUp)
@@ -311,7 +333,8 @@ object AloTutorManager {
                     subjectTag = online.subjectTag,
                     isOnlineGemini = online.isOnline,
                     modelLabel = online.modelName,
-                    isFollowUpResponse = true
+                    isFollowUpResponse = true,
+                    failureCategory = online.failureCategory
                 )
             }
             val explainedText = AloFollowUpExplainer.generateFollowUpExplanation(cleanQuery, parentFollowUp)
@@ -388,7 +411,8 @@ object AloTutorManager {
             subjectTag = qwenResult.subjectTag,
             isOnlineGemini = qwenResult.isOnline,
             modelLabel = qwenResult.modelName,
-            isFollowUpResponse = isFollowUp
+            isFollowUpResponse = isFollowUp,
+            failureCategory = qwenResult.failureCategory
         )
     }
 

@@ -818,7 +818,7 @@ private fun PremiumLearningChatCanvas(
     val ink = Color(0xFF222A2D)
 
     Box(
-        modifier = Modifier.fillMaxSize().background(navy).statusBarsPadding().navigationBarsPadding().testTag("premium_learning_room")
+        modifier = Modifier.fillMaxSize().background(navy).statusBarsPadding().navigationBarsPadding().imePadding().testTag("premium_learning_room")
     ) {
         Column(Modifier.fillMaxSize()) {
             Row(
@@ -882,7 +882,13 @@ private fun PremiumLearningChatCanvas(
                         Text("প্রশ্ন লিখুন, উদাহরণ চান, বা আগের আলোচনায় ফিরুন।", color = lavender, fontSize = 13.sp)
                     }
                 } else {
-                    LazyColumn(state = listState, modifier = Modifier.fillMaxSize(), contentPadding = PaddingValues(horizontal = 16.dp, vertical = 18.dp), verticalArrangement = Arrangement.spacedBy(16.dp)) {
+                    LazyColumn(
+                        state = listState,
+                        modifier = Modifier.fillMaxSize().testTag("chat_message_list"),
+                        reverseLayout = true,
+                        contentPadding = PaddingValues(horizontal = 16.dp, vertical = 18.dp),
+                        verticalArrangement = Arrangement.spacedBy(16.dp, Alignment.Bottom)
+                    ) {
                         items(chatList, key = { it.id }) { chat ->
                             ChatMessageItem(chat, currentlySpeakingChatId == chat.id,
                                 onToggleSpeak = {
@@ -897,7 +903,11 @@ private fun PremiumLearningChatCanvas(
                 if (isThinking) Surface(modifier = Modifier.align(Alignment.BottomCenter).padding(14.dp), shape = RoundedCornerShape(16.dp), color = mint) { Text("আলো ভাবছে…", color = Color.White, modifier = Modifier.padding(horizontal = 16.dp, vertical = 9.dp), fontWeight = FontWeight.Bold) }
             }
 
-            Surface(color = panel, modifier = Modifier.fillMaxWidth(), border = BorderStroke(1.dp, Color(0xFFE8DCC7))) {
+            Surface(
+                color = panel,
+                modifier = Modifier.fillMaxWidth().testTag("chat_composer"),
+                border = BorderStroke(1.dp, Color(0xFFE8DCC7))
+            ) {
                 Row(Modifier.fillMaxWidth().padding(horizontal = 14.dp, vertical = 10.dp), verticalAlignment = Alignment.CenterVertically) {
                     IconButton(onClick = { onModeChanged(if (chatAiMode == ChatAiMode.GENERAL) ChatAiMode.CURRICULUM else ChatAiMode.GENERAL) }) { Icon(Icons.Default.AutoAwesome, "মোড বদলান", tint = mint) }
                     OutlinedTextField(value = inputText, onValueChange = onInputChanged, modifier = Modifier.weight(1f).testTag("chat_input_field"), placeholder = { Text(if (activeFollowUpChat != null) "আর কী জানতে চাও?" else "আলো শিক্ষককে প্রশ্ন করো", color = lavender) }, maxLines = 3, shape = RoundedCornerShape(20.dp), colors = OutlinedTextFieldDefaults.colors(focusedTextColor = ink, unfocusedTextColor = ink, focusedContainerColor = panel, unfocusedContainerColor = panel, focusedBorderColor = mint, unfocusedBorderColor = Color(0xFFD9E7E4)))

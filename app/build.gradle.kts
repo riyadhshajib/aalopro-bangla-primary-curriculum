@@ -17,8 +17,8 @@ android {
     applicationId = "com.aistudio.alopro.bdai"
     minSdk = 24
     targetSdk = 36
-    versionCode = 3
-    versionName = "1.2.0"
+    versionCode = 6
+    versionName = "1.4.1"
 
     testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     ndk { abiFilters += listOf("arm64-v8a", "armeabi-v7a") }
@@ -52,7 +52,10 @@ android {
       isMinifyEnabled = true
       isShrinkResources = true
       proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
-      signingConfig = signingConfigs.getByName("release")
+      signingConfig = if (
+        !System.getenv("STORE_PASSWORD").isNullOrBlank() &&
+        !System.getenv("KEY_PASSWORD").isNullOrBlank()
+      ) signingConfigs.getByName("release") else null
     }
     debug { signingConfig = signingConfigs.getByName("debugConfig") }
   }
@@ -70,7 +73,7 @@ android {
       version = "3.22.1"
     }
   }
-  androidResources { noCompress += "cact" }
+  androidResources { noCompress += listOf("cact", "onnx") }
   testOptions { unitTests { isIncludeAndroidResources = true } }
   dependenciesInfo {
     includeInApk = false
@@ -120,6 +123,8 @@ dependencies {
   debugImplementation(libs.firebase.appcheck.debug)
   implementation(libs.kotlinx.coroutines.android)
   implementation(libs.kotlinx.coroutines.core)
+  implementation(libs.onnxruntime.android)
+  implementation(libs.onnxruntime.extensions.android)
   // implementation(libs.play.services.location)
   testImplementation(libs.androidx.compose.ui.test.junit4)
   testImplementation(libs.androidx.core)

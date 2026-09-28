@@ -5,6 +5,7 @@ import com.example.ai.AloKnowledgeBase
 import com.example.ai.AloMathSolver
 import com.example.ai.AloOfflineAiEngine
 import com.example.ai.AloQwenEngine
+import com.example.ai.FirebaseAiTutor
 import com.example.ai.AloFollowUpExplainer
 import com.example.ai.Class1MathAnswerEngine
 import com.example.ai.Class1LanguageAnswerEngine
@@ -23,6 +24,22 @@ import org.junit.Test
 class ExampleUnitTest {
 
     @Test
+    fun `online tutor failures are classified without storing question content`() {
+        assertEquals(
+            FirebaseAiTutor.FailureCategory.APP_CHECK_OR_PERMISSION,
+            FirebaseAiTutor.classifyFailure(IllegalStateException("403 App Check permission denied"))
+        )
+        assertEquals(
+            FirebaseAiTutor.FailureCategory.QUOTA,
+            FirebaseAiTutor.classifyFailure(IllegalStateException("429 quota exceeded"))
+        )
+        assertEquals(
+            FirebaseAiTutor.FailureCategory.NETWORK,
+            FirebaseAiTutor.classifyFailure(IllegalStateException("Unable to resolve host"))
+        )
+    }
+
+    @Test
     fun `user facing offline bank contains reviewed records only`() {
         assertTrue(FullOfflineQuestionBank.entries.size >= 12)
         assertTrue(FullOfflineQuestionBank.entries.all { it.source.isNotBlank() })
@@ -33,6 +50,70 @@ class ExampleUnitTest {
             it.answer.contains("এই তথ্য এবং পৃষ্ঠা") ||
                 it.answer.contains("ধাপে ধাপে অনুসরণ করে কাজটি সম্পন্ন করো")
         })
+    }
+
+    @Test
+    fun `parallel editorial batches are unique and explanation ready`() {
+        val religionEntries = FullOfflineQuestionBank.entries.filter {
+            it.grade in 3..5 && it.book in setOf("hindu", "buddhist", "christian")
+        }
+        assertTrue("Expected the parallel reviewed religion batches", religionEntries.size >= 300)
+
+        val normalizedKeys = religionEntries.map {
+            Triple(it.grade, it.book, it.question.lowercase()
+                .replace(Regex("[?!.।,:;“”\\\"‘’()\\-–—]"), " ")
+                .replace(Regex("\\s+"), " ").trim())
+        }
+        val duplicateKeys = normalizedKeys.groupingBy { it }.eachCount().filterValues { it > 1 }
+        assertEquals("Duplicate reviewed questions must not reach production: $duplicateKeys",
+            normalizedKeys.size, normalizedKeys.distinct().size)
+
+        val newGradeEntries = religionEntries.filter { it.grade in 4..5 }
+        assertTrue(newGradeEntries.isNotEmpty())
+        assertTrue(newGradeEntries.all { it.explanation.isNotBlank() })
+        assertTrue(newGradeEntries.all {
+            it.followUpBangla.isNotBlank() &&
+                it.followUpBanglish.isNotBlank() &&
+                it.followUpEnglish.isNotBlank()
+        })
+    }
+
+    @Test
+    fun `all class subject slots contain a verified explained multilingual entry`() {
+        val expected = mapOf(
+            1 to setOf("bangla", "english", "math"),
+            2 to setOf("bangla", "english", "math"),
+            3 to setOf("bangla", "english", "math", "science", "bgs", "islam", "hindu", "buddhist", "christian"),
+            4 to setOf("bangla", "english", "math", "science", "bgs", "islam", "hindu", "buddhist", "christian"),
+            5 to setOf("bangla", "english", "math", "science", "bgs", "islam", "hindu", "buddhist", "christian"),
+        )
+        expected.forEach { (grade, subjects) ->
+            subjects.forEach { subject ->
+                val entries = FullOfflineQuestionBank.entries.filter {
+                    it.grade == grade && it.book == subject
+                }
+                assertTrue("Missing verified entry for class $grade $subject", entries.isNotEmpty())
+                assertTrue("No complete explanation/follow-up entry for class $grade $subject", entries.any {
+                    it.explanation.isNotBlank() && it.followUpBangla.isNotBlank() &&
+                        it.followUpBanglish.isNotBlank() && it.followUpEnglish.isNotBlank()
+                })
+            }
+        }
+    }
+
+    @Test
+    fun `class five scholarship practice uses reviewed textbook questions only`() {
+        val scholarship = BangladeshCurriculumRepository.featuredClassLevels
+            .single { it.levelNumber == 5 }
+            .subjects.single { it.id == "c5_scholarship" }
+        assertEquals(5, scholarship.topics.size)
+        assertTrue(scholarship.topics.all { it.qaList.isNotEmpty() })
+        assertTrue(scholarship.topics.all { it.detailsBangla.contains("অফিসিয়াল বৃত্তি প্রশ্ন নয়") })
+        val reviewedQuestions = FullOfflineQuestionBank.entries
+            .filter { it.grade == 5 }
+            .map { it.question.trim() }
+            .toSet()
+        assertTrue(scholarship.topics.flatMap { it.qaList }.all { it.question in reviewedQuestions })
     }
 
     @Test
@@ -264,7 +345,8 @@ class ExampleUnitTest {
                     "c4_math" to 11, "c4_bangla" to 23, "c4_english" to 18,
                     "c4_science" to 11, "c4_social" to 14, "c4_religion" to 5,
                     "c5_math" to 10, "c5_bangla" to 23, "c5_english" to 20,
-                    "c5_science" to 13, "c5_social" to 16, "c5_religion" to 5
+                    "c5_science" to 13, "c5_social" to 16, "c5_religion" to 5,
+                    "c5_scholarship" to 5
                 )[subject.id]
                 if (expandedCount != null) {
                     assertEquals("Expanded Class One topic count: ${subject.id}", expandedCount, subject.topics.size)
@@ -362,9 +444,13 @@ class ExampleUnitTest {
     @Test
     fun fifthGradeOfficialBookChaptersAreIndexed() {
         val fifthGrade = BangladeshCurriculumRepository.classLevels.single { it.levelNumber == 5 }
-        val indexed = fifthGrade.subjects.flatMap { it.topics }.filter { it.catalogOnly }
-        assertEquals(102, indexed.size)
-        assertEquals(102, indexed.map { it.id }.distinct().size)
+        // Reviewed chapters remain part of the official index even after they
+        // transition from catalog-only to source-reviewed lesson content.
+        val indexed = fifthGrade.subjects.flatMap { it.topics }
+        // The original 102-topic index is the minimum. Reviewed optional
+        // religion chapters are merged as additional official topics.
+        assertTrue(indexed.size >= 102)
+        assertEquals(indexed.size, indexed.map { it.id }.distinct().size)
         assertTrue(indexed.any { it.titleBangla == "বৈচিত্র্যময় বাংলাদেশ" })
         assertTrue(indexed.any { it.titleBangla == "জীবের আবাসস্থল" })
     }
@@ -408,23 +494,25 @@ class ExampleUnitTest {
                 setOf("c${grade}_religion", "c${grade}_hindu", "c${grade}_buddhist", "c${grade}_christian"),
                 religionSubjects.map { it.id }.toSet()
             )
-            val hindu = religionSubjects.first { it.id.endsWith("hindu") }
-            if (grade == 3) {
-                assertTrue(hindu.topics.first().qaList.size >= 30)
-                assertTrue(!hindu.topics.first().catalogOnly)
-                assertTrue(hindu.topics.drop(1).all { it.catalogOnly })
-            } else assertTrue(hindu.topics.all { it.catalogOnly })
-            val buddhist = religionSubjects.first { it.id.endsWith("buddhist") }
-            if (grade == 3) {
-                assertTrue(buddhist.topics.first().qaList.size >= 20)
-                assertTrue(!buddhist.topics.first().catalogOnly)
-                assertTrue(buddhist.topics.first().visualExercises.size == 2)
-                assertTrue(buddhist.topics[1].qaList.size >= 20)
-                assertTrue(!buddhist.topics[1].catalogOnly)
-                assertTrue(buddhist.topics[1].visualExercises.size == 2)
-                assertTrue(buddhist.topics.drop(2).all { it.catalogOnly })
-            } else assertTrue(buddhist.topics.all { it.catalogOnly })
-            assertTrue(religionSubjects.first { it.id.endsWith("christian") }.topics.all { it.catalogOnly })
+            val optionalReligionSubjects = religionSubjects.filterNot { it.id == "c${grade}_religion" }
+            optionalReligionSubjects.forEach { subject ->
+                val reviewedTopics = subject.topics.filterNot { it.catalogOnly }
+                assertTrue("Class $grade ${subject.id} should expose reviewed source content", reviewedTopics.isNotEmpty())
+                reviewedTopics.forEach { topic ->
+                    assertTrue("Reviewed ${topic.id} must have Q&A", topic.qaList.isNotEmpty())
+                    assertTrue("Reviewed ${topic.id} must have source visuals", topic.visualExercises.isNotEmpty())
+                    assertTrue(topic.visualExercises.all { exercise ->
+                        exercise.pageQuestions.isNotEmpty() &&
+                            exercise.imageAssetPath?.let { path ->
+                                path.startsWith("books/class$grade/") && path.endsWith(".webp")
+                            } == true
+                    })
+                }
+                subject.topics.filter { it.catalogOnly }.forEach { topic ->
+                    assertTrue("Catalog-only ${topic.id} must not expose unreviewed Q&A", topic.qaList.isEmpty())
+                    assertTrue("Catalog-only ${topic.id} must not expose unreviewed visuals", topic.visualExercises.isEmpty())
+                }
+            }
 
             val visibleIds = BangladeshCurriculumRepository.featuredClassLevels
                 .single { it.levelNumber == grade }.subjects.map { it.id }.toSet()

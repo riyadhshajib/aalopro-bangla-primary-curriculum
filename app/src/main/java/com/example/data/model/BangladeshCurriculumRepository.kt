@@ -2,16 +2,19 @@ package com.example.data.model
 
 object BangladeshCurriculumRepository {
 
-    val classLevels: List<CurriculumClassLevel> = AdditionalReligiousCurriculum.mergeInto(
-        Nctb2026Catalog.mergeInto(PrimaryCurriculumData.levels)
+    val classLevels: List<CurriculumClassLevel> = Class5ScholarshipCurriculum.mergeInto(
+        AdditionalReligiousCurriculum.mergeInto(
+            Nctb2026Catalog.mergeInto(PrimaryCurriculumData.levels)
+        )
     )
         .map { level ->
         if (level.levelNumber in 1..2) level.copy(subjects = level.subjects.filter {
             it.id in setOf("c${level.levelNumber}_bangla", "c${level.levelNumber}_english", "c${level.levelNumber}_math")
             }) else level
         }
-    val featuredClassLevels: List<CurriculumClassLevel> =
+    val featuredClassLevels: List<CurriculumClassLevel> = Class5ScholarshipCurriculum.mergeInto(
         AdditionalReligiousCurriculum.mergeInto(MvpFeaturedCurriculum.levels)
+    )
 
     fun getClassesForStage(stage: CurriculumStage): List<CurriculumClassLevel> {
         return classLevels.filter { it.levelNumber in stage.minClass..stage.maxClass }
