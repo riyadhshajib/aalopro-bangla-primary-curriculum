@@ -285,7 +285,9 @@ fun AloProApp(
 
                 AloTab.QUIZ -> {
                     val selectedSubject by viewModel.selectedQuizSubject.collectAsStateWithLifecycle()
-                    val questions = viewModel.getFilteredQuestions()
+                    val householdForQuiz by viewModel.profileHousehold.collectAsStateWithLifecycle()
+                    val assisted by viewModel.quizAssisted.collectAsStateWithLifecycle()
+                    val questions = householdForQuiz.let { viewModel.getFilteredQuestions() }
                     val currentIndex by viewModel.currentQuizIndex.collectAsStateWithLifecycle()
                     val selectedOption by viewModel.selectedOption.collectAsStateWithLifecycle()
                     val isEvaluated by viewModel.isAnswerEvaluated.collectAsStateWithLifecycle()
@@ -293,6 +295,8 @@ fun AloProApp(
                     val isFinished by viewModel.quizFinished.collectAsStateWithLifecycle()
 
                     ReferenceQuizScreen(
+                        assisted = assisted,
+                        onHelp = { viewModel.showQuizHelp() },
                         questions = questions,
                         currentIndex = currentIndex,
                         selectedOption = selectedOption,

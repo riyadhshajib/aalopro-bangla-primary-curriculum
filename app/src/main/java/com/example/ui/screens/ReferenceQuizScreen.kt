@@ -60,7 +60,8 @@ fun ReferenceQuizScreen(
     onSubjectSelected: (String) -> Unit, onOptionSelected: (Int) -> Unit,
     onSubmitAnswer: () -> Unit, onNextQuestion: () -> Unit,
     onRestartQuiz: () -> Unit, onAskInChat: (String) -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    assisted: Boolean = false, onHelp: () -> Unit = {}
 ) {
     var menuOpen by remember { mutableStateOf(false) }
     Column(modifier.fillMaxSize().background(WarmPaperBg).verticalScroll(rememberScrollState())
@@ -74,7 +75,7 @@ fun ReferenceQuizScreen(
             Image(painterResource(R.drawable.grade_5_illustration),
                 "শেখার অনুশীলনী ইলাস্ট্রেশন", Modifier.size(74.dp), contentScale = ContentScale.Fit)
         }
-        Text("কুইজে সঠিক উত্তর দিলে তারা বাড়ে। Little Hero থেকে Aalo Champion পর্যন্ত নতুন Hero Rank খোলো।",
+        Text("তোমার উত্তর দেখে পরের অনুশীলন বাছি। এটি শেখার অনুমান, পরীক্ষার নম্বর নয়। অগ্রগতি শুধু এই ফোনে থাকে।",
             color = WarmTextSecondary, style = MaterialTheme.typography.bodySmall)
         Surface(modifier = Modifier.fillMaxWidth().clickable { menuOpen = true }.testTag("quiz_subject_dropdown"),
             shape = RoundedCornerShape(14.dp), color = Color.White,
@@ -139,6 +140,13 @@ fun ReferenceQuizScreen(
                         Text("${'ক' + index}  ", color = PremiumPurple, fontWeight = FontWeight.Bold)
                         Text(option, color = WarmTextPrimary, style = MaterialTheme.typography.bodyLarge)
                     }
+                }
+            }
+            if (!isEvaluated) {
+                OutlinedButton(onClick = onHelp, modifier = Modifier.testTag("adaptive_help")) { Text("আগে বুঝে নিই") }
+                if (assisted) ReferenceQuizCard {
+                    Text(q.explanationBangla, color = WarmTextPrimary)
+                    Text("সাহায্য নিয়ে শেখা হচ্ছে; এটি স্বাধীন উত্তর হিসেবে গণনা হবে না।", color = WarmTextSecondary)
                 }
             }
             if (isEvaluated) {

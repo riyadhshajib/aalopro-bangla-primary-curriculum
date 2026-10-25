@@ -1,5 +1,6 @@
 param(
-    [string]$Message = "Automated AaloPro source sync"
+    [string]$Message = "Automated AaloPro source sync",
+    [switch]$OnlyStaged
 )
 
 $ErrorActionPreference = "Stop"
@@ -12,7 +13,7 @@ if ($remote -ne $expectedRemote) {
     throw "Refusing to sync an unexpected remote: $remote"
 }
 
-git add -A
+if (-not $OnlyStaged) { git add -A }
 $staged = @(git diff --cached --name-only)
 if ($staged.Count -eq 0) {
     Write-Output "No source changes to sync."

@@ -194,6 +194,15 @@ class AloViewModel(
     private val _formulaSearchQuery = MutableStateFlow("")
     val formulaSearchQuery: StateFlow<String> = _formulaSearchQuery.asStateFlow()
 
+    private val adaptivePractice = com.example.data.model.AdaptivePractice(
+        context.applicationContext.getSharedPreferences("aalo_adaptive_local", Context.MODE_PRIVATE))
+    private var quizOwner: String? = null
+    private var quizOwnerGrade = 0
+    private var quizQueue: List<QuizQuestion>? = null
+    private val _quizAssisted = MutableStateFlow(false)
+    val quizAssisted: StateFlow<Boolean> = _quizAssisted.asStateFlow()
+    fun showQuizHelp() { if (!_isAnswerEvaluated.value) _quizAssisted.value = true }
+
     // Quiz tab state
     private val _selectedQuizSubject = MutableStateFlow("সকল")
     val selectedQuizSubject: StateFlow<String> = _selectedQuizSubject.asStateFlow()
@@ -684,12 +693,17 @@ class AloViewModel(
     }
 
     fun getFilteredQuestions(): List<QuizQuestion> {
-        val subject = _selectedQuizSubject.value
-        return if (subject == "সকল") {
-            QuizRepository.questions
-        } else {
-            QuizRepository.questions.filter { it.subject == subject }
+        val child = profileRepository.household.value.activeChild
+        if (quizOwner != child?.id || quizOwnerGrade != (child?.classNumber ?: 0)) {
+            quizOwner = child?.id
+            quizOwnerGrade = child?.classNumber ?: 0
+            restartQuiz()
         }
+        quizQueue?.let { return it }
+        val subject = _selectedQuizSubject.value
+        val questions = QuizRepository.questions.filter { subject == "সকল" || it.subject == subject }
+        return (if (child == null) questions else adaptivePractice.order(child.id, child.classNumber, questions))
+            .also { quizQueue = it }
     }
 
     fun selectQuizOption(index: Int) {
@@ -700,13 +714,17 @@ class AloViewModel(
 
     fun submitQuizAnswer() {
         if (_isAnswerEvaluated.value) return
-        val selected = _selectedOption.value ?: return
         val currentQuestions = getFilteredQuestions()
+        val selected = _selectedOption.value ?: return
         val index = _currentQuizIndex.value
         if (index >= currentQuestions.size) return
 
         val question = currentQuestions[index]
         _isAnswerEvaluated.value = true
+        profileRepository.household.value.activeChild?.let { child ->
+            adaptivePractice.record(child.id, child.classNumber, question,
+                selected == question.correctIndex, _quizAssisted.value)
+        }
         AaloAnalytics.event(AaloAnalytics.Events.QUIZ_ANSWERED, "correct" to if (selected == question.correctIndex) "yes" else "no")
 
         if (selected == question.correctIndex) {
@@ -717,6 +735,12 @@ class AloViewModel(
     fun nextQuizQuestion() {
         val currentQuestions = getFilteredQuestions()
         if (_currentQuizIndex.value + 1 < currentQuestions.size) {
+            val nextIndex = _currentQuizIndex.value + 1
+            profileRepository.household.value.activeChild?.let { child ->
+                quizQueue = currentQuestions.take(nextIndex) + adaptivePractice.order(
+                    child.id, child.classNumber, currentQuestions.drop(nextIndex))
+            }
+            _quizAssisted.value = false
             _currentQuizIndex.value += 1
             _selectedOption.value = null
             _isAnswerEvaluated.value = false
@@ -731,6 +755,8 @@ class AloViewModel(
     }
 
     fun restartQuiz() {
+        quizQueue = null
+        _quizAssisted.value = false
         _currentQuizIndex.value = 0
         _selectedOption.value = null
         _isAnswerEvaluated.value = false
