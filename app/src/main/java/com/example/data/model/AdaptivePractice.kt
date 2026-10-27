@@ -38,6 +38,13 @@ class AdaptivePractice(private val prefs: SharedPreferences) {
         }
         prefs.edit().putString(key(child, grade),data.toString()).apply()
     }
+    fun finish(child:String, grade:Int, score:Int) {
+        val data=read(child,grade)
+        data.put("completed",data.optInt("completed",0)+1)
+        data.put("lastScore",score)
+        prefs.edit().putString(key(child,grade),data.toString()).apply()
+    }
+    fun completed(child:String,grade:Int)=read(child,grade).optInt("completed",0)
     fun order(child: String, grade: Int, questions: List<QuizQuestion>): List<QuizQuestion> {
         val seen=read(child, grade).optJSONArray("seen") ?: JSONArray()
         val ids=(0 until seen.length()).map { seen.optInt(it) }.toSet()

@@ -295,6 +295,7 @@ fun AloProApp(
                     val isFinished by viewModel.quizFinished.collectAsStateWithLifecycle()
 
                     ReferenceQuizScreen(
+                        availableSubjects = listOf("সকল") + com.example.data.model.GradeQuizBank.forGrade(householdForQuiz.activeChild?.classNumber ?: 1).map { it.subject }.distinct(),
                         assisted = assisted,
                         onHelp = { viewModel.showQuizHelp() },
                         questions = questions,

@@ -61,7 +61,8 @@ fun ReferenceQuizScreen(
     onSubmitAnswer: () -> Unit, onNextQuestion: () -> Unit,
     onRestartQuiz: () -> Unit, onAskInChat: (String) -> Unit,
     modifier: Modifier = Modifier,
-    assisted: Boolean = false, onHelp: () -> Unit = {}
+    assisted: Boolean = false, onHelp: () -> Unit = {},
+    availableSubjects: List<String> = QuizRepository.quizSubjects
 ) {
     var menuOpen by remember { mutableStateOf(false) }
     Column(modifier.fillMaxSize().background(WarmPaperBg).verticalScroll(rememberScrollState())
@@ -86,11 +87,14 @@ fun ReferenceQuizScreen(
                 color = WarmTextPrimary, style = MaterialTheme.typography.titleSmall)
         }
         DropdownMenu(expanded = menuOpen, onDismissRequest = { menuOpen = false }) {
-            QuizRepository.quizSubjects.forEach { subject ->
+            availableSubjects.forEach { subject ->
                 DropdownMenuItem(text = { Text(subject) }, onClick = {
                     onSubjectSelected(subject); menuOpen = false
                 })
             }
+        }
+        if (questions.firstOrNull()?.grade in 1..5) {
+            Text("শ্রেণি ${questions.first().grade} · নির্বাচিত অনুশীলন", color = WarmTextSecondary)
         }
         if (questions.isEmpty()) {
             Text("এই বিষয়ে এখনও কুইজ নেই। অন্য বিষয় বেছে নাও।", color = WarmTextSecondary)
@@ -128,6 +132,7 @@ fun ReferenceQuizScreen(
                 modifier = Modifier.fillMaxWidth(), color = PremiumPurple,
                 trackColor = Color(0xFFFFE8BA))
             Text(q.questionBangla, style = MaterialTheme.typography.titleLarge, color = WarmTextPrimary)
+            if (q.source.isNotBlank()) Text("উৎস: ${q.source}", style = MaterialTheme.typography.bodySmall, color = WarmTextSecondary)
             q.options.forEachIndexed { index, option ->
                 val chosen = selectedOption == index
                 val correct = isEvaluated && q.correctIndex == index

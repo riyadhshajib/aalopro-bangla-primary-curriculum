@@ -6,5 +6,7 @@ data class QuizQuestion(
     val questionBangla: String,
     val options: List<String>,
     val correctIndex: Int,
-    val explanationBangla: String
+    val explanationBangla: String,
+    val grade: Int = 0,
+    val source: String = ""
 )

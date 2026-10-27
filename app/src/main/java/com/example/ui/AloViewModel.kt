@@ -697,17 +697,19 @@ class AloViewModel(
         if (quizOwner != child?.id || quizOwnerGrade != (child?.classNumber ?: 0)) {
             quizOwner = child?.id
             quizOwnerGrade = child?.classNumber ?: 0
+            _selectedQuizSubject.value = "সকল"
             restartQuiz()
         }
         quizQueue?.let { return it }
         val subject = _selectedQuizSubject.value
-        val questions = QuizRepository.questions.filter { subject == "সকল" || it.subject == subject }
+        val questions = com.example.data.model.GradeQuizBank.forGrade(child?.classNumber ?: 1).filter { subject == "সকল" || it.subject == subject }
         return (if (child == null) questions else adaptivePractice.order(child.id, child.classNumber, questions))
             .also { quizQueue = it }
     }
 
     fun selectQuizOption(index: Int) {
-        if (!_isAnswerEvaluated.value) {
+        val questions = getFilteredQuestions()
+        if (!_isAnswerEvaluated.value && index in (questions.getOrNull(_currentQuizIndex.value)?.options?.indices ?: IntRange.EMPTY)) {
             _selectedOption.value = index
         }
     }
@@ -734,6 +736,7 @@ class AloViewModel(
 
     fun nextQuizQuestion() {
         val currentQuestions = getFilteredQuestions()
+        if (!_isAnswerEvaluated.value || _quizFinished.value) return
         if (_currentQuizIndex.value + 1 < currentQuestions.size) {
             val nextIndex = _currentQuizIndex.value + 1
             profileRepository.household.value.activeChild?.let { child ->
@@ -747,8 +750,11 @@ class AloViewModel(
         } else {
             _quizFinished.value = true
             AaloAnalytics.event(AaloAnalytics.Events.QUIZ_COMPLETED)
+            val child = profileRepository.household.value.activeChild
+            val completedScore = _quizScore.value
+            if (child != null) adaptivePractice.finish(child.id, child.classNumber, completedScore)
             viewModelScope.launch {
-                repository.recordQuizResult(_quizScore.value)
+                if (child == null) repository.recordQuizResult(completedScore)
                 refreshStats()
             }
         }
